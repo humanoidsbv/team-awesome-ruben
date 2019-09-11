@@ -1,0 +1,28 @@
+.header {
+  background-color: #4f88ef;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 50px;
+  padding-top: 12px;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: 0.3s ease-in-out;
+}
+
+.headerMobileOpen {
+  height: 100vh;
+}
+
+@media only screen and (min-width: 601px) {
+  .header {
+    align-items: flex-start;
+    justify-content: center;
+    height: 70px;
+    padding: 0;
+  }
+}

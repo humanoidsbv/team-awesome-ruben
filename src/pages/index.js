@@ -1,10 +1,17 @@
 import React from 'react';
 
-import Heading from '../components/heading/Heading';
+import Header from '../components/header/Header';
+import TimeEntries from '../components/time-entries/TimeEntries';
 
 export default () => (
   <react>
-    <Heading></Heading>
-    <p>Hello world!</p>
+    <Header></Header>
+    <TimeEntries></TimeEntries>
   </react>
 );
+
+/*
+    classNames die getoggled kunnen worden:
+    navActive
+    headerMobileOpen
+*/

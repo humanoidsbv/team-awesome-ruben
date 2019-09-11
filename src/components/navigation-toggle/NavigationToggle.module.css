@@ -1,0 +1,37 @@
+.toggle {
+  position: absolute;
+  right: 16px;
+
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  color: white;
+  padding: 0;
+}
+
+.closeIcon,
+.menuIcon {
+  font-size: 22px;
+}
+
+.closeIcon {
+  display: none;
+}
+
+.menuIcon {
+  display: block;
+}
+
+.menuVisible .menuIcon {
+  display: none;
+}
+
+.menuVisible .closeIcon {
+  display: block;
+}
+
+@media only screen and (min-width: 601px) {
+  .toggle {
+    display: none;
+  }
+}

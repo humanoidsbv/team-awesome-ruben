@@ -1,0 +1,41 @@
+.nav {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 70px;
+}
+
+.navActive {
+  display: flex;
+}
+
+.item {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 24px;
+  padding: 1px 12px;
+  margin-bottom: 40px;
+}
+
+.itemActive {
+  border-radius: 4px;
+  background-color: #1166a5;
+}
+
+@media only screen and (min-width: 601px) {
+  .nav {
+    display: flex;
+    flex-direction: row;
+    padding: 0 0 0 12px;
+    width: 100%;
+  }
+
+  .item {
+    margin: 0 8px 0 0;
+    font-size: 14px;
+
+    padding: 6px 18px;
+    color: white;
+  }
+}

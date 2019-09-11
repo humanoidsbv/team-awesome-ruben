@@ -1,0 +1,46 @@
+.TimeEntryNew {
+  background-color: #f5f8fa;
+  padding: 16px;
+  position: relative;
+}
+
+.closeButton {
+  position: absolute;
+  right: 16px;
+  background: 0;
+  outline: 0;
+  border: 0;
+  padding: 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  color: #68768c;
+  opacity: 0.5;
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: black;
+  opacity: 1; /* Firefox */
+}
+
+.input {
+  border-radius: 4px;
+  border: solid 1px #ced0da;
+  background-image: linear-gradient(to top, #f2f4f7, #ffffff);
+  padding: 9px 15px;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+/* @media only screen and (min-width: 601px) {
+  .timeEntryAdd {
+  }
+} */
