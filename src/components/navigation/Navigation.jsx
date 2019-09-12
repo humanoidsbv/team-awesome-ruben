@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from './Navigation.module.css';
-
 import PropTypes from 'prop-types';
+
+import styles from './Navigation.module.css';
 
 const Navigation = ({ isMenuVisible }) => (
   <nav className={`${styles.nav} ${isMenuVisible ? styles.navActive : ''}`}>

@@ -1,18 +1,16 @@
 .header {
+  align-items: center;
   background-color: #4f88ef;
-  position: fixed;
-  top: 0;
-  width: 100vw;
-  height: 50px;
-  padding-top: 12px;
   box-sizing: border-box;
-  z-index: 1000;
-
   display: flex;
   flex-direction: column;
-  align-items: center;
-
+  height: 50px;
+  padding-top: 12px;
+  position: fixed;
+  top: 0;
   transition: 0.3s ease-in-out;
+  width: 100vw;
+  z-index: 1000;
 }
 
 .headerMobileOpen {
