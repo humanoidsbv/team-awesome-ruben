@@ -2,9 +2,9 @@ import React from 'react';
 import styles from './User.module.css';
 
 const User = () => (
-  <button class={styles.user}>
-    <span class={styles.logo}></span>
-    <span class={styles.icon}></span>
+  <button className={styles.user}>
+    <span className={styles.logo} />
+    <span className={styles.icon} />
   </button>
 );
 

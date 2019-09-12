@@ -6,24 +6,34 @@ import Navigation from '../navigation/Navigation';
 import NavigationToggle from '../navigation-toggle/NavigationToggle';
 import User from '../user/User';
 
-/*
-    Header ** aanpassen naamval
-        Navigatie
-        User
-        Toggle
-        Logo
+class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { isMenuVisible: false };
 
-    2 schermen in Visual Studio Code
-    Open progamma's in desktop view zien?
-*/
+    this.toggleMenu = this.toggleMenu.bind(this);
+  }
 
-const Header = () => (
-  <header className={styles.header}>
-    <Logo></Logo>
-    <Navigation></Navigation>
-    <NavigationToggle></NavigationToggle>
-    <User></User>
-  </header>
-);
+  toggleMenu() {
+    this.setState({ isMenuVisible: !this.state.isMenuVisible });
+  }
+  render() {
+    return (
+      <header
+        className={`${styles.header} ${
+          this.state.isMenuVisible ? styles.headerMobileOpen : ''
+        }`}
+      >
+        <Logo />
+        <Navigation isMenuVisible={this.state.isMenuVisible} />
+        <NavigationToggle
+          isMenuVisible={this.state.isMenuVisible}
+          toggleMenu={this.toggleMenu}
+        />
+        <User />
+      </header>
+    );
+  }
+}
 
 export default Header;

@@ -1,8 +1,10 @@
 import React from 'react';
 import styles from './Navigation.module.css';
 
-const Navigation = () => (
-  <nav className={styles.nav}>
+import PropTypes from 'prop-types';
+
+const Navigation = ({ isMenuVisible }) => (
+  <nav className={`${styles.nav} ${isMenuVisible ? styles.navActive : ''}`}>
     <a className={`${styles.item} ${styles.itemActive}`} href="/">
       Timesheets
     </a>
@@ -20,5 +22,9 @@ const Navigation = () => (
     </a>
   </nav>
 );
+
+Navigation.propTypes = {
+  isMenuVisible: PropTypes.bool,
+};
 
 export default Navigation;
