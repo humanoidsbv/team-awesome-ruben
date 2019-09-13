@@ -6,10 +6,10 @@ import TimeEntryAdd from '../time-entry-add/TimeEntryAdd';
 
 const TimeEntries = () => (
   <div className={styles.timeEntries}>
-    <TimeEntryAdd></TimeEntryAdd>
-    <TimeEntry></TimeEntry>
-    <TimeEntry></TimeEntry>
-    <TimeEntry></TimeEntry>
+    <TimeEntryAdd />
+    <TimeEntry />
+    <TimeEntry />
+    <TimeEntry />
   </div>
 );
 

@@ -1,15 +1,15 @@
 .timeEntries {
   display: block;
-  position: relative;
   padding: 75px 16px 0 16px;
+  position: relative;
 }
 
 @media only screen and (min-width: 601px) {
   .timeEntries {
-    max-width: 1170px;
-    margin: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin: auto;
+    max-width: 1170px;
   }
 }

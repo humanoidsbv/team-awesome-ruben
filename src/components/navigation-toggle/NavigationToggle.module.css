@@ -1,17 +1,13 @@
 .toggle {
-  position: absolute;
-  right: 16px;
-
   background-color: transparent;
   border: 0;
-  outline: 0;
   color: white;
+  fill: white;
+  outline: 0;
   padding: 0;
-}
-
-.closeIcon,
-.menuIcon {
-  font-size: 22px;
+  position: absolute;
+  right: 16px;
+  padding-top: 5px;
 }
 
 .closeIcon {

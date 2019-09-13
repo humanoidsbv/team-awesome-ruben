@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import styles from './NavigationToggle.module.css';
+import MenuIcon from '../../../assets/icons/icon-menu.svg';
+import MenuClose from '../../../assets/icons/icon-close.svg';
 
 const NavigationToggle = ({ isMenuVisible, toggleMenu }) => (
   <button
@@ -9,14 +11,14 @@ const NavigationToggle = ({ isMenuVisible, toggleMenu }) => (
     onClick={toggleMenu}
     type="button"
   >
-    <span className={styles.menuIcon}>=</span>
-    <span className={styles.closeIcon}>x</span>
+    <MenuIcon className={styles.menuIcon} />
+    <MenuClose className={styles.closeIcon} />
   </button>
 );
 
 NavigationToggle.propTypes = {
-  isMenuVisible: PropTypes.bool,
-  toggleMenu: PropTypes.func,
+  isMenuVisible: PropTypes.bool.isRequired,
+  toggleMenu: PropTypes.func.isRequired
 };
 
 export default NavigationToggle;

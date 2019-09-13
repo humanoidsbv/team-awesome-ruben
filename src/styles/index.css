@@ -1,0 +1,16 @@
+@font-face {
+  font-family: 'proximanova';
+  src: url('../../assets/fonts/proxima-nova/proximanova-regular-webfont.woff')
+      format('woff'),
+    url('../../assets/fonts/proxima-nova/proximanova-regular-webfont.woff2')
+      format('woff2');
+}
+
+body {
+  margin: 0;
+  font-family: 'proximanova', serif;
+}
+
+p {
+  margin: 0;
+}

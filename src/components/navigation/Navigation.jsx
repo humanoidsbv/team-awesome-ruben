@@ -24,7 +24,7 @@ const Navigation = ({ isMenuVisible }) => (
 );
 
 Navigation.propTypes = {
-  isMenuVisible: PropTypes.bool,
+  isMenuVisible: PropTypes.bool.isRequired
 };
 
 export default Navigation;

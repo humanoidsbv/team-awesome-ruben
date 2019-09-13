@@ -1,12 +1,11 @@
 .timeEntry {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
-
-  height: 82px;
-  border: 1px solid #e6eaee;
   border-left: 4px solid #4f88ef;
   border-radius: 4px;
+  border: 1px solid #e6eaee;
+  display: flex;
+  height: 82px;
+  justify-content: space-between;
   padding: 0 16px;
 }
 /* 
