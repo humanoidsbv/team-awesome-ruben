@@ -10,7 +10,7 @@ module.exports = {
       resolve: 'gatsby-plugin-postcss',
       options: {
         cssLoaderOptions: {
-          camelCase: false,
+          camelCase: false
         },
         postCssPlugins: [
           require('postcss-import'),
@@ -18,17 +18,17 @@ module.exports = {
           require('postcss-custom-properties')({ preserve: false }),
           require('postcss-custom-media'),
           require('postcss-modules-scope'),
-          require('autoprefixer'),
-        ],
-      },
+          require('autoprefixer')
+        ]
+      }
     },
     {
       resolve: 'gatsby-plugin-react-svg',
       options: {
         rule: {
-          include: /assets/,
-        },
-      },
-    },
-  ],
+          include: /assets/
+        }
+      }
+    }
+  ]
 };

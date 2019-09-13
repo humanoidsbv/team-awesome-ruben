@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 import styles from './Navigation.module.css';
 
-const Navigation = ({ isMenuVisible }) => (
-  <nav className={`${styles.nav} ${isMenuVisible ? styles.navActive : ''}`}>
+const Navigation = ({ MenuVisibility }) => (
+  <nav className={`${styles.nav} ${MenuVisibility ? styles.navActive : ''}`}>
     <a className={`${styles.item} ${styles.itemActive}`} href="/">
       Timesheets
     </a>
@@ -24,7 +24,7 @@ const Navigation = ({ isMenuVisible }) => (
 );
 
 Navigation.propTypes = {
-  isMenuVisible: PropTypes.bool.isRequired
+  MenuVisibility: PropTypes.bool.isRequired
 };
 
 export default Navigation;

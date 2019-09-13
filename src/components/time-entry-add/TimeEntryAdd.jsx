@@ -3,7 +3,7 @@ import React from 'react';
 import styles from './TimeEntryAdd.module.css';
 
 const TimeEntryAdd = () => (
-  <div className={styles.TimeEntryAdd}>
+  <div className={styles.timeEntryAdd}>
     <button type="button" className={styles.closeButton}>
       x
     </button>

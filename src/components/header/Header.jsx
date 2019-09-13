@@ -8,22 +8,22 @@ import NavigationToggle from '../navigation-toggle/NavigationToggle';
 import User from '../user/User';
 
 const Header = () => {
-  const [isMenuVisible, setIsMenuVisible] = useState(false);
+  const [MenuVisibility, setMenuVisibility] = useState(false);
 
-  const handleClick = () => setIsMenuVisible(!isMenuVisible);
+  const handleClick = () => setMenuVisibility(!MenuVisibility);
 
   return (
     <header
       className={`${styles.header} ${
-        isMenuVisible ? styles.headerMobileOpen : ''
+        MenuVisibility ? styles.headerMobileOpen : ''
       }`}
     >
       <Logo />
       <NavigationToggle
-        isMenuVisible={isMenuVisible}
+        MenuVisibility={MenuVisibility}
         toggleMenu={handleClick}
       />
-      <Navigation isMenuVisible={isMenuVisible} />
+      <Navigation MenuVisibility={MenuVisibility} />
       <User />
     </header>
   );
