@@ -35,8 +35,8 @@
 
   .arrow {
     display: block;
+    fill: #86caff;
     position: absolute;
     right: -15px;
-    fill: #86caff;
   }
 }

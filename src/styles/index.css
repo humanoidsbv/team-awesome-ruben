@@ -1,15 +1,13 @@
 @font-face {
   font-family: 'proximanova';
-  src: url('../../static/fonts/proxima-nova/proximanova-regular-webfont.woff')
+  src: url('/fonts/proxima-nova/proximanova-regular-webfont.woff')
       format('woff'),
-    url('../../static/fonts/proxima-nova/proximanova-regular-webfont.woff2')
-      format('woff2');
+    url('/fonts/proxima-nova/proximanova-regular-webfont.woff2') format('woff2');
 }
 
 @font-face {
   font-family: 'belloscript';
-  src: url('../../static/fonts/bello-script/bello-script.ttf')
-    format('truetype');
+  src: url('/fonts/bello-script/bello-script.ttf') format('truetype');
 }
 
 body {

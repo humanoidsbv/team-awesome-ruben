@@ -10,6 +10,5 @@
   "rules": {
     "comma-dangle": ["error", "never"],
     "prettier/prettier": ["error"]
-    // "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
   }
 }

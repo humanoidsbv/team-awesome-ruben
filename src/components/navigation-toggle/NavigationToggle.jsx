@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import styles from './NavigationToggle.module.css';
-
 import MenuClose from '../../assets/icons/icon-close.svg';
 import MenuIcon from '../../assets/icons/icon-menu.svg';
+import styles from './NavigationToggle.module.css';
 
-const NavigationToggle = ({ MenuVisibility, toggleMenu }) => (
+const NavigationToggle = ({ isMenuVisible, toggleMenu }) => (
   <button
-    className={`${styles.toggle} ${MenuVisibility ? styles.menuVisible : ''}`}
+    className={`${styles.toggle} ${isMenuVisible ? styles.menuVisible : ''}`}
     onClick={toggleMenu}
     type="button"
   >
@@ -18,7 +17,7 @@ const NavigationToggle = ({ MenuVisibility, toggleMenu }) => (
 );
 
 NavigationToggle.propTypes = {
-  MenuVisibility: PropTypes.bool.isRequired,
+  isMenuVisible: PropTypes.bool.isRequired,
   toggleMenu: PropTypes.func.isRequired
 };
 

@@ -1,29 +1,28 @@
 import React, { useState } from 'react';
 
-import styles from './Header.module.css';
-
 import Logo from '../logo/Logo';
 import Navigation from '../navigation/Navigation';
 import NavigationToggle from '../navigation-toggle/NavigationToggle';
 import ProfileButton from '../profilebutton/ProfileButton';
+import styles from './Header.module.css';
 
 const Header = () => {
-  const [MenuVisibility, setMenuVisibility] = useState(false);
+  const [isMenuVisible, setIsMenuVisible] = useState(false);
 
-  const handleClick = () => setMenuVisibility(!MenuVisibility);
+  const handleClick = () => setIsMenuVisible(!isMenuVisible);
 
   return (
     <header
       className={`${styles.header} ${
-        MenuVisibility ? styles.headerMobileOpen : ''
+        isMenuVisible ? styles.headerMobileOpen : ''
       }`}
     >
       <Logo />
       <NavigationToggle
-        MenuVisibility={MenuVisibility}
+        isMenuVisible={isMenuVisible}
         toggleMenu={handleClick}
       />
-      <Navigation MenuVisibility={MenuVisibility} />
+      <Navigation isMenuVisible={isMenuVisible} />
       <ProfileButton />
     </header>
   );
