@@ -1,0 +1,52 @@
+.timeEntryAdd {
+  background-color: #f5f8fa;
+  border-radius: 4px;
+  border: solid 1px #e6eaee;
+  padding: 16px;
+  position: relative;
+}
+
+.closeButton {
+  background: 0;
+  border: 0;
+  outline: 0;
+  padding: 0;
+  position: absolute;
+  right: 16px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  width: 100%;
+}
+
+.labelHalfWidth {
+  width: 40%;
+}
+
+.labelText {
+  color: #68768c;
+  font-size: 12px;
+  margin-bottom: 12px;
+  opacity: 0.5;
+}
+
+.select {
+  background-image: linear-gradient(to top, #f2f4f7, #ffffff);
+  border-radius: 4px;
+  border: solid 1px #ced0da;
+  font-size: 14px;
+  margin-bottom: 16px;
+  outline: 0;
+  padding: 9px 15px;
+}
+
+@media only screen and (min-width: 601px) {
+  .form {
+    flex-direction: row;
+  }
+}

@@ -1,0 +1,12 @@
+.logo {
+  color: #fff;
+  font-family: 'belloscript', serif;
+  font-size: 26px;
+  text-decoration: none;
+}
+
+@media only screen and (min-width: 901px) {
+  .logo {
+    display: none;
+  }
+}

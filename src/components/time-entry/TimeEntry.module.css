@@ -1,0 +1,10 @@
+.timeEntry {
+  align-items: center;
+  border-left: 4px solid #4f88ef;
+  border-radius: 4px;
+  border: 1px solid #e6eaee;
+  display: flex;
+  height: 82px;
+  justify-content: space-between;
+  padding: 0 16px;
+}
