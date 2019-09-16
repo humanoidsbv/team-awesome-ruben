@@ -5,7 +5,7 @@ import styles from './Header.module.css';
 import Logo from '../logo/Logo';
 import Navigation from '../navigation/Navigation';
 import NavigationToggle from '../navigation-toggle/NavigationToggle';
-import User from '../user/User';
+import ProfileButton from '../profilebutton/ProfileButton';
 
 const Header = () => {
   const [MenuVisibility, setMenuVisibility] = useState(false);
@@ -24,7 +24,7 @@ const Header = () => {
         toggleMenu={handleClick}
       />
       <Navigation MenuVisibility={MenuVisibility} />
-      <User />
+      <ProfileButton />
     </header>
   );
 };

@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 import styles from './NavigationToggle.module.css';
 
-import MenuClose from '../../../assets/icons/icon-close.svg';
-import MenuIcon from '../../../assets/icons/icon-menu.svg';
+import MenuClose from '../../assets/icons/icon-close.svg';
+import MenuIcon from '../../assets/icons/icon-menu.svg';
 
 const NavigationToggle = ({ MenuVisibility, toggleMenu }) => (
   <button

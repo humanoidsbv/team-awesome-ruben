@@ -1,0 +1,42 @@
+.user {
+  display: none;
+}
+
+@media only screen and (min-width: 901px) {
+  .user {
+    align-items: center;
+    background-color: white;
+    border-radius: 18px;
+    border: 0;
+    color: black;
+    display: flex;
+    height: 36px;
+    justify-content: space-between;
+    outline: 0;
+    padding-left: 12px;
+    position: absolute;
+    right: 46px;
+    width: 135px;
+  }
+
+  .logo {
+    display: block;
+    height: 10px;
+    width: 75px;
+  }
+
+  .profileImage {
+    border-radius: 50%;
+    display: block;
+    height: 32px;
+    margin-right: -4px;
+    width: 32px;
+  }
+
+  .arrow {
+    display: block;
+    position: absolute;
+    right: -15px;
+    fill: #86caff;
+  }
+}
