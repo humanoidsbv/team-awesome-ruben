@@ -2,15 +2,15 @@ import React from 'react';
 
 import TimeEntry from '../time-entry/TimeEntry';
 import TimeEntryAdd from '../time-entry-add/TimeEntryAdd';
-import TimeStamp from '../time-stamp/TimeStamp';
+import TimeEntryHeader from '../time-stamp/TimeEntryHeader';
 import styles from './TimeEntries.module.css';
 
 const TimeEntries = () => (
   <div className={styles.timeEntries}>
     <TimeEntryAdd />
-    <TimeStamp />
+    <TimeEntryHeader />
     <TimeEntry />
-    <TimeStamp />
+    <TimeEntryHeader />
     <TimeEntry />
     <TimeEntry />
   </div>

@@ -14,3 +14,13 @@
   border-radius: 0 0 4px 4px;
   margin-top: -33px;
 }
+
+.hoursWorked {
+  margin-bottom: 10px;
+}
+
+.hoursDuration {
+  color: #7f8fa4;
+  font-size: 14px;
+  text-align: right;
+}
