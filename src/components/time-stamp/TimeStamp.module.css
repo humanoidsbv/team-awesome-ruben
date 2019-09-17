@@ -1,0 +1,10 @@
+.timeStamp {
+  display: flex;
+  justify-content: space-between;
+}
+
+.date {
+  color: #7f8fa4;
+  margin-bottom: 16px;
+  font-weight: normal;
+}

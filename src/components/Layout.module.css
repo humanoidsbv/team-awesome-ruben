@@ -1,0 +1,49 @@
+@font-face {
+  font-family: 'proximanova';
+  src: url('/fonts/proxima-nova/proximanova-regular-webfont.woff')
+      format('woff'),
+    url('/fonts/proxima-nova/proximanova-regular-webfont.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'proximanova-light';
+  src: url('/fonts/proxima-nova/proximanova-light-webfont.woff') format('woff'),
+    url('/fonts/proxima-nova/proximanova-light-webfont.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'belloscript';
+  src: url('/fonts/bello-script/bello-script.ttf') format('truetype');
+}
+
+.layout {
+  padding: 75px 16px 0 16px;
+}
+
+@media only screen and (min-width: 901px) {
+  .layout {
+    padding-top: 103px;
+  }
+}
+
+body,
+input {
+  margin: 0;
+  font-family: 'proximanova', serif;
+}
+
+p {
+  margin: 0;
+}
+
+input[type='date']::-webkit-inner-spin-button,
+input[type='date']::-webkit-clear-button,
+input[type='time']::-webkit-inner-spin-button,
+input[type='time']::-webkit-clear-button {
+  -webkit-appearance: none;
+  display: none;
+}
+
+input {
+  box-sizing: border-box;
+}

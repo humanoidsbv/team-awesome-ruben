@@ -1,10 +1,9 @@
 .timeEntries {
   display: block;
-  padding: 75px 16px 0 16px;
   position: relative;
 }
 
-@media only screen and (min-width: 601px) {
+@media only screen and (min-width: 901px) {
   .timeEntries {
     display: flex;
     flex-direction: column;

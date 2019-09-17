@@ -9,6 +9,7 @@
   "root": true,
   "rules": {
     "comma-dangle": ["error", "never"],
-    "prettier/prettier": ["error"]
+    "prettier/prettier": ["error"],
+    "react/jsx-fragments": [true, "element"]
   }
 }
