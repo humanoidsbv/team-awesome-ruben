@@ -4,8 +4,12 @@ import styles from './TimeEntryAdd.module.css';
 
 import IconPlus from '../../assets/icons/icon-plus.svg';
 
+/* 
+className={`${styles.container} ${isAddEntryVisible ? styles.AddEntryVisible : ''}`}
+*/
+
 const TimeEntryAdd = () => (
-  <div className={styles.container}>
+  <div className={`${styles.container}`}>
     <form className={styles.form}>
       <button type="button" className={styles.closeButton}>
         <IconPlus />
