@@ -1,89 +1,131 @@
-import React from 'react';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import IconPlus from '../../assets/icons/icon-plus.svg';
 import styles from './TimeEntryAdd.module.css';
 
-const TimeEntryAdd = () => (
-  <div className={`${styles.container}`}>
-    <form className={styles.form}>
-      <button type="button" className={styles.closeButton}>
-        <IconPlus />
-      </button>
+const TimeEntryAdd = ({ addFormData }) => {
+  const [client, setClient] = useState('');
+  const [activity, setActivity] = useState('design');
+  const [date, setDate] = useState('2000-02-02');
+  const [startTime, setStartTime] = useState('09:00');
+  const [endTime, setEndTime] = useState('17:00');
 
-      <label
-        className={`${styles.label} ${styles.labelLarge}`}
-        htmlFor="client"
-      >
-        <p className={styles.labelText}>CLIENT</p>
-        <select className={styles.select} id="client">
-          <option value="">Port of Rotterdam</option>
-          <option value="">Hike One</option>
-        </select>
-      </label>
+  function handleSubmit(event) {
+    event.preventDefault();
 
-      <label
-        className={`${styles.label} ${styles.labelLarge}`}
-        htmlFor="activity"
-      >
-        <p className={styles.labelText}>ACTIVITY</p>
-        <select className={styles.select} id="activity">
-          <option value="">Design</option>
-        </select>
-      </label>
-      <label
-        className={`${styles.label} ${styles.labelMedium} ${styles.date}`}
-        htmlFor="date"
-      >
-        <p className={styles.labelText}>DATE</p>
-        <input
-          type="date"
-          className={styles.select}
-          id="date"
-          defaultValue="2018-07-29"
-        ></input>
-      </label>
+    addFormData({
+      client: client,
+      id: Math.random(999999999999999999),
+      startTimeStamp: `${date} ${startTime}`,
+      stopTimeStamp: `${date} ${endTime}`
+    });
+  }
 
-      <label
-        className={`
+  return (
+    <div className={`${styles.container}`}>
+      <form className={styles.form} onSubmit={handleSubmit}>
+        <button type="button" className={styles.closeButton}>
+          <IconPlus />
+        </button>
+
+        <label
+          className={`${styles.label} ${styles.labelLarge}`}
+          htmlFor="client"
+        >
+          <p className={styles.labelText}>CLIENT</p>
+          <select
+            className={styles.select}
+            id="client"
+            onChange={({ target }) => setClient(target.value)}
+            value={client}
+            required
+          >
+            <option disabled value="">
+              -- select an option --
+            </option>
+
+            <option value="Port of Rotterdam">Port of Rotterdam</option>
+            <option value="Hike One">Hike One</option>
+          </select>
+        </label>
+
+        <label
+          className={`${styles.label} ${styles.labelLarge}`}
+          htmlFor="activity"
+        >
+          <p className={styles.labelText}>ACTIVITY</p>
+          <select
+            className={styles.select}
+            id="activity"
+            onChange={({ target }) => setActivity(target.value)}
+            value={activity}
+          >
+            <option value="design">Design</option>
+          </select>
+        </label>
+        <label
+          className={`${styles.label} ${styles.labelMedium} ${styles.date}`}
+          htmlFor="date"
+        >
+          <p className={styles.labelText}>DATE</p>
+          <input
+            className={styles.select}
+            id="date"
+            onChange={({ target }) => setDate(target.value)}
+            type="date"
+            value={date}
+          />
+        </label>
+
+        <label
+          className={`
           ${styles.label}
           ${styles.labelSmall} 
           ${styles.labelHalfWidth}
         `}
-        htmlFor="from"
-      >
-        <p className={styles.labelText}>FROM</p>
-        <input
-          type="time"
-          defaultValue="09:00"
-          className={`${styles.select} ${styles.time}`}
-          id="from"
-        />
-      </label>
-      <label
-        className={`
+          htmlFor="startTime"
+        >
+          <p className={styles.labelText}>FROM</p>
+          <input
+            className={`${styles.select} ${styles.time}`}
+            id="startTime"
+            onChange={({ target }) => setStartTime(target.value)}
+            type="time"
+            value={startTime}
+          />
+        </label>
+        <label
+          className={`
           ${styles.label}
           ${styles.labelSmall} 
           ${styles.labelHalfWidth}
         `}
-        htmlFor="to"
-      >
-        <p className={styles.labelText}>TO</p>
-        <input
-          type="time"
-          defaultValue="17:00"
-          className={`${styles.select} ${styles.time}`}
-          id="to"
-        />
-      </label>
-      <button className={styles.addButton}>
-        <p>Add</p>
+          htmlFor="endTime"
+        >
+          <p className={styles.labelText}>TO</p>
+          <input
+            className={`${styles.select} ${styles.time}`}
+            id="endTime"
+            onChange={({ target }) => setEndTime(target.value)}
+            type="time"
+            value={endTime}
+          />
+        </label>
+        <button className={styles.addButton}>
+          <p>Add</p>
+        </button>
+      </form>
+      <button className={styles.showForm} type="submit">
+        <IconPlus className={styles.showFormIcon} />
+        <p>New time entry</p>
       </button>
-    </form>
-    <button className={styles.showForm}>
-      <IconPlus className={styles.showFormIcon} />
-      <p>New time entry</p>
-    </button>
-  </div>
-);
+    </div>
+  );
+};
+
+TimeEntryAdd.propTypes = {
+  addFormData: PropTypes.func.isRequired
+};
 
 export default TimeEntryAdd;
