@@ -1,12 +1,7 @@
 import React from 'react';
 
-import styles from './TimeEntryAdd.module.css';
-
 import IconPlus from '../../assets/icons/icon-plus.svg';
-
-/* 
-className={`${styles.container} ${isAddEntryVisible ? styles.AddEntryVisible : ''}`}
-*/
+import styles from './TimeEntryAdd.module.css';
 
 const TimeEntryAdd = () => (
   <div className={`${styles.container}`}>

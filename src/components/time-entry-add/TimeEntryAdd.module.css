@@ -107,13 +107,13 @@
 .addButton {
   background-color: #35ac45;
   border-radius: 4px;
+  border: 0;
   color: #fff;
   font-size: 14px;
   height: 36px;
   margin-top: 42px;
   outline: 0;
   width: 100%;
-  border: 0;
 }
 
 @media only screen and (min-width: 901px) {
@@ -130,6 +130,7 @@
   align-items: center;
   background-image: linear-gradient(to bottom, #39b54a, #34aa44 98%);
   border-radius: 4px;
+  border: 0;
   color: #fff;
   display: flex;
   font-size: 14px;
@@ -137,7 +138,6 @@
   justify-content: center;
   outline: 0;
   width: 100%;
-  border: 0;
 }
 
 .showFormIcon {

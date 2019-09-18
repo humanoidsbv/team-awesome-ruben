@@ -1,0 +1,26 @@
+[
+  {
+    "client": "Port of Rotterdam",
+    "id": "1",
+    "startTimeStamp": "17-07-2018 08:00:00",
+    "stopTimeStamp": "17-07-2018 17:00:00"
+  },
+  {
+    "client": "Port of Rotterdam",
+    "id": "2",
+    "startTimeStamp": "17-07-2018 08:00:00",
+    "stopTimeStamp": "17-07-2018 12:00:00"
+  },
+  {
+    "client": "Lely",
+    "id": "3",
+    "startTimeStamp": "18-07-2018 12:30:00",
+    "stopTimeStamp": "18-07-2018 17:00:00"
+  },
+  {
+    "client": "Lely",
+    "id": "4",
+    "startTimeStamp": "18-07-2018 12:30:00",
+    "stopTimeStamp": "18-07-2018 17:00:00"
+  }
+]
