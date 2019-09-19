@@ -3,25 +3,42 @@ import PropTypes from 'prop-types';
 
 import styles from './TimeEntry.module.css';
 
-const TimeEntry = ({ client, startTimeStamp, stopTimeStamp }) => (
-  <div className={styles.timeEntry}>
-    <p>{client}</p>
-    <div>
-      <p className={styles.hoursWorked}>
-        {`${startTimeStamp.slice(10, 16)} -
-        ${stopTimeStamp.slice(10, 16)}`}
-      </p>
-      <p className={styles.hoursDuration}>
-        {stopTimeStamp.slice(10, 13) - startTimeStamp.slice(10, 13)}
-      </p>
+const TimeEntry = ({ client, startTimestamp, stopTimestamp }) => {
+  const durationHours =
+    (Date.parse(stopTimestamp) - Date.parse(startTimestamp)) / 1000 / 60 / 60;
+
+  const formatDuration = hours =>
+    `${Math.trunc(hours)}:${Math.round((hours % 1) * 60)
+      .toString()
+      .padStart(2, '0')}`;
+  const durationString = formatDuration(durationHours);
+
+  const startTimeString = new Date(startTimestamp).toLocaleTimeString('nl-NL', {
+    hour: '2-digit',
+    minute: '2-digit'
+  });
+  const stopTimeString = new Date(stopTimestamp).toLocaleTimeString('nl-NL', {
+    hour: '2-digit',
+    minute: '2-digit'
+  });
+
+  return (
+    <div className={styles.timeEntry}>
+      <p>{client}</p>
+      <div>
+        <p className={styles.hoursWorked}>
+          {`${startTimeString} - ${stopTimeString}`}
+        </p>
+        <p className={styles.hoursDuration}>{durationString}</p>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 TimeEntry.propTypes = {
   client: PropTypes.string.isRequired,
-  startTimeStamp: PropTypes.string.isRequired,
-  stopTimeStamp: PropTypes.string.isRequired
+  startTimestamp: PropTypes.string.isRequired,
+  stopTimestamp: PropTypes.string.isRequired
 };
 
 export default TimeEntry;

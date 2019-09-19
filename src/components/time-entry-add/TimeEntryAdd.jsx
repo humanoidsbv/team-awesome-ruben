@@ -5,20 +5,24 @@ import IconPlus from '../../assets/icons/icon-plus.svg';
 import styles from './TimeEntryAdd.module.css';
 
 const TimeEntryAdd = ({ addFormData }) => {
+  const today = new Date()
+    .toISOString()
+    .split('T')
+    .shift();
+
   const [client, setClient] = useState('');
   const [activity, setActivity] = useState('design');
-  const [date, setDate] = useState('2000-02-02');
+  const [date, setDate] = useState(today);
   const [startTime, setStartTime] = useState('09:00');
-  const [endTime, setEndTime] = useState('17:00');
+  const [endTime, setEndTime] = useState('17:30');
 
   function handleSubmit(event) {
     event.preventDefault();
-
     addFormData({
       client: client,
-      id: Math.random(999999999999999999),
-      startTimeStamp: `${date} ${startTime}`,
-      stopTimeStamp: `${date} ${endTime}`
+      id: Math.random(),
+      startTimestamp: new Date(`${date} ${startTime}`).toISOString(),
+      stopTimestamp: new Date(`${date} ${endTime}`).toISOString()
     });
   }
 
