@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import styles from './timeEntryHeader.module.css';
+import styles from './TimeEntryHeader.module.css';
 
 const TimeEntryHeader = ({ startTimestamp, stopTimestamp }) => {
   const durationHours =

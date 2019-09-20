@@ -87,7 +87,7 @@
   opacity: 0.5;
 }
 
-.select {
+.input {
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
@@ -98,6 +98,10 @@
   outline: 0;
   padding: 9px 0 9px 15px;
   width: 100%;
+}
+
+.formInvalid .input:invalid {
+  border-color: #fb6375;
 }
 
 .time {
@@ -114,6 +118,11 @@
   margin-top: 42px;
   outline: 0;
   width: 100%;
+}
+
+.form:invalid .addButton {
+  background-color: #e6eaee;
+  color: #68768c;
 }
 
 @media only screen and (min-width: 901px) {

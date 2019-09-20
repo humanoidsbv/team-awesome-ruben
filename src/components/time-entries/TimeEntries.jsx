@@ -20,7 +20,7 @@ function TimeEntries() {
 
   const handleSubmit = newTimeEntry => {
     async function saveData() {
-      const response = await fetch('http://localhost:3000/time-entries', {
+      await fetch('http://localhost:3000/time-entries', {
         method: 'POST',
         headers: {
           Accept: 'application/json',

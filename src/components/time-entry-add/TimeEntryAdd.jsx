@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 import IconPlus from '../../assets/icons/icon-plus.svg';
@@ -11,15 +11,26 @@ const TimeEntryAdd = ({ addFormData }) => {
     .shift();
 
   const [client, setClient] = useState('');
-  const [activity, setActivity] = useState('design');
+  const [activity, setActivity] = useState('');
   const [date, setDate] = useState(today);
   const [startTime, setStartTime] = useState('09:00');
   const [endTime, setEndTime] = useState('17:30');
 
+  const [formSent, setFormSent] = useState(true);
+  const formRef = useRef(null);
+
+  const handleValidation = () => {
+    setFormSent(formRef.current.checkValidity());
+  };
+
   function handleSubmit(event) {
     event.preventDefault();
+
+    setClient('');
+    setActivity('');
+
     addFormData({
-      client: client,
+      client,
       id: Math.random(),
       startTimestamp: new Date(`${date} ${startTime}`).toISOString(),
       stopTimestamp: new Date(`${date} ${endTime}`).toISOString()
@@ -28,7 +39,11 @@ const TimeEntryAdd = ({ addFormData }) => {
 
   return (
     <div className={`${styles.container}`}>
-      <form className={styles.form} onSubmit={handleSubmit}>
+      <form
+        className={`${styles.form} ${formSent ? '' : styles.formInvalid}`}
+        onSubmit={handleSubmit}
+        ref={formRef}
+      >
         <button type="button" className={styles.closeButton}>
           <IconPlus />
         </button>
@@ -38,20 +53,15 @@ const TimeEntryAdd = ({ addFormData }) => {
           htmlFor="client"
         >
           <p className={styles.labelText}>CLIENT</p>
-          <select
-            className={styles.select}
+          <input
+            className={styles.input}
             id="client"
+            maxLength="35"
+            minLength="2"
             onChange={({ target }) => setClient(target.value)}
-            value={client}
             required
-          >
-            <option disabled value="">
-              -- select an option --
-            </option>
-
-            <option value="Port of Rotterdam">Port of Rotterdam</option>
-            <option value="Hike One">Hike One</option>
-          </select>
+            value={client}
+          />
         </label>
 
         <label
@@ -59,14 +69,15 @@ const TimeEntryAdd = ({ addFormData }) => {
           htmlFor="activity"
         >
           <p className={styles.labelText}>ACTIVITY</p>
-          <select
-            className={styles.select}
+          <input
+            className={styles.input}
             id="activity"
+            maxLength="35"
+            minLength="2"
             onChange={({ target }) => setActivity(target.value)}
+            required
             value={activity}
-          >
-            <option value="design">Design</option>
-          </select>
+          />
         </label>
         <label
           className={`${styles.label} ${styles.labelMedium} ${styles.date}`}
@@ -74,11 +85,12 @@ const TimeEntryAdd = ({ addFormData }) => {
         >
           <p className={styles.labelText}>DATE</p>
           <input
-            className={styles.select}
+            className={styles.input}
             id="date"
             onChange={({ target }) => setDate(target.value)}
             type="date"
             value={date}
+            required
           />
         </label>
 
@@ -92,7 +104,7 @@ const TimeEntryAdd = ({ addFormData }) => {
         >
           <p className={styles.labelText}>FROM</p>
           <input
-            className={`${styles.select} ${styles.time}`}
+            className={`${styles.input} ${styles.time}`}
             id="startTime"
             onChange={({ target }) => setStartTime(target.value)}
             type="time"
@@ -109,18 +121,22 @@ const TimeEntryAdd = ({ addFormData }) => {
         >
           <p className={styles.labelText}>TO</p>
           <input
-            className={`${styles.select} ${styles.time}`}
+            className={`${styles.input} ${styles.time}`}
             id="endTime"
             onChange={({ target }) => setEndTime(target.value)}
             type="time"
             value={endTime}
           />
         </label>
-        <button className={styles.addButton}>
+        <button
+          className={styles.addButton}
+          onClick={handleValidation}
+          type="submit"
+        >
           <p>Add</p>
         </button>
       </form>
-      <button className={styles.showForm} type="submit">
+      <button className={styles.showForm} type="button">
         <IconPlus className={styles.showFormIcon} />
         <p>New time entry</p>
       </button>
