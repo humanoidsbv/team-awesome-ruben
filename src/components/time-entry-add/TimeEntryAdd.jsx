@@ -16,16 +16,22 @@ const TimeEntryAdd = ({ addFormData }) => {
   const [startTime, setStartTime] = useState('09:00');
   const [endTime, setEndTime] = useState('17:30');
 
-  const [formSent, setFormSent] = useState(true);
+  const [formSent, setFormSent] = useState(false);
+  const [validity, setValidity] = useState({ client: true, activity: true });
+
   const formRef = useRef(null);
 
-  const handleValidation = () => {
-    setFormSent(formRef.current.checkValidity());
+  const handleBlur = event => {
+    setValidity({
+      ...validity,
+      [event.target.name]: event.target.checkValidity()
+    });
   };
 
   function handleSubmit(event) {
     event.preventDefault();
 
+    setFormSent(true);
     setClient('');
     setActivity('');
 
@@ -54,13 +60,17 @@ const TimeEntryAdd = ({ addFormData }) => {
         >
           <p className={styles.labelText}>CLIENT</p>
           <input
-            className={styles.input}
+            className={`${styles.input} ${
+              validity.client ? '' : styles.invalidInput
+            }`}
             id="client"
-            maxLength="35"
+            maxLength="30"
             minLength="2"
+            name="client"
+            onBlur={handleBlur}
             onChange={({ target }) => setClient(target.value)}
-            required
             value={client}
+            required
           />
         </label>
 
@@ -70,11 +80,15 @@ const TimeEntryAdd = ({ addFormData }) => {
         >
           <p className={styles.labelText}>ACTIVITY</p>
           <input
-            className={styles.input}
+            className={`${styles.input} ${
+              validity.activity ? '' : styles.invalidInput
+            }`}
             id="activity"
-            maxLength="35"
+            maxLength="30"
             minLength="2"
+            name="activity"
             onChange={({ target }) => setActivity(target.value)}
+            onBlur={handleBlur}
             required
             value={activity}
           />
@@ -87,10 +101,11 @@ const TimeEntryAdd = ({ addFormData }) => {
           <input
             className={styles.input}
             id="date"
+            name="date"
             onChange={({ target }) => setDate(target.value)}
+            required
             type="date"
             value={date}
-            required
           />
         </label>
 
@@ -104,8 +119,9 @@ const TimeEntryAdd = ({ addFormData }) => {
         >
           <p className={styles.labelText}>FROM</p>
           <input
-            className={`${styles.input} ${styles.time}`}
+            className={`${styles.input} ${styles.timeStamp}`}
             id="startTime"
+            name="startTime"
             onChange={({ target }) => setStartTime(target.value)}
             type="time"
             value={startTime}
@@ -121,18 +137,15 @@ const TimeEntryAdd = ({ addFormData }) => {
         >
           <p className={styles.labelText}>TO</p>
           <input
-            className={`${styles.input} ${styles.time}`}
+            className={`${styles.input} ${styles.timeStamp}`}
             id="endTime"
+            name="endTime"
             onChange={({ target }) => setEndTime(target.value)}
             type="time"
             value={endTime}
           />
         </label>
-        <button
-          className={styles.addButton}
-          onClick={handleValidation}
-          type="submit"
-        >
+        <button className={styles.addButton} type="submit">
           <p>Add</p>
         </button>
       </form>
