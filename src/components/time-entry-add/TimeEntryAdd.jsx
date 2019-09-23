@@ -16,8 +16,7 @@ const TimeEntryAdd = ({ addFormData }) => {
   const [startTime, setStartTime] = useState('09:00');
   const [endTime, setEndTime] = useState('17:30');
 
-  const [formSent, setFormSent] = useState(false);
-  const [validity, setValidity] = useState({ client: true, activity: true });
+  const [validity, setValidity] = useState({});
 
   const formRef = useRef(null);
 
@@ -28,12 +27,8 @@ const TimeEntryAdd = ({ addFormData }) => {
     });
   };
 
-  function handleSubmit(event) {
+  const handleSubmit = event => {
     event.preventDefault();
-
-    setFormSent(true);
-    setClient('');
-    setActivity('');
 
     addFormData({
       client,
@@ -41,15 +36,14 @@ const TimeEntryAdd = ({ addFormData }) => {
       startTimestamp: new Date(`${date} ${startTime}`).toISOString(),
       stopTimestamp: new Date(`${date} ${endTime}`).toISOString()
     });
-  }
+
+    setClient('');
+    setActivity('');
+  };
 
   return (
     <div className={`${styles.container}`}>
-      <form
-        className={`${styles.form} ${formSent ? '' : styles.formInvalid}`}
-        onSubmit={handleSubmit}
-        ref={formRef}
-      >
+      <form className={styles.form} onSubmit={handleSubmit} ref={formRef}>
         <button type="button" className={styles.closeButton}>
           <IconPlus />
         </button>
@@ -61,7 +55,7 @@ const TimeEntryAdd = ({ addFormData }) => {
           <p className={styles.labelText}>CLIENT</p>
           <input
             className={`${styles.input} ${
-              validity.client ? '' : styles.invalidInput
+              validity.client === false ? styles.invalidInput : ''
             }`}
             id="client"
             maxLength="30"
@@ -81,14 +75,14 @@ const TimeEntryAdd = ({ addFormData }) => {
           <p className={styles.labelText}>ACTIVITY</p>
           <input
             className={`${styles.input} ${
-              validity.activity ? '' : styles.invalidInput
+              validity.activity === false ? styles.invalidInput : ''
             }`}
             id="activity"
             maxLength="30"
             minLength="2"
             name="activity"
-            onChange={({ target }) => setActivity(target.value)}
             onBlur={handleBlur}
+            onChange={({ target }) => setActivity(target.value)}
             required
             value={activity}
           />
@@ -110,11 +104,7 @@ const TimeEntryAdd = ({ addFormData }) => {
         </label>
 
         <label
-          className={`
-          ${styles.label}
-          ${styles.labelSmall} 
-          ${styles.labelHalfWidth}
-        `}
+          className={`${styles.label} ${styles.labelSmall} ${styles.labelHalfWidth}`}
           htmlFor="startTime"
         >
           <p className={styles.labelText}>FROM</p>
@@ -128,11 +118,7 @@ const TimeEntryAdd = ({ addFormData }) => {
           />
         </label>
         <label
-          className={`
-          ${styles.label}
-          ${styles.labelSmall} 
-          ${styles.labelHalfWidth}
-        `}
+          className={`${styles.label} ${styles.labelSmall} ${styles.labelHalfWidth}`}
           htmlFor="endTime"
         >
           <p className={styles.labelText}>TO</p>
@@ -145,13 +131,17 @@ const TimeEntryAdd = ({ addFormData }) => {
             value={endTime}
           />
         </label>
-        <button className={styles.addButton} type="submit">
-          <p>Add</p>
+        <button
+          className={styles.addButton}
+          disabled={!formRef.current || !formRef.current.checkValidity()}
+          type="submit"
+        >
+          Add
         </button>
       </form>
       <button className={styles.showForm} type="button">
         <IconPlus className={styles.showFormIcon} />
-        <p>New time entry</p>
+        New time entry
       </button>
     </div>
   );
