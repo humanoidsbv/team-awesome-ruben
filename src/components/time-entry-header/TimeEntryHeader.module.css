@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'proximanova-light', serif;
+}
+
+.date {
+  color: #7f8fa4;
+  margin-bottom: 16px;
+}
+
+@media only screen and (min-width: 901px) {
+  .date {
+    font-size: 24px;
+  }
+}

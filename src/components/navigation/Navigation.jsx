@@ -8,16 +8,16 @@ const Navigation = ({ isMenuVisible }) => (
     <a className={`${styles.item} ${styles.itemActive}`} href="/">
       Timesheets
     </a>
-    <a className={styles.item} href="/about.html">
+    <a className={styles.item} href="/">
       Team members
     </a>
-    <a className={styles.item} href="/about.html">
+    <a className={styles.item} href="/">
       Projects
     </a>
-    <a className={styles.item} href="/about.html">
+    <a className={styles.item} href="/">
       Clients
     </a>
-    <a className={styles.item} href="/about.html">
+    <a className={styles.item} href="/">
       Documents
     </a>
   </nav>
