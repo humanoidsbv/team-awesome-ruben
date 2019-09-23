@@ -4,7 +4,7 @@ import {
   fetchTimeEntries,
   saveTimeEntry,
   deleteTimeEntry
-} from '../../services/Services';
+} from '../../services/time-entry-api';
 import styles from './TimeEntries.module.css';
 import TimeEntry from '../time-entry/TimeEntry';
 import TimeEntryAdd from '../time-entry-add/TimeEntryAdd';

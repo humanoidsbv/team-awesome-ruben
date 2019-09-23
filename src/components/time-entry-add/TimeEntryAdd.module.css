@@ -136,8 +136,8 @@
     align-self: center;
     margin-left: auto;
     margin-top: 0;
-    width: 90px;
     min-width: 90px;
+    width: 90px;
   }
 }
 

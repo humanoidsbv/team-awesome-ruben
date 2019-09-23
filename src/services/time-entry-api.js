@@ -16,13 +16,12 @@ export const fetchTimeEntries = async () => {
   return response.json();
 };
 
-export const deleteTimeEntry = selectedTimeEntry => {
-  fetch(`http://localhost:3000/time-entries/${selectedTimeEntry}`, {
+export const deleteTimeEntry = timeEntryId => {
+  fetch(`http://localhost:3000/time-entries/${timeEntryId}`, {
     method: 'DELETE',
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ id: '0' })
+    }
   });
 };
