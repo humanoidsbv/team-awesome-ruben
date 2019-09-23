@@ -23,6 +23,7 @@ const TimeEntryAdd = ({ addFormData }) => {
   const handleBlur = event => {
     setValidity({
       ...validity,
+      form: formRef.current.checkValidity(),
       [event.target.name]: event.target.checkValidity()
     });
   };
@@ -133,7 +134,7 @@ const TimeEntryAdd = ({ addFormData }) => {
         </label>
         <button
           className={styles.addButton}
-          disabled={!formRef.current || !formRef.current.checkValidity()}
+          disabled={validity.form !== true}
           type="submit"
         >
           Add
