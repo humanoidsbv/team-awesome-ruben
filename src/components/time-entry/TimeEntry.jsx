@@ -4,13 +4,14 @@ import PropTypes from 'prop-types';
 import styles from './TimeEntry.module.css';
 
 const TimeEntry = ({ client, startTimestamp, stopTimestamp }) => {
-  const formatDuration = hours =>
-    `${Math.trunc(hours)}:${Math.round((hours % 1) * 60)
-      .toString()
-      .padStart(2, '0')}`;
-  const durationString = formatDuration(
-    (Date.parse(stopTimestamp) - Date.parse(startTimestamp)) / 1000 / 60 / 60
-  );
+  const totalHours =
+    (Date.parse(stopTimestamp) - Date.parse(startTimestamp)) / 1000 / 60 / 60;
+
+  const totalHoursString = `${Math.trunc(totalHours)}:${Math.round(
+    (totalHours % 1) * 60
+  )
+    .toString()
+    .padStart(2, '0')}`;
 
   const startTimeString = new Date(startTimestamp).toLocaleTimeString('nl-NL', {
     hour: '2-digit',
@@ -28,7 +29,7 @@ const TimeEntry = ({ client, startTimestamp, stopTimestamp }) => {
         <p className={styles.hoursWorked}>
           {`${startTimeString} - ${stopTimeString}`}
         </p>
-        <p className={styles.hoursDuration}>{durationString}</p>
+        <p className={styles.hoursDuration}>{totalHoursString}</p>
       </div>
     </div>
   );
