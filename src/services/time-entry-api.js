@@ -1,11 +1,11 @@
-export const saveTimeEntry = newTimeEntry => {
+export const addTimeEntry = item => {
   fetch('http://localhost:3000/time-entries', {
     method: 'POST',
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(newTimeEntry)
+    body: JSON.stringify(item)
   });
 };
 

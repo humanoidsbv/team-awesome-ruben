@@ -5,7 +5,8 @@ import { connect } from 'react-redux';
 import {
   requestTimeEntries,
   timeEntriesItemsSelector,
-  deleteTimeEntryRequest
+  deleteTimeEntryRequest,
+  addTimeEntryRequest
 } from '../../redux/time-entries';
 import TimeEntries from './TimeEntries';
 
@@ -18,7 +19,8 @@ const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
       fetchTimeEntries: requestTimeEntries,
-      deleteTimeEntry: deleteTimeEntryRequest
+      deleteTimeEntry: deleteTimeEntryRequest,
+      addTimeEntry: addTimeEntryRequest
     },
     dispatch
   );

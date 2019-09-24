@@ -6,16 +6,19 @@ import TimeEntry from '../time-entry/TimeEntry';
 import TimeEntryAdd from '../time-entry-add/TimeEntryAdd';
 import TimeEntryHeader from '../time-entry-header/TimeEntryHeader';
 
-const TimeEntries = ({ timeEntries, fetchTimeEntries, deleteTimeEntry }) => {
-  const handleSubmit = () => null;
-
+const TimeEntries = ({
+  timeEntries,
+  fetchTimeEntries,
+  deleteTimeEntry,
+  addTimeEntry
+}) => {
   useEffect(function getTimeEntries() {
     fetchTimeEntries();
   }, []);
 
   return (
     <div className={styles.timeEntries}>
-      <TimeEntryAdd addFormData={handleSubmit} />
+      <TimeEntryAdd addFormData={addTimeEntry} />
       {timeEntries.map(
         ({ startTimestamp, stopTimestamp, id, client }, index) => {
           const previousItem = timeEntries[index - 1];
@@ -49,10 +52,16 @@ const TimeEntries = ({ timeEntries, fetchTimeEntries, deleteTimeEntry }) => {
 
 TimeEntries.propTypes = {
   timeEntries: PropTypes.arrayOf(
-    PropTypes.shape({ startTimestamp: PropTypes.string })
+    PropTypes.shape({
+      startTimestamp: PropTypes.string,
+      stopTimestamp: PropTypes.string,
+      id: PropTypes.number,
+      client: PropTypes.string
+    })
   ),
   fetchTimeEntries: PropTypes.func.isRequired,
-  deleteTimeEntry: PropTypes.func.isRequired
+  deleteTimeEntry: PropTypes.func.isRequired,
+  addTimeEntry: PropTypes.func.isRequired
 };
 
 TimeEntries.defaultProps = {
