@@ -1,36 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 
-import {
-  deleteTimeEntry,
-  fetchTimeEntries,
-  saveTimeEntry
-} from '../../services/time-entry-api';
 import styles from './TimeEntries.module.css';
 import TimeEntry from '../time-entry/TimeEntry';
 import TimeEntryAdd from '../time-entry-add/TimeEntryAdd';
 import TimeEntryHeader from '../time-entry-header/TimeEntryHeader';
 
-const TimeEntries = () => {
-  const [timeEntries, setTimeEntries] = useState([]);
+const TimeEntries = ({ timeEntries, fetchTimeEntries }) => {
+  const handleSubmit = () => null;
+  const handleDelete = () => null;
 
   useEffect(function getTimeEntries() {
-    async function execute() {
-      setTimeEntries(await fetchTimeEntries());
-    }
-    execute();
+    fetchTimeEntries();
   }, []);
-
-  const handleSubmit = newTimeEntry => {
-    saveTimeEntry(newTimeEntry);
-    setTimeEntries([newTimeEntry, ...timeEntries]);
-  };
-
-  const handleDelete = timeEntryId => {
-    setTimeEntries(
-      timeEntries.filter(timeEntry => timeEntry.id !== timeEntryId)
-    );
-    deleteTimeEntry(timeEntryId);
-  };
 
   return (
     <div className={styles.timeEntries}>
@@ -64,6 +46,17 @@ const TimeEntries = () => {
       )}
     </div>
   );
+};
+
+TimeEntries.propTypes = {
+  timeEntries: PropTypes.arrayOf(
+    PropTypes.shape({ startTimestamp: PropTypes.string })
+  ),
+  fetchTimeEntries: PropTypes.func.isRequired
+};
+
+TimeEntries.defaultProps = {
+  timeEntries: []
 };
 
 export default TimeEntries;
