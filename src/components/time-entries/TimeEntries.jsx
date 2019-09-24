@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
 import {
+  deleteTimeEntry,
   fetchTimeEntries,
-  saveTimeEntry,
-  deleteTimeEntry
+  saveTimeEntry
 } from '../../services/time-entry-api';
 import styles from './TimeEntries.module.css';
 import TimeEntry from '../time-entry/TimeEntry';
@@ -25,9 +25,11 @@ const TimeEntries = () => {
     setTimeEntries([newTimeEntry, ...timeEntries]);
   };
 
-  const handleDelete = id => {
-    setTimeEntries(timeEntries.filter(entry => entry.id !== id));
-    deleteTimeEntry(id);
+  const handleDelete = timeEntryId => {
+    setTimeEntries(
+      timeEntries.filter(timeEntry => timeEntry.id !== timeEntryId)
+    );
+    deleteTimeEntry(timeEntryId);
   };
 
   return (
@@ -51,10 +53,10 @@ const TimeEntries = () => {
               )}
               <TimeEntry
                 client={client}
+                deleteEntry={handleDelete}
+                timeEntryId={id}
                 startTimestamp={startTimestamp}
                 stopTimestamp={stopTimestamp}
-                id={id}
-                deleteEntry={handleDelete}
               />
             </React.Fragment>
           );

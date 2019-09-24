@@ -7,7 +7,7 @@ import styles from './TimeEntry.module.css';
 const TimeEntry = ({
   client,
   deleteEntry,
-  id,
+  timeEntryId,
   startTimestamp,
   stopTimestamp
 }) => {
@@ -29,9 +29,7 @@ const TimeEntry = ({
     minute: '2-digit'
   });
 
-  const handleDelete = () => {
-    deleteEntry(id);
-  };
+  const handleDelete = () => deleteEntry(timeEntryId);
 
   return (
     <div className={styles.timeEntry}>
@@ -56,10 +54,10 @@ const TimeEntry = ({
 
 TimeEntry.propTypes = {
   client: PropTypes.string.isRequired,
+  deleteEntry: PropTypes.func.isRequired,
   startTimestamp: PropTypes.string.isRequired,
   stopTimestamp: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired,
-  deleteEntry: PropTypes.func.isRequired
+  timeEntryId: PropTypes.number.isRequired
 };
 
 export default TimeEntry;
