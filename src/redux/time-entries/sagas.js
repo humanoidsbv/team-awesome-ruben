@@ -1,11 +1,17 @@
 import { all, fork, call, put, takeLatest } from 'redux-saga/effects';
 
-import { fetchTimeEntries } from '../../services/time-entry-api';
+import {
+  fetchTimeEntries,
+  deleteTimeEntry
+} from '../../services/time-entry-api';
 
 import {
-  REQUEST_TIME_ENTRIES,
+  FETCH_TIME_ENTRIES_REQUEST,
   requestTimeEntriesSuccess,
-  requestTimeEntriesFailure
+  requestTimeEntriesFailure,
+  DELETE_TIME_ENTRY_REQUEST,
+  deleteTimeEntryRequestSuccess,
+  deleteTimeEntryRequestFailure
 } from '.';
 
 function* requestTimeEntries() {
@@ -17,10 +23,23 @@ function* requestTimeEntries() {
   }
 }
 
-export function* watchGetDomainResultsAction() {
-  yield takeLatest(REQUEST_TIME_ENTRIES, requestTimeEntries);
+export function* watchRequestTimeEntries() {
+  yield takeLatest(FETCH_TIME_ENTRIES_REQUEST, requestTimeEntries);
+}
+
+function* deleteTimeEntryRequest({ payload }) {
+  try {
+    yield call(deleteTimeEntry, payload);
+    yield put(deleteTimeEntryRequestSuccess(payload));
+  } catch (error) {
+    yield put(deleteTimeEntryRequestFailure(error));
+  }
+}
+
+export function* watchDeleteTimeEntry() {
+  yield takeLatest(DELETE_TIME_ENTRY_REQUEST, deleteTimeEntryRequest);
 }
 
 export function* timeEntriesSagas() {
-  yield all([fork(watchGetDomainResultsAction)]);
+  yield all([fork(watchRequestTimeEntries), fork(watchDeleteTimeEntry)]);
 }

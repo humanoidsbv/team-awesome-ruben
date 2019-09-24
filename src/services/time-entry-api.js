@@ -16,6 +16,8 @@ export const fetchTimeEntries = async () => {
   return response.json();
 };
 
+// todo: implement error handling
+
 export const deleteTimeEntry = timeEntryId => {
   fetch(`http://localhost:3000/time-entries/${timeEntryId}`, {
     method: 'DELETE',

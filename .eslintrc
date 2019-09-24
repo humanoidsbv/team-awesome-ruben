@@ -12,7 +12,6 @@
     "prettier/prettier": ["error"],
     "react/jsx-fragments": [0, "element"],
     "import/no-cycle": [0, { "maxDepth": 5 }],
-
     "react/jsx-props-no-spreading": [0]
   }
 }

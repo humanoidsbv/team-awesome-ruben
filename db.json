@@ -7,24 +7,6 @@
       "stopTimestamp": "+275760-05-08T15:30:00.000Z"
     },
     {
-      "client": "Humanoids",
-      "id": 0.2476134724950072,
-      "startTimestamp": "2019-09-23T07:00:00.000Z",
-      "stopTimestamp": "2019-09-23T15:30:00.000Z"
-    },
-    {
-      "client": "Humanoids",
-      "id": 0.30707281145095844,
-      "startTimestamp": "2019-09-23T07:00:00.000Z",
-      "stopTimestamp": "2019-09-23T15:30:00.000Z"
-    },
-    {
-      "client": "Port of Rotterdam",
-      "id": 0.6704053703585731,
-      "startTimestamp": "2019-09-23T07:00:00.000Z",
-      "stopTimestamp": "2019-09-23T15:30:00.000Z"
-    },
-    {
       "client": "H&M",
       "id": 0.5480590727269115,
       "startTimestamp": "2019-09-23T07:00:00.000Z",
