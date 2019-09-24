@@ -29,14 +29,12 @@ const TimeEntry = ({
     minute: '2-digit'
   });
 
-  const handleDelete = () => deleteEntry(timeEntryId);
-
   return (
     <div className={styles.timeEntry}>
       <span>{client}</span>
       <button
         className={styles.deleteEntry}
-        onClick={handleDelete}
+        onClick={() => deleteEntry(timeEntryId)}
         type="button"
       >
         <DeleteIcon className={styles.deleteIcon} />
