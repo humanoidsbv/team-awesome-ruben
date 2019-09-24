@@ -1,9 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import DeleteIcon from '../../assets/icons/icon-delete.svg';
 import styles from './TimeEntry.module.css';
 
-const TimeEntry = ({ client, startTimestamp, stopTimestamp }) => {
+const TimeEntry = ({
+  client,
+  deleteEntry,
+  timeEntryId,
+  startTimestamp,
+  stopTimestamp
+}) => {
   const totalHours =
     (Date.parse(stopTimestamp) - Date.parse(startTimestamp)) / 1000 / 60 / 60;
 
@@ -24,12 +31,20 @@ const TimeEntry = ({ client, startTimestamp, stopTimestamp }) => {
 
   return (
     <div className={styles.timeEntry}>
-      <p>{client}</p>
-      <div>
-        <p className={styles.hoursWorked}>
+      <span>{client}</span>
+      <button
+        className={styles.deleteEntry}
+        onClick={() => deleteEntry(timeEntryId)}
+        type="button"
+      >
+        <DeleteIcon className={styles.deleteIcon} />
+        Delete
+      </button>
+      <div className={styles.timeStamps}>
+        <span className={styles.hoursWorked}>
           {`${startTimeString} - ${stopTimeString}`}
-        </p>
-        <p className={styles.hoursDuration}>{totalHoursString}</p>
+        </span>
+        <span className={styles.hoursDuration}>{totalHoursString}</span>
       </div>
     </div>
   );
@@ -37,8 +52,10 @@ const TimeEntry = ({ client, startTimestamp, stopTimestamp }) => {
 
 TimeEntry.propTypes = {
   client: PropTypes.string.isRequired,
+  deleteEntry: PropTypes.func.isRequired,
   startTimestamp: PropTypes.string.isRequired,
-  stopTimestamp: PropTypes.string.isRequired
+  stopTimestamp: PropTypes.string.isRequired,
+  timeEntryId: PropTypes.number.isRequired
 };
 
 export default TimeEntry;

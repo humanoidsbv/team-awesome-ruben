@@ -5,7 +5,7 @@
   border-radius: 4px;
   display: flex;
   height: 82px;
-  justify-content: space-between;
+  justify-content: flex-start;
   padding: 0 16px;
   margin-bottom: 32px;
 }
@@ -15,12 +15,54 @@
   margin-top: -33px;
 }
 
+.timeStamps {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+}
+
 .hoursWorked {
   margin-bottom: 10px;
+  text-align: right;
+  width: 100%;
 }
 
 .hoursDuration {
   color: #7f8fa4;
   font-size: 14px;
   text-align: right;
+  width: 100%;
+}
+
+.deleteEntry {
+  align-items: center;
+  background-color: #fb6375;
+  border-radius: 4px;
+  border: 0;
+  color: #fff;
+  display: flex;
+  height: 30px;
+  justify-content: center;
+  margin-left: 32px;
+  outline: 0;
+  transition: 0.3s ease-out;
+  width: 80px;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 901px) {
+  .deleteEntry {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .timeEntry:hover .deleteEntry {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.deleteIcon {
+  margin-right: 8px;
 }

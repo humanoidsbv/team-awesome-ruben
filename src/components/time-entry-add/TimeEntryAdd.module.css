@@ -26,6 +26,7 @@
 .closeButton {
   background: 0;
   border: 0;
+  cursor: pointer;
   fill: #000;
   outline: 0;
   padding: 0;
@@ -57,8 +58,11 @@
 }
 
 @media only screen and (min-width: 901px) {
+  .label {
+    margin-right: 14px;
+  }
+
   .label + .label {
-    margin-left: 14px;
     margin-top: 0;
   }
 }
@@ -113,6 +117,7 @@
   border-radius: 4px;
   border: 0;
   color: #fff;
+  cursor: pointer;
   font-size: 14px;
   height: 36px;
   margin-top: 42px;
@@ -123,6 +128,7 @@
 .addButton:disabled {
   background-color: #e6eaee;
   color: #68768c;
+  cursor: auto;
 }
 
 @media only screen and (min-width: 901px) {
@@ -130,6 +136,7 @@
     align-self: center;
     margin-left: auto;
     margin-top: 0;
+    min-width: 90px;
     width: 90px;
   }
 }
@@ -141,6 +148,7 @@
   border-radius: 4px;
   border: 0;
   color: #fff;
+  cursor: pointer;
   display: flex;
   font-size: 14px;
   height: 36px;
