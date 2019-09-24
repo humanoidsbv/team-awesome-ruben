@@ -2,13 +2,16 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { requestTimeEntries } from '../../redux/time-entries';
+import {
+  requestTimeEntries,
+  timeEntriesItemsSelector
+} from '../../redux/time-entries';
 import TimeEntries from './TimeEntries';
 
 const TimeEntriesContainer = props => <TimeEntries {...props} />;
 
 const mapStateToProps = state => ({
-  timeEntries: state.timeEntries.items
+  timeEntries: timeEntriesItemsSelector(state)
 });
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
