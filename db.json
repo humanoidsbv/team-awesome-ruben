@@ -37,10 +37,10 @@
       "stopTimestamp": "2019-09-21T15:30:00.000Z"
     },
     {
-      "client": "Testje",
-      "id": 0.9318841242721365,
-      "startTimestamp": "2019-09-22T07:00:00.000Z",
-      "stopTimestamp": "2019-09-22T15:30:00.000Z"
+      "client": "Rabobank",
+      "id": 0.812960578736206,
+      "startTimestamp": "2019-09-25T07:00:00.000Z",
+      "stopTimestamp": "2019-09-25T15:30:00.000Z"
     }
   ]
 }

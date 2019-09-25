@@ -3,10 +3,10 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import {
-  requestTimeEntries,
-  timeEntriesItemsSelector,
+  addTimeEntryRequest,
   deleteTimeEntryRequest,
-  addTimeEntryRequest
+  fetchTimeEntriesRequest,
+  timeEntriesItemsSelector
 } from '../../redux/time-entries';
 import TimeEntries from './TimeEntries';
 
@@ -18,9 +18,9 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      fetchTimeEntries: requestTimeEntries,
+      addTimeEntry: addTimeEntryRequest,
       deleteTimeEntry: deleteTimeEntryRequest,
-      addTimeEntry: addTimeEntryRequest
+      fetchTimeEntries: fetchTimeEntriesRequest
     },
     dispatch
   );

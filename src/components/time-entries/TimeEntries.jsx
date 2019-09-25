@@ -7,10 +7,10 @@ import TimeEntryAdd from '../time-entry-add/TimeEntryAdd';
 import TimeEntryHeader from '../time-entry-header/TimeEntryHeader';
 
 const TimeEntries = ({
-  timeEntries,
-  fetchTimeEntries,
+  addTimeEntry,
   deleteTimeEntry,
-  addTimeEntry
+  fetchTimeEntries,
+  timeEntries
 }) => {
   useEffect(function getTimeEntries() {
     fetchTimeEntries();
@@ -38,9 +38,9 @@ const TimeEntries = ({
               <TimeEntry
                 client={client}
                 deleteEntry={timeEntryId => deleteTimeEntry(timeEntryId)}
-                timeEntryId={id}
                 startTimestamp={startTimestamp}
                 stopTimestamp={stopTimestamp}
+                timeEntryId={id}
               />
             </React.Fragment>
           );
@@ -53,15 +53,15 @@ const TimeEntries = ({
 TimeEntries.propTypes = {
   timeEntries: PropTypes.arrayOf(
     PropTypes.shape({
-      startTimestamp: PropTypes.string,
-      stopTimestamp: PropTypes.string,
+      client: PropTypes.string,
       id: PropTypes.number,
-      client: PropTypes.string
+      startTimestamp: PropTypes.string,
+      stopTimestamp: PropTypes.string
     })
   ),
-  fetchTimeEntries: PropTypes.func.isRequired,
+  addTimeEntry: PropTypes.func.isRequired,
   deleteTimeEntry: PropTypes.func.isRequired,
-  addTimeEntry: PropTypes.func.isRequired
+  fetchTimeEntries: PropTypes.func.isRequired
 };
 
 TimeEntries.defaultProps = {
