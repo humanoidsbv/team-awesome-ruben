@@ -15,17 +15,16 @@ const initialState = {
 
 export default (state = initialState, { type, payload }) => {
   switch (type) {
-    case FETCH_TIME_ENTRIES_REQUEST:
+    case ADD_TIME_ENTRY_REQUEST:
       return {
         ...state,
-        items: [],
         isLoading: true
       };
 
-    case FETCH_TIME_ENTRIES_SUCCESS:
+    case ADD_TIME_ENTRY_SUCCESS:
       return {
         ...state,
-        items: payload,
+        items: [payload, ...state.items],
         isLoading: false
       };
 
@@ -42,19 +41,19 @@ export default (state = initialState, { type, payload }) => {
         isLoading: false
       };
 
-    case ADD_TIME_ENTRY_REQUEST:
+    case FETCH_TIME_ENTRIES_REQUEST:
       return {
         ...state,
+        items: [],
         isLoading: true
       };
 
-    case ADD_TIME_ENTRY_SUCCESS:
+    case FETCH_TIME_ENTRIES_SUCCESS:
       return {
         ...state,
-        items: [payload, ...state.items],
+        items: payload,
         isLoading: false
       };
-
     default:
       return state;
   }

@@ -10,32 +10,8 @@ import {
   FETCH_TIME_ENTRIES_SUCCESS
 } from '.';
 
-export const fetchTimeEntriesRequest = () => ({
-  type: FETCH_TIME_ENTRIES_REQUEST
-});
-
-export const fetchTimeEntriesSuccess = timeEntries => ({
-  type: FETCH_TIME_ENTRIES_SUCCESS,
-  payload: timeEntries
-});
-
-export const fetchTimeEntriesFailure = error => ({
-  type: FETCH_TIME_ENTRIES_FAILURE,
-  payload: error
-});
-
-export const deleteTimeEntryRequest = timeEntryId => ({
-  type: DELETE_TIME_ENTRY_REQUEST,
-  payload: timeEntryId
-});
-
-export const deleteTimeEntrySuccess = timeEntryId => ({
-  type: DELETE_TIME_ENTRY_SUCCESS,
-  payload: timeEntryId
-});
-
-export const deleteTimeEntryFailure = error => ({
-  type: DELETE_TIME_ENTRY_FAILURE,
+export const addTimeEntryFailure = error => ({
+  type: ADD_TIME_ENTRY_FAILURE,
   payload: error
 });
 
@@ -49,7 +25,31 @@ export const addTimeEntrySuccess = timeEntry => ({
   payload: timeEntry
 });
 
-export const addTimeEntryFailure = error => ({
-  type: ADD_TIME_ENTRY_FAILURE,
+export const deleteTimeEntryFailure = error => ({
+  type: DELETE_TIME_ENTRY_FAILURE,
   payload: error
+});
+
+export const deleteTimeEntryRequest = timeEntryId => ({
+  type: DELETE_TIME_ENTRY_REQUEST,
+  payload: timeEntryId
+});
+
+export const deleteTimeEntrySuccess = timeEntryId => ({
+  type: DELETE_TIME_ENTRY_SUCCESS,
+  payload: timeEntryId
+});
+
+export const fetchTimeEntriesFailure = error => ({
+  type: FETCH_TIME_ENTRIES_FAILURE,
+  payload: error
+});
+
+export const fetchTimeEntriesRequest = () => ({
+  type: FETCH_TIME_ENTRIES_REQUEST
+});
+
+export const fetchTimeEntriesSuccess = timeEntries => ({
+  type: FETCH_TIME_ENTRIES_SUCCESS,
+  payload: timeEntries
 });
