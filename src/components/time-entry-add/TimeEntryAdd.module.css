@@ -92,8 +92,6 @@
 }
 
 .input {
-  -moz-appearance: none;
-  -webkit-appearance: none;
   appearance: none;
   background-image: linear-gradient(to top, #f2f4f7, #ffffff);
   border-radius: 4px;

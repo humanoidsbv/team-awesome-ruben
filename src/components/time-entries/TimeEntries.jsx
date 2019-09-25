@@ -1,40 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 
-import {
+import styles from './TimeEntries.module.css';
+import TimeEntry from '../time-entry/';
+import TimeEntryAdd from '../time-entry-add/';
+import TimeEntryHeader from '../time-entry-header/';
+
+const TimeEntries = ({
+  addTimeEntry,
   deleteTimeEntry,
   fetchTimeEntries,
-  saveTimeEntry
-} from '../../services/time-entry-api';
-import styles from './TimeEntries.module.css';
-import TimeEntry from '../time-entry/TimeEntry';
-import TimeEntryAdd from '../time-entry-add/TimeEntryAdd';
-import TimeEntryHeader from '../time-entry-header/TimeEntryHeader';
-
-const TimeEntries = () => {
-  const [timeEntries, setTimeEntries] = useState([]);
-
+  timeEntries
+}) => {
   useEffect(function getTimeEntries() {
-    async function execute() {
-      setTimeEntries(await fetchTimeEntries());
-    }
-    execute();
+    fetchTimeEntries();
   }, []);
-
-  const handleSubmit = newTimeEntry => {
-    saveTimeEntry(newTimeEntry);
-    setTimeEntries([newTimeEntry, ...timeEntries]);
-  };
-
-  const handleDelete = timeEntryId => {
-    setTimeEntries(
-      timeEntries.filter(timeEntry => timeEntry.id !== timeEntryId)
-    );
-    deleteTimeEntry(timeEntryId);
-  };
 
   return (
     <div className={styles.timeEntries}>
-      <TimeEntryAdd addFormData={handleSubmit} />
+      <TimeEntryAdd addFormData={addTimeEntry} />
       {timeEntries.map(
         ({ startTimestamp, stopTimestamp, id, client }, index) => {
           const previousItem = timeEntries[index - 1];
@@ -53,10 +37,10 @@ const TimeEntries = () => {
               )}
               <TimeEntry
                 client={client}
-                deleteEntry={handleDelete}
-                timeEntryId={id}
+                deleteEntry={timeEntryId => deleteTimeEntry(timeEntryId)}
                 startTimestamp={startTimestamp}
                 stopTimestamp={stopTimestamp}
+                timeEntryId={id}
               />
             </React.Fragment>
           );
@@ -64,6 +48,24 @@ const TimeEntries = () => {
       )}
     </div>
   );
+};
+
+TimeEntries.propTypes = {
+  timeEntries: PropTypes.arrayOf(
+    PropTypes.shape({
+      client: PropTypes.string,
+      id: PropTypes.number,
+      startTimestamp: PropTypes.string,
+      stopTimestamp: PropTypes.string
+    })
+  ),
+  addTimeEntry: PropTypes.func.isRequired,
+  deleteTimeEntry: PropTypes.func.isRequired,
+  fetchTimeEntries: PropTypes.func.isRequired
+};
+
+TimeEntries.defaultProps = {
+  timeEntries: []
 };
 
 export default TimeEntries;

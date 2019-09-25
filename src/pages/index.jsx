@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Header from '../components/header/Header';
+import Header from '../components/header';
 import Layout from '../components/Layout';
-import TimeEntries from '../components/time-entries/TimeEntries';
+import TimeEntries from '../components/time-entries';
 
 export default () => (
   <React.Fragment>

@@ -1,27 +1,23 @@
-export const saveTimeEntry = newTimeEntry => {
-  fetch('http://localhost:3000/time-entries', {
+const apiUrl = 'http://localhost:3000/time-entries';
+
+export const addTimeEntry = item =>
+  fetch(apiUrl, {
     method: 'POST',
     headers: {
-      Accept: 'application/json',
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(newTimeEntry)
+    body: JSON.stringify(item)
   });
-};
 
-export const fetchTimeEntries = async () => {
-  const response = await fetch(
-    'http://localhost:3000/time-entries?_sort=startTimestamp&_order=desc'
-  );
-  return response.json();
-};
-
-export const deleteTimeEntry = timeEntryId => {
-  fetch(`http://localhost:3000/time-entries/${timeEntryId}`, {
+export const deleteTimeEntry = async timeEntryId =>
+  fetch(`${apiUrl}/${timeEntryId}`, {
     method: 'DELETE',
     headers: {
-      Accept: 'application/json',
       'Content-Type': 'application/json'
     }
   });
+
+export const fetchTimeEntries = async () => {
+  const response = await fetch(`${apiUrl}?_sort=startTimestamp&_order=desc`);
+  return response.json();
 };
