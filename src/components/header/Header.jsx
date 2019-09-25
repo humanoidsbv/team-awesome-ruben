@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
-import Logo from '../logo';
-import Navigation from '../navigation';
-import NavigationToggle from '../navigation-toggle';
-import ProfileButton from '../profilebutton';
+import Logo from '../logo/';
+import Navigation from '../navigation/';
+import NavigationToggle from '../navigation-toggle/';
+import ProfileButton from '../profile-button/';
 import styles from './Header.module.css';
 
 const Header = () => {

@@ -8,7 +8,7 @@ export const addTimeEntry = item => {
     },
     body: JSON.stringify(item)
   });
-  return response.status;
+  return response;
 };
 
 export const deleteTimeEntry = async timeEntryId => {
@@ -18,7 +18,7 @@ export const deleteTimeEntry = async timeEntryId => {
       'Content-Type': 'application/json'
     }
   });
-  return response.status;
+  return response;
 };
 
 export const fetchTimeEntries = async () => {
