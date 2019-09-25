@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import styles from './TimeEntries.module.css';
-import TimeEntry from '../time-entry/TimeEntry';
-import TimeEntryAdd from '../time-entry-add/TimeEntryAdd';
-import TimeEntryHeader from '../time-entry-header/TimeEntryHeader';
+import TimeEntry from '../time-entry';
+import TimeEntryAdd from '../time-entry-add';
+import TimeEntryHeader from '../time-entry-header';
 
 const TimeEntries = ({
   addTimeEntry,
