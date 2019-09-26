@@ -1,16 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'gatsby';
 
 import styles from './Navigation.module.css';
 
 const Navigation = ({ isMenuVisible }) => (
   <nav className={`${styles.nav} ${isMenuVisible ? styles.navActive : ''}`}>
-    <a className={`${styles.item} ${styles.itemActive}`} href="/">
+    <Link to="/" className={`${styles.item} ${styles.itemActive}`}>
       Timesheets
-    </a>
-    <a className={styles.item} href="/">
+    </Link>
+    <Link to="/team-members" className={styles.item}>
       Team members
-    </a>
+    </Link>
     <a className={styles.item} href="/">
       Projects
     </a>

@@ -18,11 +18,17 @@
 
 .layout {
   padding: 75px 16px 0 16px;
+  display: block;
+  position: relative;
 }
 
 @media only screen and (min-width: 901px) {
   .layout {
     padding-top: 103px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
   }
 }
 

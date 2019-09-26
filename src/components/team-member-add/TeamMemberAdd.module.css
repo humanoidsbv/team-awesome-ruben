@@ -1,0 +1,26 @@
+.showForm {
+  align-content: center;
+  align-items: center;
+  background-image: linear-gradient(to bottom, #39b54a, #34aa44 98%);
+  border-radius: 4px;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  font-size: 14px;
+  height: 36px;
+  justify-content: center;
+  outline: 0;
+  width: 100%;
+}
+
+.showFormIcon {
+  fill: #b0edb8;
+  margin-right: 15px;
+}
+
+@media only screen and (min-width: 901px) {
+  .showForm {
+    display: none;
+  }
+}
