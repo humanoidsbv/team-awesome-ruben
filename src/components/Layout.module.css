@@ -17,8 +17,9 @@
 }
 
 .layout {
-  padding: 75px 16px 0 16px;
   display: block;
+  height: 100vh;
+  padding: 75px 16px 0 16px;
   position: relative;
 }
 
@@ -30,6 +31,12 @@
     justify-content: center;
     margin: auto;
   }
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
 }
 
 body,

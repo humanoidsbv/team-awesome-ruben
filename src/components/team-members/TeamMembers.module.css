@@ -49,3 +49,32 @@
     width: 120px;
   }
 }
+
+.addMember {
+  align-items: center;
+  background-image: linear-gradient(to bottom, #39b54a, #34aa44 98%);
+  border-radius: 4px;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  font-size: 14px;
+  height: 36px;
+  justify-content: center;
+  margin-bottom: 10px;
+  margin-left: auto;
+  outline: 0;
+  width: 100%;
+}
+
+@media only screen and (min-width: 901px) {
+  .addMember {
+    width: 156px;
+    margin: 0 0 0 auto;
+  }
+}
+
+.addNewIcon {
+  fill: #b0edb8;
+  margin-right: 15px;
+}

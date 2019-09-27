@@ -1,38 +1,190 @@
-.container {
-  margin-bottom: 10px;
+.header {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 32px;
+}
+
+@media only screen and (min-width: 901px) {
+  .header {
+    flex-direction: row;
+  }
+}
+
+.heading {
+  display: none;
+}
+
+@media only screen and (min-width: 901px) {
+  .heading {
+    color: #354052;
+    display: block;
+    font-size: 24px;
+    min-width: 300px;
+  }
+}
+
+.cancelButton {
+  background: #f5f7f9;
+  border-radius: 4px;
+  border: 1px solid #ced0da;
+  color: #4b5464;
+  cursor: pointer;
+  fill: #a8aab7;
+  font-size: 14px;
+  height: 36px;
+  outline: 0;
+  padding: 0;
+  text-align: center;
   width: 100%;
 }
 
 @media only screen and (min-width: 901px) {
-  .container {
-    margin-bottom: 0;
+  .cancelButton {
+    margin: 0 0 0 auto;
+    min-width: 100px;
+    width: 100px;
   }
 }
 
-.showForm {
-  align-content: center;
-  align-items: center;
+.addMemberButton {
   background-image: linear-gradient(to bottom, #39b54a, #34aa44 98%);
   border-radius: 4px;
   border: 0;
   color: #fff;
   cursor: pointer;
-  display: flex;
   font-size: 14px;
   height: 36px;
   justify-content: center;
+  margin-bottom: 10px;
   margin-left: auto;
   outline: 0;
+  padding: 0;
   width: 100%;
 }
 
-.showFormIcon {
-  fill: #b0edb8;
-  margin-right: 15px;
+@media only screen and (min-width: 901px) {
+  .addMemberButton {
+    width: 100px;
+    margin: 0 0 0 12px;
+  }
+}
+
+.formTab {
+  align-items: center;
+  border: 1px solid #e6eaee;
+  background-color: #fff;
+  border-left: 4px solid #4f88ef;
+  border-radius: 4px;
+  display: flex;
+  height: 82px;
+  justify-content: flex-start;
+  padding: 0 32px;
+  position: relative;
+  z-index: 100;
 }
 
 @media only screen and (min-width: 901px) {
-  .showForm {
-    width: 156px;
+  .formTab {
+    border-bottom: #fff;
+    border-radius: 4px 4px 0 0;
+    font-size: 18px;
+    height: 50px;
+    width: 296px;
   }
+}
+
+.form {
+  border: 1px solid #e6eaee;
+  align-items: center;
+  border-left: 4px solid #4f88ef;
+  border-radius: 0 4px 4px 4px;
+  box-sizing: border-box;
+  display: flex;
+  height: 350px;
+  justify-content: flex-start;
+  margin-top: -1px;
+  padding: 40px 30px 46px 30px;
+  position: relative;
+}
+
+.verticalLine {
+  border-left: 1px solid #dfe3e9;
+  display: block;
+  height: 260px;
+  margin-left: 30px;
+  width: 0px;
+}
+
+.profileImageContainer {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.profileImage {
+  border-radius: 50%;
+  display: block;
+  height: 100px;
+  margin-bottom: 10px;
+  width: 100px;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: 30px;
+  width: 430px;
+}
+
+.label {
+  display: block;
+  width: 100%;
+}
+
+@media only screen and (min-width: 901px) {
+  .label {
+    margin-bottom: 20px;
+  }
+
+  .label:last-child {
+    margin: 0;
+  }
+}
+
+.labelHalfWidth {
+  width: calc(50% - 5px);
+}
+
+.labelHalfWidth + .labelHalfWidth {
+  margin: 0 0 0 10px;
+}
+
+.labelText {
+  color: #7f8fa4;
+  font-size: 14px;
+  margin-bottom: 7px;
+}
+
+.input {
+  appearance: none;
+  background-image: #fff;
+  border-radius: 4px;
+  border: solid 1px #ced0da;
+  font-size: 14px;
+  outline: 0;
+  padding: 9px 0 9px 15px;
+  width: 100%;
+}
+
+.invalidInput {
+  border-color: #fb6375;
+}
+
+.textArea {
+  resize: none;
+  height: 84px;
+  padding: 0;
+  box-sizing: border-box;
 }
