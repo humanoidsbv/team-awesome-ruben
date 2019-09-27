@@ -1,16 +1,16 @@
 import React from 'react';
 
-import styles from './TeamMemberAdd.module.css';
 import IconPlus from '../../assets/icons/icon-plus.svg';
+import styles from './TeamMemberAdd.module.css';
 
 const TeamMemberAdd = () => {
   return (
-    <React.Fragment>
+    <div className={styles.container}>
       <button className={styles.showForm} type="button">
         <IconPlus className={styles.showFormIcon} />
         New Humanoid
       </button>
-    </React.Fragment>
+    </div>
   );
 };
 

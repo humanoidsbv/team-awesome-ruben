@@ -9,7 +9,7 @@ const ProfileButton = () => (
   <button type="button" className={styles.user}>
     <LogoHumanoids className={styles.logo} />
     <img
-      alt="ProfileImage"
+      alt="Profile avatar"
       className={styles.profileImage}
       src={UserProfileImage}
     />
