@@ -3,14 +3,14 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import {
-  addTimeEntryRequest,
-  deleteTimeEntryRequest,
-  fetchTimeEntriesRequest,
+  addTeamMemberRequest,
+  deleteTeamMemberRequest,
+  fetchTeamMembersRequest,
   timeEntriesItemsSelector
-} from '../../redux/time-entries';
-import TimeEntries from './TimeEntries';
+} from '../../redux/team-members';
+import TeamMembers from './TeamMembers';
 
-const TimeEntriesContainer = props => <TimeEntries {...props} />;
+const TeamMembersContainer = props => <TeamMembers {...props} />;
 
 const mapStateToProps = state => ({
   timeEntries: timeEntriesItemsSelector(state)
@@ -19,9 +19,9 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      addTimeEntry: addTimeEntryRequest,
-      deleteTimeEntry: deleteTimeEntryRequest,
-      fetchTimeEntries: fetchTimeEntriesRequest
+      addTeamMember: addTeamMemberRequest,
+      deleteTeamMember: deleteTeamMemberRequest,
+      fetchTeamMembers: fetchTeamMembersRequest
     },
     dispatch
   );
@@ -29,4 +29,4 @@ const mapDispatchToProps = dispatch =>
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(TimeEntriesContainer);
+)(TeamMembersContainer);
