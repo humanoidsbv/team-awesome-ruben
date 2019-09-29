@@ -5,7 +5,7 @@ import UserProfileImage from '../../../static/images/picture-tnt.jpg';
 
 const TeamMemberAdd = () => {
   return (
-    <div>
+    <div className={styles.container}>
       <div className={styles.header}>
         <span className={styles.heading}>Add new team member</span>
         <button type="button" className={styles.cancelButton}>
@@ -32,7 +32,7 @@ const TeamMemberAdd = () => {
             className={`${styles.label} ${styles.labelHalfWidth}`}
             htmlFor="firstName"
           >
-            <p className={styles.labelText}>First Name</p>
+            <span className={styles.labelText}>First Name</span>
             <input
               className={styles.input}
               id="firstName"
@@ -46,7 +46,7 @@ const TeamMemberAdd = () => {
             className={`${styles.label} ${styles.labelHalfWidth}`}
             htmlFor="lastName"
           >
-            <p className={styles.labelText}>Last Name</p>
+            <span className={styles.labelText}>Last Name</span>
             <input
               className={styles.input}
               id="lastName"
@@ -57,7 +57,7 @@ const TeamMemberAdd = () => {
             />
           </label>
           <label className={`${styles.label}`} htmlFor="e-mail">
-            <p className={styles.labelText}>E-mail Adress</p>
+            <span className={styles.labelText}>E-mail Adress</span>
             <input
               className={styles.input}
               id="e-mail"
@@ -68,13 +68,11 @@ const TeamMemberAdd = () => {
             />
           </label>
           <label className={`${styles.label}`} htmlFor="bio">
-            <p className={styles.labelText}>Bio</p>
+            <span className={styles.labelText}>Bio</span>
             <textarea
               className={`${styles.input} ${styles.textArea}`}
               id="bio"
-              minLength="2"
               name="bio"
-              required
             />
           </label>
         </div>
@@ -95,7 +93,7 @@ const TeamMemberAdd = () => {
             className={`${styles.label} ${styles.labelHalfWidth}`}
             htmlFor="zip-code"
           >
-            <p className={styles.labelText}>ZIP code</p>
+            <span className={styles.labelText}>ZIP code</span>
             <input
               className={styles.input}
               id="zip-code"
@@ -109,7 +107,7 @@ const TeamMemberAdd = () => {
             className={`${styles.label} ${styles.labelHalfWidth}`}
             htmlFor="city"
           >
-            <p className={styles.labelText}>City</p>
+            <span className={styles.labelText}>City</span>
             <input
               className={styles.input}
               id="city"

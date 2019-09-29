@@ -26,17 +26,8 @@
 @media only screen and (min-width: 901px) {
   .layout {
     padding-top: 103px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     margin: auto;
   }
-}
-
-html,
-body {
-  width: 100%;
-  height: 100%;
 }
 
 body,

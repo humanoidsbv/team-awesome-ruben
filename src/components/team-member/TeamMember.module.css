@@ -19,7 +19,9 @@
 @media only screen and (min-width: 901px) {
   .container {
     align-content: center;
+    box-sizing: content-box;
     height: 82px;
+    min-height: 82px;
     padding: 0 42px 0 20px;
   }
 }
