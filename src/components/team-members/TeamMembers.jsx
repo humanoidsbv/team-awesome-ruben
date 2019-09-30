@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import IconArrowDown from '../../assets/icons/icon-arrow-down.svg';
@@ -7,13 +7,21 @@ import styles from './TeamMembers.module.css';
 import TeamMember from '../team-member/';
 import TeamMemberAdd from '../team-member-add/';
 
-const TeamMembers = ({ name }) => {
+const TeamMembers = ({ addTeamMember, fetchTeamMembers, teamMembers }) => {
+  useEffect(function getTeamMembers() {
+    fetchTeamMembers();
+  }, []);
+
   return (
     <React.Fragment>
-      <TeamMemberAdd />
+      <TeamMemberAdd addFormData={addTeamMember} />
       <div className={styles.header}>
         <span className={styles.heading}>All Humanoids</span>
-        <button type="button" className={styles.addMember}>
+        <button
+          className={styles.addMember}
+          onClick={addTeamMember}
+          type="button"
+        >
           <IconPlus className={styles.addNewIcon} />
           New Humanoid
         </button>
@@ -22,7 +30,13 @@ const TeamMembers = ({ name }) => {
           <IconArrowDown />
         </button>
       </div>
-      <TeamMember name={name} />
+      {teamMembers.map(teamMember => {
+        return (
+          <React.Fragment key={teamMember.id}>
+            <TeamMember teamMember={teamMember} />
+          </React.Fragment>
+        );
+      })}
     </React.Fragment>
   );
 };
@@ -30,11 +44,11 @@ const TeamMembers = ({ name }) => {
 TeamMembers.propTypes = {
   teamMembers: PropTypes.arrayOf(
     PropTypes.shape({
-      name: PropTypes.string
+      name: PropTypes.string,
+      id: PropTypes.number
     })
   ),
-  addTeamMembers: PropTypes.func.isRequired,
-  deleteTeamMember: PropTypes.func.isRequired,
+  addTeamMember: PropTypes.func.isRequired,
   fetchTeamMembers: PropTypes.func.isRequired
 };
 

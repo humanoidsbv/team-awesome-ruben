@@ -57,7 +57,7 @@ export function* watchAddTeamMemberRequest() {
   yield takeLatest(ADD_TEAM_MEMBER_REQUEST, addTeamMemberRequest);
 }
 
-export function* timeEntriesSagas() {
+export function* teamMembersSagas() {
   yield all([
     fork(watchAddTeamMemberRequest),
     fork(watchDeleteTeamMembersRequest),
