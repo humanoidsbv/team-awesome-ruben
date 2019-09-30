@@ -6,14 +6,14 @@ import {
   addTeamMemberRequest,
   deleteTeamMemberRequest,
   fetchTeamMembersRequest,
-  timeEntriesItemsSelector
+  teamMembersItemsSelector
 } from '../../redux/team-members';
 import TeamMembers from './TeamMembers';
 
 const TeamMembersContainer = props => <TeamMembers {...props} />;
 
 const mapStateToProps = state => ({
-  timeEntries: timeEntriesItemsSelector(state)
+  teamMembers: teamMembersItemsSelector(state)
 });
 
 const mapDispatchToProps = dispatch =>

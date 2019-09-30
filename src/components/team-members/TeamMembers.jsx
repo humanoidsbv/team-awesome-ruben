@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import IconArrowDown from '../../assets/icons/icon-arrow-down.svg';
 import IconPlus from '../../assets/icons/icon-plus.svg';
@@ -6,7 +7,7 @@ import styles from './TeamMembers.module.css';
 import TeamMember from '../team-member/';
 import TeamMemberAdd from '../team-member-add/';
 
-const TeamMembers = () => {
+const TeamMembers = ({ name }) => {
   return (
     <React.Fragment>
       <TeamMemberAdd />
@@ -21,9 +22,24 @@ const TeamMembers = () => {
           <IconArrowDown />
         </button>
       </div>
-      <TeamMember />
+      <TeamMember name={name} />
     </React.Fragment>
   );
+};
+
+TeamMembers.propTypes = {
+  teamMembers: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string
+    })
+  ),
+  addTeamMembers: PropTypes.func.isRequired,
+  deleteTeamMember: PropTypes.func.isRequired,
+  fetchTeamMembers: PropTypes.func.isRequired
+};
+
+TeamMembers.defaultProps = {
+  teamMembers: []
 };
 
 export default TeamMembers;
