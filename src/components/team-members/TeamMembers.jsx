@@ -8,22 +8,22 @@ import TeamMember from '../team-member/';
 import TeamMemberAdd from '../team-member-add/';
 
 const TeamMembers = ({ addTeamMember, fetchTeamMembers, teamMembers }) => {
-  const [isFormActive, setIsFormActive] = useState(false);
+  const [isFormVisible, setIsFormVisible] = useState(false);
 
   useEffect(function getTeamMembers() {
     fetchTeamMembers();
   }, []);
 
-  const handleFormActive = () => {
-    setIsFormActive(!isFormActive);
+  const handleFormVisible = () => {
+    setIsFormVisible(!isFormVisible);
   };
 
   return (
     <React.Fragment>
-      {isFormActive && (
+      {isFormVisible && (
         <TeamMemberAdd
           addFormData={addTeamMember}
-          handleFormActive={handleFormActive}
+          handleFormVisible={handleFormVisible}
         />
       )}
 
@@ -31,10 +31,10 @@ const TeamMembers = ({ addTeamMember, fetchTeamMembers, teamMembers }) => {
         <span className={styles.heading}>All Humanoids</span>
         <button
           className={`${styles.addMember} ${
-            isFormActive ? styles.addMemberActive : ''
+            isFormVisible ? styles.addMemberVisible : ''
           }`}
-          onClick={handleFormActive}
-          disabled={isFormActive === true}
+          onClick={handleFormVisible}
+          disabled={isFormVisible === true}
           type="button"
         >
           <IconPlus className={styles.addNewIcon} />

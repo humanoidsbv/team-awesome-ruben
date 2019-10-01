@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import styles from './TeamMemberAdd.module.css';
 import UserProfileImage from '../../../static/images/picture-tnt.jpg';
 
-const TeamMemberAdd = ({ addFormData, handleFormActive }) => {
+const TeamMemberAdd = ({ addFormData, handleFormVisible }) => {
   const [bio, setBio] = useState('');
   const [emailAdress, setEmailAdress] = useState('');
   const [facebook, setFacebook] = useState('');
@@ -28,7 +28,7 @@ const TeamMemberAdd = ({ addFormData, handleFormActive }) => {
   };
 
   const handleCloseForm = () => {
-    handleFormActive();
+    handleFormVisible();
     setBio('');
     setEmailAdress('');
     setFacebook('');
@@ -237,7 +237,7 @@ const TeamMemberAdd = ({ addFormData, handleFormActive }) => {
 
 TeamMemberAdd.propTypes = {
   addFormData: PropTypes.func.isRequired,
-  handleFormActive: PropTypes.func.isRequired
+  handleFormVisible: PropTypes.func.isRequired
 };
 
 export default TeamMemberAdd;
