@@ -74,7 +74,18 @@
   }
 }
 
+.addMemberActive {
+  background-color: #e6eaee;
+  background-image: none;
+  color: #68768c;
+  cursor: auto;
+}
+
 .addNewIcon {
   fill: #b0edb8;
   margin-right: 15px;
+}
+
+.addMemberActive .addNewIcon {
+  fill: #68768c;
 }

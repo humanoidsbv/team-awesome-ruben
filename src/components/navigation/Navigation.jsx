@@ -6,21 +6,37 @@ import styles from './Navigation.module.css';
 
 const Navigation = ({ isMenuVisible }) => (
   <nav className={`${styles.nav} ${isMenuVisible ? styles.navActive : ''}`}>
-    <Link to="/" className={`${styles.item} ${styles.itemActive}`}>
-      Timesheets
+    <Link to="/" className={styles.item} activeClassName={styles.itemActive}>
+      Time entries
     </Link>
-    <Link to="/team-members" className={styles.item}>
+    <Link
+      activeClassName={styles.itemActive}
+      className={styles.item}
+      to="/team-members"
+    >
       Team members
     </Link>
-    <a className={styles.item} href="/">
+    <Link
+      activeClassName={styles.itemActive}
+      className={styles.item}
+      to="/projects"
+    >
       Projects
-    </a>
-    <a className={styles.item} href="/">
+    </Link>
+    <Link
+      activeClassName={styles.itemActive}
+      className={styles.item}
+      to="/clients"
+    >
       Clients
-    </a>
-    <a className={styles.item} href="/">
+    </Link>
+    <Link
+      activeClassName={styles.itemActive}
+      className={styles.item}
+      to="/documents"
+    >
       Documents
-    </a>
+    </Link>
   </nav>
 );
 

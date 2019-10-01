@@ -4,15 +4,15 @@ import PropTypes from 'prop-types';
 import styles from './TeamMemberAdd.module.css';
 import UserProfileImage from '../../../static/images/picture-tnt.jpg';
 
-const TeamMemberAdd = ({ addFormData }) => {
+const TeamMemberAdd = ({ addFormData, handleFormActive }) => {
   const [bio, setBio] = useState('');
   const [emailAdress, setEmailAdress] = useState('');
-  const [faceBook, setFacebook] = useState('');
-  const [firstName, setFirstName] = useState('Antje');
+  const [facebook, setFacebook] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [homeAdress, setHomeAdress] = useState('');
   const [lastName, setLastName] = useState('');
   const [linkedIn, setLinkedIn] = useState('');
   const [locality, setLocality] = useState('');
-  const [homeAdress, setHomeAdress] = useState('');
   const [zipCode, setZipCode] = useState('');
 
   const [validity, setValidity] = useState({});
@@ -27,35 +27,55 @@ const TeamMemberAdd = ({ addFormData }) => {
     });
   };
 
+  const handleCloseForm = () => {
+    handleFormActive();
+    setBio('');
+    setEmailAdress('');
+    setFacebook('');
+    setFirstName('');
+    setHomeAdress('');
+    setLastName('');
+    setLinkedIn('');
+    setLocality('');
+    setZipCode('');
+  };
+
   const handleSubmit = event => {
     event.preventDefault();
+
     addFormData({
-      id: Math.random(),
-      firstName,
-      lastName,
       bio,
+      currentClient: '-',
+      employeeNumber: '-',
+      firstName,
       homeAdress,
-      zipCode,
+      id: Math.random(),
+      lastName,
       locality,
       role: '-',
       startingDate: '-',
-      employeeNumber: '-',
-      currentClient: '-'
+      zipCode
     });
+
+    handleCloseForm();
   };
 
   return (
     <div className={styles.container}>
       <div className={styles.header}>
         <span className={styles.heading}>Add new team member</span>
-        <button type="button" className={styles.cancelButton}>
+        <button
+          className={styles.cancelButton}
+          onClick={handleCloseForm}
+          type="button"
+        >
           Cancel
         </button>
         <button
           className={styles.addMemberButton}
-          //   disabled={validity.form !== true}
-          type="button"
+          disabled={validity.form !== true}
           onClick={handleSubmit}
+          type="button"
         >
           Save
         </button>
@@ -184,6 +204,31 @@ const TeamMemberAdd = ({ addFormData }) => {
               value={locality}
             />
           </label>
+          <label className={`${styles.label}`} htmlFor="socialProfiles">
+            <span className={styles.labelText}>Social Profiles</span>
+            <input
+              className={`${styles.input} ${styles.facebook}
+              ${validity.facebook === false ? styles.invalidInput : ''}`}
+              maxLength="30"
+              minLength="2"
+              name="faceBook"
+              onBlur={handleBlur}
+              onChange={({ target }) => setFacebook(target.value)}
+              required
+              value={facebook}
+            />
+            <input
+              className={`${styles.input}
+              ${validity.linkedIn === false ? styles.invalidInput : ''}`}
+              maxLength="30"
+              minLength="2"
+              name="linkedIn"
+              onBlur={handleBlur}
+              onChange={({ target }) => setLinkedIn(target.value)}
+              required
+              value={linkedIn}
+            />
+          </label>
         </div>
       </form>
     </div>
@@ -191,7 +236,8 @@ const TeamMemberAdd = ({ addFormData }) => {
 };
 
 TeamMemberAdd.propTypes = {
-  addFormData: PropTypes.func.isRequired
+  addFormData: PropTypes.func.isRequired,
+  handleFormActive: PropTypes.func.isRequired
 };
 
 export default TeamMemberAdd;

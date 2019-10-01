@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import IconArrowDown from '../../assets/icons/icon-arrow-down.svg';
@@ -8,18 +8,33 @@ import TeamMember from '../team-member/';
 import TeamMemberAdd from '../team-member-add/';
 
 const TeamMembers = ({ addTeamMember, fetchTeamMembers, teamMembers }) => {
+  const [isFormActive, setIsFormActive] = useState(false);
+
   useEffect(function getTeamMembers() {
     fetchTeamMembers();
   }, []);
 
+  const handleFormActive = () => {
+    setIsFormActive(!isFormActive);
+  };
+
   return (
     <React.Fragment>
-      <TeamMemberAdd addFormData={addTeamMember} />
+      {isFormActive && (
+        <TeamMemberAdd
+          addFormData={addTeamMember}
+          handleFormActive={handleFormActive}
+        />
+      )}
+
       <div className={styles.header}>
         <span className={styles.heading}>All Humanoids</span>
         <button
-          className={styles.addMember}
-          onClick={addTeamMember}
+          className={`${styles.addMember} ${
+            isFormActive ? styles.addMemberActive : ''
+          }`}
+          onClick={handleFormActive}
+          disabled={isFormActive === true}
           type="button"
         >
           <IconPlus className={styles.addNewIcon} />

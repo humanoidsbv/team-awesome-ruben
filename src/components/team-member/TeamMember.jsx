@@ -9,6 +9,7 @@ const TeamMember = ({
   teamMember: { currentClient },
   teamMember: { employeeNumber },
   teamMember: { firstName },
+  teamMember: { lastName },
   teamMember: { role },
   teamMember: { startingDate }
 }) => {
@@ -17,10 +18,12 @@ const TeamMember = ({
   const handleClick = () => setIsExpanded(!isExpanded);
 
   return (
-    <div
+    <button
       className={`${styles.container} ${
         isExpanded ? styles.containerActive : ''
       }`}
+      onClick={handleClick}
+      type="button"
     >
       <img
         alt="Profile avatar"
@@ -28,40 +31,56 @@ const TeamMember = ({
         src={UserProfileImage}
       />
       <div className={styles.nameContainer}>
-        <span className={styles.name}>{firstName}</span>
+        <span className={styles.name}>{`${firstName} ${lastName}`}</span>
         <span className={styles.role}>{role}</span>
       </div>
       <IconArrowExpand
-        className={`${styles.arrowExpand} ${styles.arrowExpandActive}`}
-        onClick={handleClick}
+        className={`${styles.arrowExpand}
+      ${isExpanded ? styles.arrowExpandActive : ''}`}
       />
-      <span className={styles.descriptionBlock}>
-        Detailed information about Antje
+      <span
+        className={`${styles.descriptionBlock}
+      ${isExpanded ? styles.descriptionBlockActive : ''}`}
+      >
+        {`Detailed information about ${firstName}`}
       </span>
-      <div className={`${styles.detailContainer} ${styles.employeeNumber}`}>
+      <div
+        className={`
+          ${styles.detailContainer} ${styles.employeeNumber}
+          ${isExpanded ? styles.detailContainerActive : ''}`}
+      >
         <span className={styles.detail}>{employeeNumber}</span>
         <span className={styles.detailDescription}>Employee number</span>
       </div>
-      <div className={`${styles.detailContainer} ${styles.currentClient}`}>
+      <div
+        className={`
+          ${styles.detailContainer} ${styles.currentClient}
+          ${isExpanded ? styles.detailContainerActive : ''}`}
+      >
         <span className={styles.detail}>{currentClient}</span>
         <span className={styles.detailDescription}>Current client</span>
       </div>
-      <div className={`${styles.detailContainer} ${styles.startingDate}`}>
+      <div
+        className={`
+          ${styles.detailContainer} ${styles.startingDate}
+          ${isExpanded ? styles.detailContainerActive : ''}`}
+      >
         <span className={styles.detail}>{startingDate}</span>
         <span className={styles.detailDescription}>Starting date</span>
       </div>
-    </div>
+    </button>
   );
 };
 
 TeamMember.propTypes = {
   teamMember: PropTypes.shape({
-    firstName: PropTypes.string,
-    role: PropTypes.string,
-    employeeNumber: PropTypes.string,
+    avatar: PropTypes.string,
     currentClient: PropTypes.string,
-    startingDate: PropTypes.string,
-    avatar: PropTypes.string
+    employeeNumber: PropTypes.string,
+    firstName: PropTypes.string,
+    lastName: PropTypes.string,
+    role: PropTypes.string,
+    startingDate: PropTypes.string
   })
 };
 

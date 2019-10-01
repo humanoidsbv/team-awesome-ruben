@@ -17,10 +17,7 @@
 }
 
 .layout {
-  display: block;
-  height: 100vh;
   padding: 75px 16px 0 16px;
-  position: relative;
 }
 
 @media only screen and (min-width: 901px) {
@@ -40,15 +37,23 @@ p {
   margin: 0;
 }
 
+input {
+  box-sizing: border-box;
+}
+
 input[type='date']::-webkit-inner-spin-button,
 input[type='date']::-webkit-clear-button,
 input[type='time']::-webkit-inner-spin-button,
 input[type='time']::-webkit-clear-button,
 input[type='date']::-webkit-calendar-picker-indicator {
-  -webkit-appearance: none;
   display: none;
 }
 
-input {
-  box-sizing: border-box;
+button {
+  background: initial;
+  border: 0;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  outline: 0;
 }
