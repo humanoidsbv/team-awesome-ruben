@@ -1,14 +1,14 @@
 import React from 'react';
 
+import Clients from '../components/client/';
 import Header from '../components/header/';
 import Layout from '../components/Layout';
-import TimeEntries from '../components/time-entries/';
 
 export default () => (
   <React.Fragment>
     <Header />
     <Layout>
-      <TimeEntries />
+      <Clients />
     </Layout>
   </React.Fragment>
 );

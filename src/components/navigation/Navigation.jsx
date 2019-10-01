@@ -19,9 +19,13 @@ const Navigation = ({ isMenuVisible }) => (
     <a href="/" className={styles.item}>
       Projects
     </a>
-    <a href="/" className={styles.item}>
+    <Link
+      activeClassName={styles.itemActive}
+      className={styles.item}
+      to="/clients"
+    >
       Clients
-    </a>
+    </Link>
     <a className={styles.item} href="/">
       Documents
     </a>
