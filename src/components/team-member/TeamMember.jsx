@@ -6,12 +6,14 @@ import UserProfileImage from '../../../static/images/picture-tnt.jpg';
 import styles from './TeamMember.module.css';
 
 const TeamMember = ({
-  teamMember: { currentClient },
-  teamMember: { employeeNumber },
-  teamMember: { firstName },
-  teamMember: { lastName },
-  teamMember: { role },
-  teamMember: { startingDate }
+  teamMember: {
+    currentClient,
+    employeeNumber,
+    firstName,
+    lastName,
+    role,
+    startingDate
+  }
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 

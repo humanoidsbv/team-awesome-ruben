@@ -1,6 +1,4 @@
 .container {
-  display: flex;
-  flex-direction: column;
   margin-bottom: 25px;
 }
 
@@ -108,7 +106,6 @@
     display: inline-flex;
     font-size: 18px;
     position: relative;
-    width: 128px;
   }
 }
 

@@ -22,9 +22,13 @@
 
 @media only screen and (min-width: 901px) {
   .layout {
-    margin: auto;
+    margin: 0 auto;
     padding-top: 103px;
   }
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body,
@@ -35,10 +39,6 @@ input {
 
 p {
   margin: 0;
-}
-
-input {
-  box-sizing: border-box;
 }
 
 input[type='date']::-webkit-inner-spin-button,

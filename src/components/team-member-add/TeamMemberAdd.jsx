@@ -13,7 +13,7 @@ const TeamMemberAdd = ({ addFormData, handleFormVisible }) => {
   const [lastName, setLastName] = useState('');
   const [linkedIn, setLinkedIn] = useState('');
   const [locality, setLocality] = useState('');
-  const [zipCode, setZipCode] = useState('');
+  const [postalCode, setPostalCode] = useState('');
 
   const [validity, setValidity] = useState({});
 
@@ -37,7 +37,7 @@ const TeamMemberAdd = ({ addFormData, handleFormVisible }) => {
     setLastName('');
     setLinkedIn('');
     setLocality('');
-    setZipCode('');
+    setPostalCode('');
   };
 
   const handleSubmit = event => {
@@ -54,7 +54,7 @@ const TeamMemberAdd = ({ addFormData, handleFormVisible }) => {
       locality,
       role: '-',
       startingDate: '-',
-      zipCode
+      postalCode
     });
 
     handleCloseForm();
@@ -172,26 +172,26 @@ const TeamMemberAdd = ({ addFormData, handleFormVisible }) => {
           </label>
           <label
             className={`${styles.label} ${styles.labelHalfWidth}`}
-            htmlFor="zipCode"
+            htmlFor="postalCode"
           >
-            <span className={styles.labelText}>ZIP code</span>
+            <span className={styles.labelText}>Postal code</span>
             <input
               className={`${styles.input} 
-              ${validity.zipCode === false ? styles.invalidInput : ''}`}
+              ${validity.postalCode === false ? styles.invalidInput : ''}`}
               maxLength="30"
               minLength="2"
-              name="zipCode"
+              name="postalCode"
               onBlur={handleBlur}
-              onChange={({ target }) => setZipCode(target.value)}
+              onChange={({ target }) => setPostalCode(target.value)}
               required
-              value={zipCode}
+              value={postalCode}
             />
           </label>
           <label
             className={`${styles.label} ${styles.labelHalfWidth}`}
             htmlFor="locality"
           >
-            <span className={styles.labelText}>City</span>
+            <span className={styles.labelText}>Place of birth</span>
             <input
               className={`${styles.input} 
               ${validity.locality === false ? styles.invalidInput : ''}`}
@@ -214,7 +214,6 @@ const TeamMemberAdd = ({ addFormData, handleFormVisible }) => {
               name="faceBook"
               onBlur={handleBlur}
               onChange={({ target }) => setFacebook(target.value)}
-              required
               value={facebook}
             />
             <input
