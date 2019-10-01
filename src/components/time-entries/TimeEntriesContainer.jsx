@@ -15,6 +15,7 @@ const TimeEntriesContainer = props => <TimeEntries {...props} />;
 const mapStateToProps = state => ({
   timeEntries: timeEntriesItemsSelector(state)
 });
+
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {

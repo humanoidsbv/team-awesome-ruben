@@ -1,0 +1,140 @@
+.container {
+  align-content: flex-start;
+  align-items: center;
+  border: 1px solid #e6eaee;
+  border-left: 4px solid #4f88ef;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  height: 82px;
+  margin-bottom: 20px;
+  padding: 16px 22px 24px;
+  transition: 0.3s;
+  width: 100%;
+}
+
+.containerActive {
+  height: 250px;
+}
+
+@media only screen and (min-width: 901px) {
+  .container {
+    align-content: center;
+    height: 82px;
+    padding: 0 42px 0 20px;
+  }
+}
+
+.profileImage {
+  border-radius: 50%;
+  display: block;
+  height: 50px;
+  margin-right: 25px;
+  width: 50px;
+}
+
+.nameContainer {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+}
+
+.detailContainer {
+  display: none;
+}
+
+.detailContainerActive {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  margin-top: 16px;
+  width: 100%;
+}
+
+@media only screen and (min-width: 901px) {
+  .detailContainer {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 0 0;
+    width: 150px;
+  }
+}
+
+.name {
+  margin-bottom: 2px;
+}
+
+.role {
+  color: #7f8fa4;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+.descriptionBlock {
+  background-color: #f5f8fa;
+  border: solid 1px #e6eaee;
+  border-width: 1px 0;
+  color: #7f8fa4;
+  display: none;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  margin: 16px -22px 0 -22px;
+  padding: 10px 0 10px 30px;
+  width: calc(100% + 44px);
+}
+
+.descriptionBlockActive {
+  display: initial;
+}
+
+@media only screen and (min-width: 901px) {
+  .descriptionBlock {
+    display: none;
+  }
+}
+
+.detail {
+  margin-bottom: 2px;
+}
+
+.detailDescription {
+  color: #7f8fa4;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.arrowExpand {
+  display: block;
+  fill: #ced0da;
+  height: auto;
+  margin-left: auto;
+  transition: 0.3s;
+  width: auto;
+}
+
+@media only screen and (min-width: 901px) {
+  .arrowExpand {
+    margin: 0;
+    order: 10;
+  }
+}
+
+.arrowExpandActive {
+  transform: rotate(180deg);
+}
+
+.employeeNumber {
+  display: none;
+}
+
+@media only screen and (min-width: 901px) {
+  .employeeNumber {
+    display: flex;
+    margin-left: auto;
+  }
+}

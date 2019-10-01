@@ -22,8 +22,13 @@
 
 @media only screen and (min-width: 901px) {
   .layout {
+    margin: 0 auto;
     padding-top: 103px;
   }
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body,
@@ -41,10 +46,14 @@ input[type='date']::-webkit-clear-button,
 input[type='time']::-webkit-inner-spin-button,
 input[type='time']::-webkit-clear-button,
 input[type='date']::-webkit-calendar-picker-indicator {
-  -webkit-appearance: none;
   display: none;
 }
 
-input {
-  box-sizing: border-box;
+button {
+  background: initial;
+  border: 0;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  outline: 0;
 }
