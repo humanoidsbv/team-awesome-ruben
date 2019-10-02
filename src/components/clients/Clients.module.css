@@ -52,7 +52,7 @@
 
 .addMember {
   align-items: center;
-  background-image: linear-gradient(to bottom, #39b54a, #34aa44 98%);
+  background-color: #39b54a;
   border-radius: 4px;
   border: 0;
   color: #fff;

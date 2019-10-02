@@ -99,9 +99,8 @@ const TeamMemberAdd = ({ addFormData, handleFormVisible }) => {
           >
             <span className={styles.labelText}>First name</span>
             <input
-              className={`${styles.input} ${
-                validity.firstName === false ? styles.invalidInput : ''
-              }`}
+              className={`${styles.input} ${validity.firstName === false &&
+                styles.invalidInput}`}
               maxLength="30"
               minLength="2"
               name="firstName"
@@ -117,9 +116,8 @@ const TeamMemberAdd = ({ addFormData, handleFormVisible }) => {
           >
             <span className={styles.labelText}>Last name</span>
             <input
-              className={`${styles.input} ${
-                validity.lastName === false ? styles.invalidInput : ''
-              }`}
+              className={`${styles.input} ${validity.lastName === false &&
+                styles.invalidInput}`}
               maxLength="30"
               minLength="2"
               name="lastName"

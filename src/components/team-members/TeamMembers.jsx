@@ -14,9 +14,7 @@ const TeamMembers = ({ addTeamMember, fetchTeamMembers, teamMembers }) => {
     fetchTeamMembers();
   }, []);
 
-  const handleFormVisible = () => {
-    setIsFormVisible(!isFormVisible);
-  };
+  const handleFormVisible = () => setIsFormVisible(!isFormVisible);
 
   return (
     <React.Fragment>

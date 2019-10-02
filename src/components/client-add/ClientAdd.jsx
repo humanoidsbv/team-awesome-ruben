@@ -10,7 +10,7 @@ const ClientAdd = ({ addFormData, handleFormVisible }) => {
   const [mainAdress, setMainAdress] = useState('');
   const [postalCode, setPostalCode] = useState('');
 
-  const [validity, setValidity] = useState({});
+  const [validity, setValidity] = useState({ undefined });
 
   const formRef = useRef(null);
 
@@ -24,7 +24,11 @@ const ClientAdd = ({ addFormData, handleFormVisible }) => {
 
   const handleCloseForm = () => {
     handleFormVisible();
+    setBranch('');
     setClient('');
+    setLocality('');
+    setMainAdress('');
+    setPostalCode('');
   };
 
   const handleSubmit = event => {
@@ -59,12 +63,11 @@ const ClientAdd = ({ addFormData, handleFormVisible }) => {
       </div>
       <form className={styles.form} onSubmit={handleSubmit} ref={formRef}>
         <div className={styles.inputContainer}>
-          <label className={`${styles.label}`} htmlFor="firstName">
+          <label className={styles.label} htmlFor="firstName">
             <span className={styles.labelText}>Client</span>
             <input
-              className={`${styles.input} ${
-                validity.client === false ? styles.invalidInput : ''
-              }`}
+              className={`${styles.input}
+                ${validity.client === false && styles.invalidInput}`}
               maxLength="30"
               minLength="2"
               name="client"
@@ -77,9 +80,8 @@ const ClientAdd = ({ addFormData, handleFormVisible }) => {
           <label className={`${styles.label}`} htmlFor="branch">
             <span className={styles.labelText}>Branch</span>
             <input
-              className={`${styles.input} ${
-                validity.branch === false ? styles.invalidInput : ''
-              }`}
+              className={`${styles.input} ${validity.branch === false &&
+                styles.invalidInput}`}
               maxLength="30"
               minLength="2"
               name="branch"
@@ -96,7 +98,7 @@ const ClientAdd = ({ addFormData, handleFormVisible }) => {
             <span className={styles.labelText}>Branch adress</span>
             <input
               className={`${styles.input} 
-              ${validity.mainAdress === false ? styles.invalidInput : ''}`}
+              ${validity.mainAdress === false && styles.invalidInput}`}
               maxLength="30"
               minLength="2"
               name="mainAdress"
@@ -113,7 +115,7 @@ const ClientAdd = ({ addFormData, handleFormVisible }) => {
             <span className={styles.labelText}>Postal code</span>
             <input
               className={`${styles.input} 
-              ${validity.postalCode === false ? styles.invalidInput : ''}`}
+              ${validity.postalCode === false && styles.invalidInput}`}
               maxLength="30"
               minLength="2"
               name="postalCode"
@@ -130,7 +132,7 @@ const ClientAdd = ({ addFormData, handleFormVisible }) => {
             <span className={styles.labelText}>Location</span>
             <input
               className={`${styles.input} 
-              ${validity.locality === false ? styles.invalidInput : ''}`}
+              ${validity.locality === false && styles.invalidInput}`}
               maxLength="30"
               minLength="2"
               name="locality"

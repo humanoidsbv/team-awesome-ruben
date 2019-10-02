@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
 import Client from '../client/';
 import ClientAdd from '../client-add/';
@@ -6,13 +7,14 @@ import IconArrowDown from '../../assets/icons/icon-arrow-down.svg';
 import IconPlus from '../../assets/icons/icon-plus.svg';
 import styles from './Clients.module.css';
 
-const Clients = () => {
+const Clients = ({ addClient, fetchClients, clients }) => {
   const [isFormVisible, SetIsFormVisible] = useState(false);
 
-  const handleFormVisible = () => SetIsFormVisible(!isFormVisible);
+  useEffect(function getClients() {
+    fetchClients();
+  }, []);
 
-  //* Todo: add client in database when connected
-  const addClient = () => 0;
+  const handleFormVisible = () => SetIsFormVisible(!isFormVisible);
 
   return (
     <React.Fragment>
@@ -25,9 +27,8 @@ const Clients = () => {
       <div className={styles.header}>
         <span className={styles.heading}>All Clients</span>
         <button
-          className={`${styles.addMember} ${
-            isFormVisible ? styles.addMemberVisible : ''
-          }`}
+          className={`${styles.addMember}
+            ${isFormVisible && styles.addMemberVisible}`}
           disabled={isFormVisible === true}
           onClick={handleFormVisible}
           type="button"
@@ -40,9 +41,29 @@ const Clients = () => {
           <IconArrowDown />
         </button>
       </div>
-      <Client />
+      {clients.map(client => {
+        return (
+          <React.Fragment key={client.id}>
+            <Client client={client} />
+          </React.Fragment>
+        );
+      })}
     </React.Fragment>
   );
+};
+
+Clients.propTypes = {
+  clients: PropTypes.arrayOf(
+    PropTypes.shape({
+      client: PropTypes.string
+    })
+  ),
+  addClient: PropTypes.func.isRequired,
+  fetchClients: PropTypes.func.isRequired
+};
+
+Clients.defaultProps = {
+  clients: []
 };
 
 export default Clients;
