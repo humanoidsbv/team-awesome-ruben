@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Clients from '../components/client/';
+import Clients from '../components/clients/';
 import Header from '../components/header/';
 import Layout from '../components/Layout';
 

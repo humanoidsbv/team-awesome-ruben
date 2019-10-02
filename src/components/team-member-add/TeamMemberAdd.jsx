@@ -154,7 +154,6 @@ const TeamMemberAdd = ({ addFormData, handleFormVisible }) => {
             />
           </label>
         </div>
-        <span className={styles.verticalLine} />
         <div className={styles.inputContainer}>
           <label className={`${styles.label}`} htmlFor="homeAdress">
             <span className={styles.labelText}>Adress</span>

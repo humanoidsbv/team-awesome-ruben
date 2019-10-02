@@ -33,8 +33,8 @@ const TeamMember = ({
         src={UserProfileImage}
       />
       <div className={styles.nameContainer}>
-        <span className={styles.name}>{`${firstName} ${lastName}`}</span>
-        <span className={styles.role}>{role}</span>
+        <span className={styles.detail}>{`${firstName} ${lastName}`}</span>
+        <span className={styles.detailDescription}>{role}</span>
       </div>
       <IconArrowExpand
         className={`${styles.arrowExpand}

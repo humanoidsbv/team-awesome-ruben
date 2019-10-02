@@ -1,28 +1,58 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import DeleteIcon from '../../assets/icons/icon-delete.svg';
+import IconArrowExpand from '../../assets/icons/icon-arrow-expand.svg';
 import styles from './Client.module.css';
 
 const Client = () => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const handleClick = () => setIsExpanded(!isExpanded);
+
   const client = 'Port of Rotterdam';
-  const contact = 'Bertjan Hendriksen';
+  const clientNumber = 'POR_001';
+  const projects = { '0': 'project1', '1': 'project1', '2': 'project1' };
 
   return (
-    <div className={styles.container}>
-      <span>{client}</span>
-      <button
-        className={styles.deleteEntry}
-        onClick={() => console.log('Delete client')}
-        type="button"
-      >
-        <DeleteIcon className={styles.deleteIcon} />
-        Delete
-      </button>
-      <div className={styles.infoContainer}>
-        <span className={styles.infoContainerMain}>{contact}</span>
-        <span className={styles.infoContainerContext}>Contact</span>
+    <button
+      className={`${styles.container} ${
+        isExpanded ? styles.containerActive : ''
+      }`}
+      onClick={handleClick}
+      type="button"
+    >
+      <div className={styles.nameContainer}>
+        <span>{client}</span>
       </div>
-    </div>
+      <IconArrowExpand
+        className={`${styles.arrowExpand}
+      ${isExpanded ? styles.arrowExpandActive : ''}`}
+      />
+      <span
+        className={`${styles.descriptionBlock}
+      ${isExpanded ? styles.descriptionBlockActive : ''}`}
+      >
+        {`Detailed information about ${client}`}
+      </span>
+      <div
+        className={`
+          ${styles.detailContainer} ${styles.employeeNumber}
+          ${isExpanded ? styles.detailContainerActive : ''}`}
+      >
+        <span className={styles.detail}>{clientNumber}</span>
+        <span className={styles.detailDescription}>Client number</span>
+      </div>
+
+      <div
+        className={`
+          ${styles.detailContainer} ${styles.startingDate}
+          ${isExpanded ? styles.detailContainerActive : ''}`}
+      >
+        <span className={styles.detail}>
+          {String(Object.keys(projects).length).padStart(3, '0')}
+        </span>
+        <span className={styles.detailDescription}>Active projects</span>
+      </div>
+    </button>
   );
 };
 
