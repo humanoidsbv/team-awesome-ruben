@@ -1,5 +1,13 @@
 .container {
+  flex-direction: column;
+  display: flex;
   margin-bottom: 25px;
+}
+
+@media only screen and (min-width: 901px) {
+  .container {
+    display: block;
+  }
 }
 
 .header {
