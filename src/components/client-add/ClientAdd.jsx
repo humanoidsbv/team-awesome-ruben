@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import styles from './ClientAdd.module.css';
 
-const ClientAdd = ({ addFormData, handleFormVisible }) => {
+const ClientAdd = ({ addClientData, toggleFormVisibility }) => {
   const [branch, setBranch] = useState('');
   const [client, setClient] = useState('');
   const [locality, setLocality] = useState('');
@@ -30,18 +30,18 @@ const ClientAdd = ({ addFormData, handleFormVisible }) => {
   };
 
   const handleCloseForm = () => {
-    handleFormVisible();
     setBranch('');
+    setBranchAdress('');
     setClient('');
     setLocality('');
-    setBranchAdress('');
     setPostalCode('');
+    toggleFormVisibility();
   };
 
   const handleSubmit = event => {
     event.preventDefault();
 
-    addFormData({
+    addClientData({
       branch,
       branchAdress,
       client,
@@ -54,24 +54,6 @@ const ClientAdd = ({ addFormData, handleFormVisible }) => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.header}>
-        <span className={styles.heading}>Add New Client</span>
-        <button
-          className={styles.cancelButton}
-          onClick={handleCloseForm}
-          type="button"
-        >
-          Cancel
-        </button>
-        <button
-          className={styles.addMemberButton}
-          disabled={validity.form !== true}
-          onClick={handleSubmit}
-          type="button"
-        >
-          Save
-        </button>
-      </div>
       <div className={styles.formTab}>
         <span>Client Details</span>
       </div>
@@ -158,13 +140,31 @@ const ClientAdd = ({ addFormData, handleFormVisible }) => {
           </label>
         </div>
       </form>
+      <div className={styles.header}>
+        <span className={styles.heading}>Add New Client</span>
+        <button
+          className={styles.cancelButton}
+          onClick={handleCloseForm}
+          type="button"
+        >
+          Cancel
+        </button>
+        <button
+          className={styles.addMemberButton}
+          disabled={validity.form !== true}
+          onClick={handleSubmit}
+          type="button"
+        >
+          Save
+        </button>
+      </div>
     </div>
   );
 };
 
 ClientAdd.propTypes = {
-  addFormData: PropTypes.func.isRequired,
-  handleFormVisible: PropTypes.func.isRequired
+  addClientData: PropTypes.func.isRequired,
+  toggleFormVisibility: PropTypes.func.isRequired
 };
 
 export default ClientAdd;

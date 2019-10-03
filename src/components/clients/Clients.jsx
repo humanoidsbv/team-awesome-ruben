@@ -14,14 +14,14 @@ const Clients = ({ addClient, clients, fetchClients }) => {
     fetchClients();
   }, []);
 
-  const handleFormVisible = () => SetIsFormVisible(!isFormVisible);
+  const handleFormVisibility = () => SetIsFormVisible(!isFormVisible);
 
   return (
     <React.Fragment>
       {isFormVisible && (
         <ClientAdd
-          addFormData={addClient}
-          handleFormVisible={handleFormVisible}
+          addClientData={addClient}
+          toggleFormVisibility={handleFormVisibility}
         />
       )}
       <div className={styles.header}>
@@ -29,8 +29,8 @@ const Clients = ({ addClient, clients, fetchClients }) => {
         <button
           className={`${styles.addMember}
             ${isFormVisible && styles.addMemberVisible}`}
-          disabled={isFormVisible === true}
-          onClick={handleFormVisible}
+          disabled={isFormVisible}
+          onClick={handleFormVisibility}
           type="button"
         >
           <IconPlus className={styles.addNewIcon} />
@@ -41,24 +41,22 @@ const Clients = ({ addClient, clients, fetchClients }) => {
           <IconArrowDown />
         </button>
       </div>
-      {clients.map(client => {
-        return (
-          <React.Fragment key={client.id}>
-            <Client client={client} />
-          </React.Fragment>
-        );
-      })}
+      {clients.map(client => (
+        <React.Fragment key={client.id}>
+          <Client client={client} />
+        </React.Fragment>
+      ))}
     </React.Fragment>
   );
 };
 
 Clients.propTypes = {
+  addClient: PropTypes.func.isRequired,
   clients: PropTypes.arrayOf(
     PropTypes.shape({
       client: PropTypes.string
     })
   ),
-  addClient: PropTypes.func.isRequired,
   fetchClients: PropTypes.func.isRequired
 };
 
