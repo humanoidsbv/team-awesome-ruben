@@ -11,6 +11,7 @@ const Client = ({ client: { client } }) => {
 
   const clientNumber = 'POR_001';
   const projects = { '0': 'project1' };
+  const activeTeamMembers = ['Antje Adriaens'];
 
   return (
     <button
@@ -50,6 +51,17 @@ const Client = ({ client: { client } }) => {
           {String(Object.keys(projects).length).padStart(3, '0')}
         </span>
         <span className={styles.detailDescription}>Active projects</span>
+      </div>
+
+      <div
+        className={`
+          ${styles.detailContainer} ${styles.startingDate}
+          ${isExpanded && styles.detailContainerActive}`}
+      >
+        <span className={styles.detail}>
+          {String(activeTeamMembers.length).padStart(3, '0')}
+        </span>
+        <span className={styles.detailDescription}>Assigned</span>
       </div>
     </button>
   );

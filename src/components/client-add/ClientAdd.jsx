@@ -7,14 +7,21 @@ const ClientAdd = ({ addFormData, handleFormVisible }) => {
   const [branch, setBranch] = useState('');
   const [client, setClient] = useState('');
   const [locality, setLocality] = useState('');
-  const [mainAdress, setMainAdress] = useState('');
+  const [branchAdress, setBranchAdress] = useState('');
   const [postalCode, setPostalCode] = useState('');
 
-  const [validity, setValidity] = useState({ undefined });
+  const [validity, setValidity] = useState({});
 
   const formRef = useRef(null);
 
   const handleBlur = event => {
+    // Descontruct a dynamic value from an object and keep the remainder
+    if (event.target.value === '') {
+      const { [event.target.name]: inputValidity, ...restValidity } = validity;
+      setValidity(restValidity);
+      return;
+    }
+
     setValidity({
       ...validity,
       form: formRef.current.checkValidity(),
@@ -27,14 +34,21 @@ const ClientAdd = ({ addFormData, handleFormVisible }) => {
     setBranch('');
     setClient('');
     setLocality('');
-    setMainAdress('');
+    setBranchAdress('');
     setPostalCode('');
   };
 
   const handleSubmit = event => {
     event.preventDefault();
 
-    addFormData({ client });
+    addFormData({
+      branch,
+      branchAdress,
+      client,
+      id: Math.random(),
+      locality,
+      postalCode
+    });
     handleCloseForm();
   };
 
@@ -63,7 +77,7 @@ const ClientAdd = ({ addFormData, handleFormVisible }) => {
       </div>
       <form className={styles.form} onSubmit={handleSubmit} ref={formRef}>
         <div className={styles.inputContainer}>
-          <label className={styles.label} htmlFor="firstName">
+          <label className={styles.label} htmlFor="client">
             <span className={styles.labelText}>Client</span>
             <input
               className={`${styles.input}
@@ -94,18 +108,18 @@ const ClientAdd = ({ addFormData, handleFormVisible }) => {
         </div>
         <span className={styles.verticalLine} />
         <div className={styles.inputContainer}>
-          <label className={`${styles.label}`} htmlFor="mainAdress">
+          <label className={`${styles.label}`} htmlFor="branchAdress">
             <span className={styles.labelText}>Branch adress</span>
             <input
               className={`${styles.input} 
-              ${validity.mainAdress === false && styles.invalidInput}`}
+              ${validity.branchAdress === false && styles.invalidInput}`}
               maxLength="30"
               minLength="2"
-              name="mainAdress"
+              name="branchAdress"
               onBlur={handleBlur}
-              onChange={({ target }) => setMainAdress(target.value)}
+              onChange={({ target }) => setBranchAdress(target.value)}
               required
-              value={mainAdress}
+              value={branchAdress}
             />
           </label>
           <label
