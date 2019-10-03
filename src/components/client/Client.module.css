@@ -8,7 +8,7 @@
   flex-wrap: wrap;
   height: 82px;
   margin-bottom: 20px;
-  padding: 30px 22px 24px;
+  padding: 32px 22px 24px;
   text-align: left;
   transition: 0.3s;
   width: 100%;
@@ -20,18 +20,8 @@
 
 @media only screen and (min-width: 901px) {
   .container {
-    align-content: center;
-    height: 82px;
-    padding: 0 42px 0 20px;
+    padding: 24px 42px 24px 24px;
   }
-}
-
-.profileImage {
-  border-radius: 50%;
-  display: block;
-  height: 50px;
-  margin-right: 25px;
-  width: 50px;
 }
 
 .nameContainer {
@@ -62,7 +52,7 @@
   }
 
   .detailContainer + .detailContainer {
-    margin-left: 0;
+    margin: 0;
   }
 }
 
@@ -100,6 +90,24 @@
   letter-spacing: 0.2px;
 }
 
+@media only screen and (min-width: 901px) {
+  .fullWidth {
+    display: none;
+  }
+
+  .detailContainerActive.fullWidth {
+    display: flex;
+    flex-direction: column;
+    order: 6;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .fullWidth + .fullWidth {
+    margin-top: 20px;
+  }
+}
+
 .arrowExpand {
   display: block;
   fill: #ced0da;
@@ -112,7 +120,7 @@
 @media only screen and (min-width: 901px) {
   .arrowExpand {
     margin: 0;
-    order: 10;
+    order: 5;
   }
 }
 

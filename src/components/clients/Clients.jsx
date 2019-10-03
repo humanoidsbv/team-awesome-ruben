@@ -7,7 +7,7 @@ import IconArrowDown from '../../assets/icons/icon-arrow-down.svg';
 import IconPlus from '../../assets/icons/icon-plus.svg';
 import styles from './Clients.module.css';
 
-const Clients = ({ addClient, fetchClients, clients }) => {
+const Clients = ({ addClient, clients, fetchClients }) => {
   const [isFormVisible, SetIsFormVisible] = useState(false);
 
   useEffect(function getClients() {

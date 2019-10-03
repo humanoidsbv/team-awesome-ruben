@@ -9,12 +9,19 @@ import {
   fetchClientsRequest,
   clientsItemsSelector
 } from '../../redux/clients';
+
+import {
+  fetchTimeEntriesRequest,
+  timeEntriesItemsSelector
+} from '../../redux/time-entries';
+
 import Clients from './Clients';
 
 const ClientsContainer = props => <Clients {...props} />;
 
 const mapStateToProps = state => ({
-  clients: clientsItemsSelector(state)
+  clients: clientsItemsSelector(state),
+  teamMembers: timeEntriesItemsSelector(state)
 });
 
 const mapDispatchToProps = dispatch =>
@@ -22,7 +29,8 @@ const mapDispatchToProps = dispatch =>
     {
       addClient: addClientRequest,
       deleteClient: deleteClientRequest,
-      fetchClients: fetchClientsRequest
+      fetchClients: fetchClientsRequest,
+      fetchTimeEntries: fetchTimeEntriesRequest
     },
     dispatch
   );

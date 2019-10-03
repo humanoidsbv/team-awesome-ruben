@@ -9,7 +9,7 @@ const Client = ({ client: { client } }) => {
 
   const handleClick = () => setIsExpanded(!isExpanded);
 
-  const clientNumber = 'POR_001';
+  const clientNumber = 'CLN_';
   const projects = { '0': 'project1' };
   const activeTeamMembers = ['Antje Adriaens'];
 
@@ -35,7 +35,7 @@ const Client = ({ client: { client } }) => {
       </span>
       <div
         className={`
-          ${styles.detailContainer} ${styles.employeeNumber}
+          ${styles.detailContainer}
           ${isExpanded && styles.detailContainerActive}`}
       >
         <span className={styles.detail}>{clientNumber}</span>
@@ -44,7 +44,7 @@ const Client = ({ client: { client } }) => {
 
       <div
         className={`
-          ${styles.detailContainer} ${styles.startingDate}
+          ${styles.detailContainer}
           ${isExpanded && styles.detailContainerActive}`}
       >
         <span className={styles.detail}>
@@ -55,7 +55,28 @@ const Client = ({ client: { client } }) => {
 
       <div
         className={`
-          ${styles.detailContainer} ${styles.startingDate}
+          ${styles.detailContainer}
+          ${isExpanded && styles.detailContainerActive}`}
+      >
+        <span className={styles.detail}>
+          {String(activeTeamMembers.length).padStart(3, '0')}
+        </span>
+        <span className={styles.detailDescription}>Assigned team</span>
+      </div>
+
+      <div
+        className={`
+          ${styles.detailContainer} ${styles.fullWidth}
+          ${isExpanded && styles.detailContainerActive}`}
+      >
+        <span className={`${styles.detail}`}>
+          {String(activeTeamMembers.length).padStart(3, '0')}
+        </span>
+        <span className={styles.detailDescription}>Assigned</span>
+      </div>
+      <div
+        className={`
+          ${styles.detailContainer} ${styles.fullWidth}
           ${isExpanded && styles.detailContainerActive}`}
       >
         <span className={styles.detail}>
