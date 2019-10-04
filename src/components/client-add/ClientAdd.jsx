@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import styles from './ClientAdd.module.css';
 
-const ClientAdd = ({ addClientData, toggleFormVisibility }) => {
+const ClientAdd = ({ addClient, toggleFormVisibility }) => {
   const [branch, setBranch] = useState('');
   const [client, setClient] = useState('');
   const [locality, setLocality] = useState('');
@@ -41,7 +41,7 @@ const ClientAdd = ({ addClientData, toggleFormVisibility }) => {
   const handleSubmit = event => {
     event.preventDefault();
 
-    addClientData({
+    addClient({
       branch,
       branchAdress,
       client,
@@ -163,7 +163,7 @@ const ClientAdd = ({ addClientData, toggleFormVisibility }) => {
 };
 
 ClientAdd.propTypes = {
-  addClientData: PropTypes.func.isRequired,
+  addClient: PropTypes.func.isRequired,
   toggleFormVisibility: PropTypes.func.isRequired
 };
 

@@ -20,7 +20,7 @@ const Clients = ({ addClient, clients, fetchClients }) => {
     <React.Fragment>
       {isFormVisible && (
         <ClientAdd
-          addClientData={addClient}
+          addClient={addClient}
           toggleFormVisibility={handleFormVisibility}
         />
       )}
