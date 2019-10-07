@@ -35,7 +35,7 @@ const TimeEntryAdd = ({ addFormData, clients }) => {
     event.preventDefault();
 
     addFormData({
-      client,
+      client: Number(client),
       id: Math.random(),
       startTimestamp: new Date(`${date} ${startTime}`).toISOString(),
       stopTimestamp: new Date(`${date} ${endTime}`).toISOString()
@@ -78,15 +78,11 @@ const TimeEntryAdd = ({ addFormData, clients }) => {
             <option value="" disabled>
               -- Select a client --
             </option>
-            {clients.map(_client => {
-              return (
-                <React.Fragment key={_client.id}>
-                  <option value={_client.companyName}>
-                    {_client.companyName}
-                  </option>
-                </React.Fragment>
-              );
-            })}
+            {clients.map(({ companyName, id }) => (
+              <option value={id} key={id}>
+                {companyName}
+              </option>
+            ))}
           </select>
         </label>
 

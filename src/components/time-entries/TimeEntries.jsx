@@ -60,6 +60,7 @@ const TimeEntries = ({
 
 TimeEntries.propTypes = {
   addTimeEntry: PropTypes.func.isRequired,
+  // eslint-disable-next-line react/require-default-props
   clients: PropTypes.arrayOf(
     PropTypes.shape({
       companyName: PropTypes.string
@@ -68,16 +69,12 @@ TimeEntries.propTypes = {
   deleteTimeEntry: PropTypes.func.isRequired,
   fetchClients: PropTypes.func.isRequired,
   fetchTimeEntries: PropTypes.func.isRequired,
+  // eslint-disable-next-line react/require-default-props
   timeEntries: PropTypes.arrayOf(
     PropTypes.shape({
       startTimestamp: PropTypes.string
     })
   )
-};
-
-TimeEntries.defaultProps = {
-  clients: [],
-  timeEntries: []
 };
 
 export default TimeEntries;

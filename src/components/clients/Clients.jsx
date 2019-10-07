@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import Client from '../client/';
@@ -7,12 +7,8 @@ import IconArrowDown from '../../assets/icons/icon-arrow-down.svg';
 import IconPlus from '../../assets/icons/icon-plus.svg';
 import styles from './Clients.module.css';
 
-const Clients = ({ addClient, clients, fetchClients }) => {
+const Clients = ({ addClient, clients }) => {
   const [isFormVisible, SetIsFormVisible] = useState(false);
-
-  useEffect(function getClients() {
-    fetchClients();
-  }, []);
 
   const handleFormVisibility = () => SetIsFormVisible(!isFormVisible);
 
@@ -56,8 +52,7 @@ Clients.propTypes = {
     PropTypes.shape({
       client: PropTypes.string
     })
-  ),
-  fetchClients: PropTypes.func.isRequired
+  )
 };
 
 Clients.defaultProps = {
