@@ -15,7 +15,6 @@ export const timeEntriesItemsSelector = createSelector(
       .map(timeEntry => ({
         ...timeEntry,
         client: clients.find(client => client.id === timeEntry.client)
-          .companyName
       }))
       .sort((a, b) => new Date(b.startTimestamp) - new Date(a.startTimestamp))
 );
@@ -23,6 +22,15 @@ export const timeEntriesItemsSelector = createSelector(
 export const timeEntriesIsLoadingSelector = createSelector(
   timeEntriesRootSelector,
   ({ isLoading }) => isLoading
+);
+
+export const timeEntriesByClientSelector = createSelector(
+  timeEntriesItemsSelector,
+  timeEntriesRootSelector,
+  (items, { filterByClient }) =>
+    items.filter(
+      item => filterByClient === null || item.client.id === filterByClient
+    )
 );
 
 export const timeEntriesErrorSelector = createSelector(

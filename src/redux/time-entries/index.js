@@ -11,7 +11,8 @@ export {
   DELETE_TIME_ENTRY_SUCCESS,
   FETCH_TIME_ENTRIES_FAILURE,
   FETCH_TIME_ENTRIES_REQUEST,
-  FETCH_TIME_ENTRIES_SUCCESS
+  FETCH_TIME_ENTRIES_SUCCESS,
+  FILTER_TIME_ENTRIES_BY_CLIENT
 } from './actions';
 
 export {
@@ -23,14 +24,16 @@ export {
   deleteTimeEntrySuccess,
   fetchTimeEntriesFailure,
   fetchTimeEntriesRequest,
-  fetchTimeEntriesSuccess
+  fetchTimeEntriesSuccess,
+  filterTimeEntriesByClient
 } from './action-creators';
 
 export {
   timeEntriesErrorSelector,
   timeEntriesIsLoadingSelector,
   timeEntriesItemsSelector,
-  timeEntriesRootSelector
+  timeEntriesRootSelector,
+  timeEntriesByClientSelector
 } from './selectors';
 
 export default timeEntriesReducer;

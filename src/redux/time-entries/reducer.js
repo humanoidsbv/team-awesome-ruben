@@ -4,13 +4,15 @@ import {
   DELETE_TIME_ENTRY_REQUEST,
   DELETE_TIME_ENTRY_SUCCESS,
   FETCH_TIME_ENTRIES_REQUEST,
-  FETCH_TIME_ENTRIES_SUCCESS
+  FETCH_TIME_ENTRIES_SUCCESS,
+  FILTER_TIME_ENTRIES_BY_CLIENT
 } from './actions';
 
 const initialState = {
   items: [],
   isLoading: false,
-  hasError: ''
+  hasError: '',
+  filterByClient: null
 };
 
 export default (state = initialState, { type, payload }) => {
@@ -54,6 +56,13 @@ export default (state = initialState, { type, payload }) => {
         items: payload,
         isLoading: false
       };
+
+    case FILTER_TIME_ENTRIES_BY_CLIENT:
+      return {
+        ...state,
+        filterByClient: payload
+      };
+
     default:
       return state;
   }
