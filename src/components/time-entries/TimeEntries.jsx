@@ -8,10 +8,12 @@ import TimeEntryHeader from '../time-entry-header/';
 const TimeEntries = ({
   addTimeEntry,
   deleteTimeEntry,
+  fetchClients,
   fetchTimeEntries,
   timeEntries
 }) => {
-  useEffect(function getTimeEntries() {
+  useEffect(function getEntryData() {
+    fetchClients();
     fetchTimeEntries();
   }, []);
 
@@ -60,6 +62,7 @@ TimeEntries.propTypes = {
   ),
   addTimeEntry: PropTypes.func.isRequired,
   deleteTimeEntry: PropTypes.func.isRequired,
+  fetchClients: PropTypes.func.isRequired,
   fetchTimeEntries: PropTypes.func.isRequired
 };
 

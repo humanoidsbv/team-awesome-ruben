@@ -8,6 +8,9 @@ import {
   fetchTimeEntriesRequest,
   timeEntriesItemsSelector
 } from '../../redux/time-entries';
+
+import { fetchClientsRequest } from '../../redux/clients';
+
 import TimeEntries from './TimeEntries';
 
 const TimeEntriesContainer = props => <TimeEntries {...props} />;
@@ -21,6 +24,7 @@ const mapDispatchToProps = dispatch =>
     {
       addTimeEntry: addTimeEntryRequest,
       deleteTimeEntry: deleteTimeEntryRequest,
+      fetchClients: fetchClientsRequest,
       fetchTimeEntries: fetchTimeEntriesRequest
     },
     dispatch
