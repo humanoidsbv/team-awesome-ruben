@@ -10,11 +10,18 @@ export const timeEntriesRootSelector = createSelector(
 export const timeEntriesItemsSelector = createSelector(
   timeEntriesRootSelector,
   clientsItemsSelector,
-  (timeEntries, clients) =>
-    timeEntries.items.map(timeEntry => ({
-      ...timeEntry,
-      client: clients.find(client => client.id === timeEntry.client).companyName
-    }))
+  ({ items }, clients) =>
+    items
+      .map(timeEntry => ({
+        ...timeEntry,
+        client: clients.find(client => client.id === timeEntry.client)
+          .companyName
+      }))
+      .sort(
+        (timeEntryA, timeEntryB) =>
+          new Date(timeEntryB.startTimestamp) -
+          new Date(timeEntryA.startTimestamp)
+      )
 );
 
 export const timeEntriesIsLoadingSelector = createSelector(
