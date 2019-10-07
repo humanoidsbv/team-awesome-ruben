@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import IconPlus from '../../assets/icons/icon-plus.svg';
 import styles from './TimeEntryAdd.module.css';
 
-const TimeEntryAdd = ({ addFormData }) => {
+const TimeEntryAdd = ({ addFormData, clients }) => {
   const today = new Date()
     .toISOString()
     .split('T')
@@ -48,7 +48,7 @@ const TimeEntryAdd = ({ addFormData }) => {
   return (
     <div className={`${styles.container}`}>
       <form
-        className={` ${styles.form} ${isFormVisible && styles.formVisible}`}
+        className={`${styles.form} ${isFormVisible && styles.formVisible}`}
         onSubmit={handleSubmit}
         ref={formRef}
       >
@@ -65,19 +65,29 @@ const TimeEntryAdd = ({ addFormData }) => {
           htmlFor="client"
         >
           <p className={styles.labelText}>CLIENT</p>
-          <input
+          <select
             className={`${styles.input} ${
               validity.client === false ? styles.invalidInput : ''
             }`}
-            id="client"
-            maxLength="30"
-            minLength="2"
             name="client"
             onBlur={handleBlur}
             onChange={({ target }) => setClient(target.value)}
             value={client}
             required
-          />
+          >
+            <option value="" disabled>
+              -- Select a client --
+            </option>
+            {clients.map(_client => {
+              return (
+                <React.Fragment key={_client.id}>
+                  <option value={_client.companyName}>
+                    {_client.companyName}
+                  </option>
+                </React.Fragment>
+              );
+            })}
+          </select>
         </label>
 
         <label
@@ -89,7 +99,6 @@ const TimeEntryAdd = ({ addFormData }) => {
             className={`${styles.input} ${
               validity.activity === false ? styles.invalidInput : ''
             }`}
-            id="activity"
             maxLength="30"
             minLength="2"
             name="activity"
@@ -106,7 +115,6 @@ const TimeEntryAdd = ({ addFormData }) => {
           <p className={styles.labelText}>DATE</p>
           <input
             className={styles.input}
-            id="date"
             name="date"
             onChange={({ target }) => setDate(target.value)}
             required
@@ -122,7 +130,6 @@ const TimeEntryAdd = ({ addFormData }) => {
           <p className={styles.labelText}>FROM</p>
           <input
             className={`${styles.input} ${styles.timeStamp}`}
-            id="startTime"
             name="startTime"
             onChange={({ target }) => setStartTime(target.value)}
             type="time"
@@ -136,7 +143,6 @@ const TimeEntryAdd = ({ addFormData }) => {
           <p className={styles.labelText}>TO</p>
           <input
             className={`${styles.input} ${styles.timeStamp}`}
-            id="endTime"
             name="endTime"
             onChange={({ target }) => setEndTime(target.value)}
             type="time"
@@ -167,7 +173,16 @@ const TimeEntryAdd = ({ addFormData }) => {
 };
 
 TimeEntryAdd.propTypes = {
-  addFormData: PropTypes.func.isRequired
+  addFormData: PropTypes.func.isRequired,
+  clients: PropTypes.arrayOf(
+    PropTypes.shape({
+      companyName: PropTypes.string
+    })
+  )
+};
+
+TimeEntryAdd.defaultProps = {
+  clients: []
 };
 
 export default TimeEntryAdd;

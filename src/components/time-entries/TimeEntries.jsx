@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
+import IconArrowDown from '../../assets/icons/icon-arrow-down.svg';
 import TimeEntry from '../time-entry/';
 import TimeEntryAdd from '../time-entry-add/';
 import TimeEntryHeader from '../time-entry-header/';
 
 const TimeEntries = ({
   addTimeEntry,
+  clients,
   deleteTimeEntry,
   fetchClients,
   fetchTimeEntries,
@@ -19,7 +21,12 @@ const TimeEntries = ({
 
   return (
     <React.Fragment>
-      <TimeEntryAdd addFormData={addTimeEntry} />
+      <TimeEntryAdd addFormData={addTimeEntry} clients={clients} />
+      <button type="button">
+        Sort by:
+        <IconArrowDown />
+      </button>
+
       {timeEntries.map(
         ({ startTimestamp, stopTimestamp, id, client }, index) => {
           const previousItem = timeEntries[index - 1];
@@ -52,21 +59,24 @@ const TimeEntries = ({
 };
 
 TimeEntries.propTypes = {
-  timeEntries: PropTypes.arrayOf(
+  addTimeEntry: PropTypes.func.isRequired,
+  clients: PropTypes.arrayOf(
     PropTypes.shape({
-      client: PropTypes.string,
-      id: PropTypes.number,
-      startTimestamp: PropTypes.string,
-      stopTimestamp: PropTypes.string
+      companyName: PropTypes.string
     })
   ),
-  addTimeEntry: PropTypes.func.isRequired,
   deleteTimeEntry: PropTypes.func.isRequired,
   fetchClients: PropTypes.func.isRequired,
-  fetchTimeEntries: PropTypes.func.isRequired
+  fetchTimeEntries: PropTypes.func.isRequired,
+  timeEntries: PropTypes.arrayOf(
+    PropTypes.shape({
+      startTimestamp: PropTypes.string
+    })
+  )
 };
 
 TimeEntries.defaultProps = {
+  clients: [],
   timeEntries: []
 };
 
