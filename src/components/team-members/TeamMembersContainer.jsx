@@ -8,13 +8,15 @@ import {
   fetchTeamMembersRequest,
   sortTeamMembersByField,
   sortTeamMembersOrder,
-  teamMembersItemsSelector
+  teamMembersItemsSelector,
+  teamMembersOrderSelector
 } from '../../redux/team-members';
 import TeamMembers from './TeamMembers';
 
 const TeamMembersContainer = props => <TeamMembers {...props} />;
 
 const mapStateToProps = state => ({
+  orderToggle: teamMembersOrderSelector(state),
   teamMembers: teamMembersItemsSelector(state)
 });
 

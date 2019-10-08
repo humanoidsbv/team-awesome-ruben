@@ -34,6 +34,7 @@ export {
   teamMembersErrorSelector,
   teamMembersIsLoadingSelector,
   teamMembersItemsSelector,
+  teamMembersOrderSelector,
   teamMembersRootSelector
 } from './selectors';
 

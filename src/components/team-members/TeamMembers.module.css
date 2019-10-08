@@ -1,7 +1,8 @@
 .header {
   align-items: center;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
   margin-bottom: 25px;
 }
 
@@ -40,21 +41,37 @@
   outline: 0;
   padding: 0 17px 0 14px;
   text-align: left;
-  width: 100%;
+  width: 75%;
+}
+
+.sortMembersOrder {
+  display: flex;
+  fill: #000;
+  justify-content: center;
+  min-width: 0;
+  width: 20%;
 }
 
 @media only screen and (min-width: 901px) {
-  .sortMembers,
-  .sortMembersOrder {
+  .sortMembers {
     margin-left: 12px;
     min-width: 120px;
     width: 120px;
   }
+
+  .sortMembersOrder {
+    margin-left: 12px;
+    width: auto;
+  }
 }
 
-.sortMembersOrder {
-  min-width: auto;
-  width: auto;
+.sortMembersOrder svg {
+  transform: rotate(0);
+  transition: 0.3s;
+}
+
+.sortMembersActive svg {
+  transform: rotate(180deg);
 }
 
 .addMember {
@@ -68,7 +85,7 @@
   font-size: 14px;
   height: 36px;
   justify-content: center;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   margin-left: auto;
   outline: 0;
   width: 100%;

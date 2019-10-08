@@ -15,6 +15,11 @@ export const teamMembersItemsSelector = createSelector(
     })
 );
 
+export const teamMembersOrderSelector = createSelector(
+  teamMembersRootSelector,
+  ({ order }) => order
+);
+
 export const teamMembersIsLoadingSelector = createSelector(
   teamMembersRootSelector,
   ({ isLoading }) => isLoading

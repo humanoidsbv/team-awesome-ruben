@@ -10,6 +10,7 @@ import styles from './TeamMembers.module.css';
 const TeamMembers = ({
   addTeamMember,
   fetchTeamMembers,
+  orderToggle,
   sortTeamMembersByField,
   sortTeamMembersOrder,
   teamMembers
@@ -38,9 +39,8 @@ const TeamMembers = ({
       <div className={styles.header}>
         <span className={styles.heading}>All Humanoids</span>
         <button
-          className={`${styles.addMember} ${
-            isFormVisible ? styles.addMemberVisible : ''
-          }`}
+          className={`${styles.addMember} ${isFormVisible &&
+            styles.addMemberVisible}`}
           onClick={handleFormVisible}
           disabled={isFormVisible === true}
           type="button"
@@ -61,7 +61,8 @@ const TeamMembers = ({
           <option value="startingDate">Date</option>
         </select>
         <button
-          className={styles.sortMembersOrder}
+          className={`${styles.sortMembersOrder} ${orderToggle &&
+            styles.sortMembersActive}`}
           onClick={handeClick}
           type="button"
         >
@@ -78,6 +79,7 @@ const TeamMembers = ({
 TeamMembers.propTypes = {
   addTeamMember: PropTypes.func.isRequired,
   fetchTeamMembers: PropTypes.func.isRequired,
+  orderToggle: PropTypes.bool.isRequired,
   sortTeamMembersByField: PropTypes.func.isRequired,
   sortTeamMembersOrder: PropTypes.func.isRequired,
   teamMembers: PropTypes.arrayOf(
