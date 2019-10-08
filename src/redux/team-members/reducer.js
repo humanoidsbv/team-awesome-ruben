@@ -4,13 +4,15 @@ import {
   DELETE_TEAM_MEMBER_REQUEST,
   DELETE_TEAM_MEMBER_SUCCESS,
   FETCH_TEAM_MEMBERS_REQUEST,
-  FETCH_TEAM_MEMBERS_SUCCESS
+  FETCH_TEAM_MEMBERS_SUCCESS,
+  SORT_TEAM_MEMBERS_BY_FIELD
 } from './actions';
 
 const initialState = {
-  items: [],
+  hasError: '',
   isLoading: false,
-  hasError: ''
+  items: [],
+  sortByField: 'firstName'
 };
 
 export default (state = initialState, { type, payload }) => {
@@ -53,6 +55,12 @@ export default (state = initialState, { type, payload }) => {
         ...state,
         items: payload,
         isLoading: false
+      };
+
+    case SORT_TEAM_MEMBERS_BY_FIELD:
+      return {
+        ...state,
+        sortByField: payload
       };
     default:
       return state;

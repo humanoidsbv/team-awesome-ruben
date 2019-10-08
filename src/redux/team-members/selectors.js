@@ -7,7 +7,8 @@ export const teamMembersRootSelector = createSelector(
 
 export const teamMembersItemsSelector = createSelector(
   teamMembersRootSelector,
-  ({ items }) => items
+  ({ items, sortByField }) =>
+    [...items].sort((a, b) => (a[sortByField] < b[sortByField] ? -1 : 1))
 );
 
 export const teamMembersIsLoadingSelector = createSelector(

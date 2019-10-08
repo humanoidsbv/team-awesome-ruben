@@ -5,11 +5,10 @@ import styles from './ClientAdd.module.css';
 
 const ClientAdd = ({ addClient, toggleFormVisibility }) => {
   const [branch, setBranch] = useState('');
-  const [client, setClient] = useState('');
-  const [locality, setLocality] = useState('');
   const [branchAdress, setBranchAdress] = useState('');
+  const [companyName, setCompanyName] = useState('');
+  const [locality, setLocality] = useState('');
   const [postalCode, setPostalCode] = useState('');
-
   const [validity, setValidity] = useState({});
 
   const formRef = useRef(null);
@@ -32,7 +31,7 @@ const ClientAdd = ({ addClient, toggleFormVisibility }) => {
   const handleCloseForm = () => {
     setBranch('');
     setBranchAdress('');
-    setClient('');
+    setCompanyName('');
     setLocality('');
     setPostalCode('');
     toggleFormVisibility();
@@ -44,7 +43,7 @@ const ClientAdd = ({ addClient, toggleFormVisibility }) => {
     addClient({
       branch,
       branchAdress,
-      client,
+      companyName,
       id: Math.random(),
       locality,
       postalCode
@@ -63,14 +62,14 @@ const ClientAdd = ({ addClient, toggleFormVisibility }) => {
             <span className={styles.labelText}>Client</span>
             <input
               className={`${styles.input}
-                ${validity.client === false && styles.invalidInput}`}
+                ${validity.companyName === false && styles.invalidInput}`}
               maxLength="30"
               minLength="2"
               name="client"
               onBlur={handleBlur}
-              onChange={({ target }) => setClient(target.value)}
+              onChange={({ target }) => setCompanyName(target.value)}
               required
-              value={client}
+              value={companyName}
             />
           </label>
           <label className={`${styles.label}`} htmlFor="branch">

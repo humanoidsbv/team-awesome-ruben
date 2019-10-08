@@ -11,7 +11,8 @@ export {
   DELETE_TEAM_MEMBER_SUCCESS,
   FETCH_TEAM_MEMBERS_FAILURE,
   FETCH_TEAM_MEMBERS_REQUEST,
-  FETCH_TEAM_MEMBERS_SUCCESS
+  FETCH_TEAM_MEMBERS_SUCCESS,
+  SORT_TEAM_MEMBERS_BY_FIELD
 } from './actions';
 
 export {
@@ -23,7 +24,8 @@ export {
   deleteTeamMemberSuccess,
   fetchTeamMembersFailure,
   fetchTeamMembersRequest,
-  fetchTeamMembersSuccess
+  fetchTeamMembersSuccess,
+  sortTeamMembersByField
 } from './action-creators';
 
 export {
