@@ -10,7 +10,6 @@ export const teamMembersItemsSelector = createSelector(
   ({ items, sortByField, order }) =>
     [...items].sort((a, b) => {
       if (order) return a[sortByField] < b[sortByField] ? -1 : 1;
-
       return a[sortByField] < b[sortByField] ? 1 : -1;
     })
 );

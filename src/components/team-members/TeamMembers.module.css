@@ -66,12 +66,12 @@
 }
 
 .sortMembersOrder svg {
-  transform: rotate(0);
+  transform: rotate(180deg);
   transition: 0.3s;
 }
 
 .sortMembersActive svg {
-  transform: rotate(180deg);
+  transform: rotate(0);
 }
 
 .addMember {
