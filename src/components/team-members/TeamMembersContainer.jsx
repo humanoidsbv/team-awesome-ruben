@@ -7,6 +7,7 @@ import {
   deleteTeamMemberRequest,
   fetchTeamMembersRequest,
   sortTeamMembersByField,
+  sortTeamMembersOrder,
   teamMembersItemsSelector
 } from '../../redux/team-members';
 import TeamMembers from './TeamMembers';
@@ -23,7 +24,8 @@ const mapDispatchToProps = dispatch =>
       addTeamMember: addTeamMemberRequest,
       deleteTeamMember: deleteTeamMemberRequest,
       fetchTeamMembers: fetchTeamMembersRequest,
-      sortTeamMembersByField
+      sortTeamMembersByField,
+      sortTeamMembersOrder
     },
     dispatch
   );

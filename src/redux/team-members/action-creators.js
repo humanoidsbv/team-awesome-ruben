@@ -8,7 +8,8 @@ import {
   FETCH_TEAM_MEMBERS_FAILURE,
   FETCH_TEAM_MEMBERS_REQUEST,
   FETCH_TEAM_MEMBERS_SUCCESS,
-  SORT_TEAM_MEMBERS_BY_FIELD
+  SORT_TEAM_MEMBERS_BY_FIELD,
+  SORT_TEAM_MEMBERS_ORDER
 } from '.';
 
 export const addTeamMemberFailure = error => ({
@@ -58,4 +59,8 @@ export const fetchTeamMembersSuccess = teamMembers => ({
 export const sortTeamMembersByField = sortByField => ({
   type: SORT_TEAM_MEMBERS_BY_FIELD,
   payload: sortByField
+});
+
+export const sortTeamMembersOrder = () => ({
+  type: SORT_TEAM_MEMBERS_ORDER
 });

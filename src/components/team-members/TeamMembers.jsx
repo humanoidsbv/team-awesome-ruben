@@ -11,6 +11,7 @@ const TeamMembers = ({
   addTeamMember,
   fetchTeamMembers,
   sortTeamMembersByField,
+  sortTeamMembersOrder,
   teamMembers
 }) => {
   const [isFormVisible, setIsFormVisible] = useState(false);
@@ -22,6 +23,8 @@ const TeamMembers = ({
   const handleFormVisible = () => setIsFormVisible(!isFormVisible);
 
   const handleChange = event => sortTeamMembersByField(event.target.value);
+
+  const handeClick = () => sortTeamMembersOrder();
 
   return (
     <React.Fragment>
@@ -57,7 +60,11 @@ const TeamMembers = ({
           <option value="currentClient">Client name</option>
           <option value="startingDate">Date</option>
         </select>
-        <button className={styles.sortMembersOrder} type="button">
+        <button
+          className={styles.sortMembersOrder}
+          onClick={handeClick}
+          type="button"
+        >
           <IconArrowDown />
         </button>
       </div>
@@ -72,6 +79,7 @@ TeamMembers.propTypes = {
   addTeamMember: PropTypes.func.isRequired,
   fetchTeamMembers: PropTypes.func.isRequired,
   sortTeamMembersByField: PropTypes.func.isRequired,
+  sortTeamMembersOrder: PropTypes.func.isRequired,
   teamMembers: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string,

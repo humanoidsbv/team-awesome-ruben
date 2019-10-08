@@ -7,8 +7,12 @@ export const teamMembersRootSelector = createSelector(
 
 export const teamMembersItemsSelector = createSelector(
   teamMembersRootSelector,
-  ({ items, sortByField }) =>
-    [...items].sort((a, b) => (a[sortByField] < b[sortByField] ? -1 : 1))
+  ({ items, sortByField, order }) =>
+    [...items].sort((a, b) => {
+      if (order) return a[sortByField] < b[sortByField] ? -1 : 1;
+
+      return a[sortByField] < b[sortByField] ? 1 : -1;
+    })
 );
 
 export const teamMembersIsLoadingSelector = createSelector(

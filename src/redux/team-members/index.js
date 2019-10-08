@@ -12,7 +12,8 @@ export {
   FETCH_TEAM_MEMBERS_FAILURE,
   FETCH_TEAM_MEMBERS_REQUEST,
   FETCH_TEAM_MEMBERS_SUCCESS,
-  SORT_TEAM_MEMBERS_BY_FIELD
+  SORT_TEAM_MEMBERS_BY_FIELD,
+  SORT_TEAM_MEMBERS_ORDER
 } from './actions';
 
 export {
@@ -25,7 +26,8 @@ export {
   fetchTeamMembersFailure,
   fetchTeamMembersRequest,
   fetchTeamMembersSuccess,
-  sortTeamMembersByField
+  sortTeamMembersByField,
+  sortTeamMembersOrder
 } from './action-creators';
 
 export {
