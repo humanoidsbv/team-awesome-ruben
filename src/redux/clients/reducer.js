@@ -1,76 +1,59 @@
 import {
-  ADD_TEAM_MEMBER_REQUEST,
-  ADD_TEAM_MEMBER_SUCCESS,
-  DELETE_TEAM_MEMBER_REQUEST,
-  DELETE_TEAM_MEMBER_SUCCESS,
-  FETCH_TEAM_MEMBERS_REQUEST,
-  FETCH_TEAM_MEMBERS_SUCCESS,
-  SORT_TEAM_MEMBERS_BY_FIELD,
-  SORT_TEAM_MEMBERS_ORDER
+  ADD_CLIENT_REQUEST,
+  ADD_CLIENT_SUCCESS,
+  DELETE_CLIENT_REQUEST,
+  DELETE_CLIENT_SUCCESS,
+  FETCH_CLIENTS_REQUEST,
+  FETCH_CLIENTS_SUCCESS
 } from './actions';
 
 const initialState = {
-  hasError: '',
-  isLoading: false,
   items: [],
-  sortByField: 'firstName',
-  order: true
+  isLoading: false,
+  hasError: ''
 };
 
 export default (state = initialState, { type, payload }) => {
   switch (type) {
-    case ADD_TEAM_MEMBER_REQUEST:
+    case ADD_CLIENT_REQUEST:
       return {
         ...state,
         isLoading: true
       };
 
-    case ADD_TEAM_MEMBER_SUCCESS:
+    case ADD_CLIENT_SUCCESS:
       return {
         ...state,
         items: [payload, ...state.items],
         isLoading: false
       };
 
-    case DELETE_TEAM_MEMBER_REQUEST:
+    case DELETE_CLIENT_REQUEST:
       return {
         ...state,
         isLoading: true
       };
 
-    case DELETE_TEAM_MEMBER_SUCCESS:
+    case DELETE_CLIENT_SUCCESS:
       return {
         ...state,
         items: state.items.filter(item => item.id !== payload),
         isLoading: false
       };
 
-    case FETCH_TEAM_MEMBERS_REQUEST:
+    case FETCH_CLIENTS_REQUEST:
       return {
         ...state,
         items: [],
         isLoading: true
       };
 
-    case FETCH_TEAM_MEMBERS_SUCCESS:
+    case FETCH_CLIENTS_SUCCESS:
       return {
         ...state,
         items: payload,
         isLoading: false
       };
-
-    case SORT_TEAM_MEMBERS_BY_FIELD:
-      return {
-        ...state,
-        sortByField: payload
-      };
-
-    case SORT_TEAM_MEMBERS_ORDER:
-      return {
-        ...state,
-        order: !state.order
-      };
-
     default:
       return state;
   }

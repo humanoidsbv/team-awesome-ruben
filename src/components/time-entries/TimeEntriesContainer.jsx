@@ -6,14 +6,19 @@ import {
   addTimeEntryRequest,
   deleteTimeEntryRequest,
   fetchTimeEntriesRequest,
-  timeEntriesItemsSelector
+  filterTimeEntriesByClient,
+  timeEntriesByClientSelector
 } from '../../redux/time-entries';
+
+import { clientsItemsSelector, fetchClientsRequest } from '../../redux/clients';
+
 import TimeEntries from './TimeEntries';
 
 const TimeEntriesContainer = props => <TimeEntries {...props} />;
 
 const mapStateToProps = state => ({
-  timeEntries: timeEntriesItemsSelector(state)
+  clients: clientsItemsSelector(state),
+  timeEntries: timeEntriesByClientSelector(state)
 });
 
 const mapDispatchToProps = dispatch =>
@@ -21,7 +26,9 @@ const mapDispatchToProps = dispatch =>
     {
       addTimeEntry: addTimeEntryRequest,
       deleteTimeEntry: deleteTimeEntryRequest,
-      fetchTimeEntries: fetchTimeEntriesRequest
+      fetchClients: fetchClientsRequest,
+      fetchTimeEntries: fetchTimeEntriesRequest,
+      filterTimeEntriesByClient
     },
     dispatch
   );

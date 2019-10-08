@@ -11,7 +11,9 @@ export {
   DELETE_TEAM_MEMBER_SUCCESS,
   FETCH_TEAM_MEMBERS_FAILURE,
   FETCH_TEAM_MEMBERS_REQUEST,
-  FETCH_TEAM_MEMBERS_SUCCESS
+  FETCH_TEAM_MEMBERS_SUCCESS,
+  SORT_TEAM_MEMBERS_BY_FIELD,
+  SORT_TEAM_MEMBERS_ORDER
 } from './actions';
 
 export {
@@ -23,13 +25,16 @@ export {
   deleteTeamMemberSuccess,
   fetchTeamMembersFailure,
   fetchTeamMembersRequest,
-  fetchTeamMembersSuccess
+  fetchTeamMembersSuccess,
+  sortTeamMembersByField,
+  sortTeamMembersOrder
 } from './action-creators';
 
 export {
   teamMembersErrorSelector,
   teamMembersIsLoadingSelector,
   teamMembersItemsSelector,
+  teamMembersOrderSelector,
   teamMembersRootSelector
 } from './selectors';
 

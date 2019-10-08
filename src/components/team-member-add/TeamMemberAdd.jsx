@@ -97,11 +97,10 @@ const TeamMemberAdd = ({ addFormData, handleFormVisible }) => {
             className={`${styles.label} ${styles.labelHalfWidth}`}
             htmlFor="firstName"
           >
-            <span className={styles.labelText}>First Name</span>
+            <span className={styles.labelText}>First name</span>
             <input
-              className={`${styles.input} ${
-                validity.firstName === false ? styles.invalidInput : ''
-              }`}
+              className={`${styles.input} ${validity.firstName === false &&
+                styles.invalidInput}`}
               maxLength="30"
               minLength="2"
               name="firstName"
@@ -115,11 +114,10 @@ const TeamMemberAdd = ({ addFormData, handleFormVisible }) => {
             className={`${styles.label} ${styles.labelHalfWidth}`}
             htmlFor="lastName"
           >
-            <span className={styles.labelText}>Last Name</span>
+            <span className={styles.labelText}>Last name</span>
             <input
-              className={`${styles.input} ${
-                validity.lastName === false ? styles.invalidInput : ''
-              }`}
+              className={`${styles.input} ${validity.lastName === false &&
+                styles.invalidInput}`}
               maxLength="30"
               minLength="2"
               name="lastName"
@@ -154,7 +152,6 @@ const TeamMemberAdd = ({ addFormData, handleFormVisible }) => {
             />
           </label>
         </div>
-        <span className={styles.verticalLine} />
         <div className={styles.inputContainer}>
           <label className={`${styles.label}`} htmlFor="homeAdress">
             <span className={styles.labelText}>Adress</span>
@@ -205,7 +202,7 @@ const TeamMemberAdd = ({ addFormData, handleFormVisible }) => {
             />
           </label>
           <label className={`${styles.label}`} htmlFor="socialProfiles">
-            <span className={styles.labelText}>Social Profiles</span>
+            <span className={styles.labelText}>Social profiles</span>
             <input
               className={`${styles.input} ${styles.facebook}
               ${validity.facebook === false ? styles.invalidInput : ''}`}

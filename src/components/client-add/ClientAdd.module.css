@@ -5,28 +5,11 @@
 }
 
 @media only screen and (min-width: 901px) {
-  .container {
-    display: block;
-  }
-}
-
-.header {
-  order: 9;
-}
-
-@media only screen and (min-width: 901px) {
   .header {
     align-items: center;
     display: flex;
-    flex-direction: column;
+    order: -1;
     margin-bottom: 25px;
-    order: 0;
-  }
-}
-
-@media only screen and (min-width: 901px) {
-  .header {
-    flex-direction: row;
   }
 }
 
@@ -68,7 +51,7 @@
 }
 
 .addMemberButton {
-  background-image: linear-gradient(to bottom, #39b54a, #34aa44 98%);
+  background-color: #39b54a;
   border-radius: 4px;
   border: 0;
   color: #fff;
@@ -98,9 +81,9 @@
 
 .formTab {
   align-items: center;
+  background-color: #fff;
   border: 1px solid #e6eaee;
   border-bottom: #fff;
-  background-color: #fff;
   border-left: 4px solid #4f88ef;
   border-radius: 4px 4px 0 0;
   display: flex;
@@ -179,7 +162,7 @@
     margin-left: 30px;
   }
 
-  .inputContainer:nth-child(2) {
+  .inputContainer:first-child {
     border-right: 1px solid #dfe3e9;
     padding-right: 30px;
   }
@@ -201,12 +184,14 @@
   }
 }
 
-.labelHalfWidth {
-  width: calc(50% - 5px);
-}
+@media only screen and (min-width: 901px) {
+  .labelHalfWidth {
+    width: calc(50% - 5px);
+  }
 
-.labelHalfWidth + .labelHalfWidth {
-  margin: 0 0 0 10px;
+  .labelHalfWidth + .labelHalfWidth {
+    margin: 0 0 0 10px;
+  }
 }
 
 .labelText {

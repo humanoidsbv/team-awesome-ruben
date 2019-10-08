@@ -3,20 +3,29 @@ import PropTypes from 'prop-types';
 
 import IconArrowDown from '../../assets/icons/icon-arrow-down.svg';
 import IconPlus from '../../assets/icons/icon-plus.svg';
-import styles from './TeamMembers.module.css';
 import TeamMember from '../team-member/';
 import TeamMemberAdd from '../team-member-add/';
+import styles from './TeamMembers.module.css';
 
-const TeamMembers = ({ addTeamMember, fetchTeamMembers, teamMembers }) => {
+const TeamMembers = ({
+  addTeamMember,
+  fetchTeamMembers,
+  orderToggle,
+  sortTeamMembersByField,
+  sortTeamMembersOrder,
+  teamMembers
+}) => {
   const [isFormVisible, setIsFormVisible] = useState(false);
 
   useEffect(function getTeamMembers() {
     fetchTeamMembers();
   }, []);
 
-  const handleFormVisible = () => {
-    setIsFormVisible(!isFormVisible);
-  };
+  const handleFormVisible = () => setIsFormVisible(!isFormVisible);
+
+  const handleChange = event => sortTeamMembersByField(event.target.value);
+
+  const handeClick = () => sortTeamMembersOrder();
 
   return (
     <React.Fragment>
@@ -30,9 +39,8 @@ const TeamMembers = ({ addTeamMember, fetchTeamMembers, teamMembers }) => {
       <div className={styles.header}>
         <span className={styles.heading}>All Humanoids</span>
         <button
-          className={`${styles.addMember} ${
-            isFormVisible ? styles.addMemberVisible : ''
-          }`}
+          className={`${styles.addMember} ${isFormVisible &&
+            styles.addMemberVisible}`}
           onClick={handleFormVisible}
           disabled={isFormVisible === true}
           type="button"
@@ -40,35 +48,46 @@ const TeamMembers = ({ addTeamMember, fetchTeamMembers, teamMembers }) => {
           <IconPlus className={styles.addNewIcon} />
           New Humanoid
         </button>
-        <button type="button" className={styles.sortMembers}>
-          Sort by:
+        <select
+          className={styles.sortMembers}
+          onChange={handleChange}
+          type="button"
+        >
+          <option value="firstName">First name</option>
+          <option value="lastName">Last name</option>
+          <option value="locality">Location</option>
+          <option value="role">Project role</option>
+          <option value="currentClient">Client name</option>
+          <option value="startingDate">Date</option>
+        </select>
+        <button
+          className={`${styles.sortMembersOrder} ${orderToggle &&
+            styles.sortMembersActive}`}
+          onClick={handeClick}
+          type="button"
+        >
           <IconArrowDown />
         </button>
       </div>
       {teamMembers.map(teamMember => {
-        return (
-          <React.Fragment key={teamMember.id}>
-            <TeamMember teamMember={teamMember} />
-          </React.Fragment>
-        );
+        return <TeamMember teamMember={teamMember} key={teamMember.id} />;
       })}
     </React.Fragment>
   );
 };
 
 TeamMembers.propTypes = {
+  addTeamMember: PropTypes.func.isRequired,
+  fetchTeamMembers: PropTypes.func.isRequired,
+  orderToggle: PropTypes.bool.isRequired,
+  sortTeamMembersByField: PropTypes.func.isRequired,
+  sortTeamMembersOrder: PropTypes.func.isRequired,
   teamMembers: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string,
       id: PropTypes.number
     })
-  ),
-  addTeamMember: PropTypes.func.isRequired,
-  fetchTeamMembers: PropTypes.func.isRequired
-};
-
-TeamMembers.defaultProps = {
-  teamMembers: []
+  ).isRequired
 };
 
 export default TeamMembers;

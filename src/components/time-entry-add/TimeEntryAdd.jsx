@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import IconPlus from '../../assets/icons/icon-plus.svg';
 import styles from './TimeEntryAdd.module.css';
 
-const TimeEntryAdd = ({ addFormData }) => {
+const TimeEntryAdd = ({ addFormData, clients }) => {
   const today = new Date()
     .toISOString()
     .split('T')
@@ -17,8 +17,11 @@ const TimeEntryAdd = ({ addFormData }) => {
   const [endTime, setEndTime] = useState('17:30');
 
   const [validity, setValidity] = useState({});
+  const [isFormVisible, setIsFormVisible] = useState(true);
 
   const formRef = useRef(null);
+
+  const handleToggle = () => setIsFormVisible(!isFormVisible);
 
   const handleBlur = event => {
     setValidity({
@@ -32,7 +35,7 @@ const TimeEntryAdd = ({ addFormData }) => {
     event.preventDefault();
 
     addFormData({
-      client,
+      client: Number(client),
       id: Math.random(),
       startTimestamp: new Date(`${date} ${startTime}`).toISOString(),
       stopTimestamp: new Date(`${date} ${endTime}`).toISOString()
@@ -44,8 +47,16 @@ const TimeEntryAdd = ({ addFormData }) => {
 
   return (
     <div className={`${styles.container}`}>
-      <form className={styles.form} onSubmit={handleSubmit} ref={formRef}>
-        <button type="button" className={styles.closeButton}>
+      <form
+        className={`${styles.form} ${isFormVisible && styles.formVisible}`}
+        onSubmit={handleSubmit}
+        ref={formRef}
+      >
+        <button
+          className={styles.closeButton}
+          onClick={handleToggle}
+          type="button"
+        >
           <IconPlus />
         </button>
 
@@ -54,19 +65,25 @@ const TimeEntryAdd = ({ addFormData }) => {
           htmlFor="client"
         >
           <p className={styles.labelText}>CLIENT</p>
-          <input
+          <select
             className={`${styles.input} ${
               validity.client === false ? styles.invalidInput : ''
             }`}
-            id="client"
-            maxLength="30"
-            minLength="2"
             name="client"
             onBlur={handleBlur}
             onChange={({ target }) => setClient(target.value)}
             value={client}
             required
-          />
+          >
+            <option value="" disabled>
+              -- Select a client --
+            </option>
+            {clients.map(({ companyName, id }) => (
+              <option value={id} key={id}>
+                {companyName}
+              </option>
+            ))}
+          </select>
         </label>
 
         <label
@@ -78,7 +95,6 @@ const TimeEntryAdd = ({ addFormData }) => {
             className={`${styles.input} ${
               validity.activity === false ? styles.invalidInput : ''
             }`}
-            id="activity"
             maxLength="30"
             minLength="2"
             name="activity"
@@ -95,7 +111,6 @@ const TimeEntryAdd = ({ addFormData }) => {
           <p className={styles.labelText}>DATE</p>
           <input
             className={styles.input}
-            id="date"
             name="date"
             onChange={({ target }) => setDate(target.value)}
             required
@@ -111,7 +126,6 @@ const TimeEntryAdd = ({ addFormData }) => {
           <p className={styles.labelText}>FROM</p>
           <input
             className={`${styles.input} ${styles.timeStamp}`}
-            id="startTime"
             name="startTime"
             onChange={({ target }) => setStartTime(target.value)}
             type="time"
@@ -125,7 +139,6 @@ const TimeEntryAdd = ({ addFormData }) => {
           <p className={styles.labelText}>TO</p>
           <input
             className={`${styles.input} ${styles.timeStamp}`}
-            id="endTime"
             name="endTime"
             onChange={({ target }) => setEndTime(target.value)}
             type="time"
@@ -140,16 +153,32 @@ const TimeEntryAdd = ({ addFormData }) => {
           Add
         </button>
       </form>
-      <button className={styles.showForm} type="button">
-        <IconPlus className={styles.showFormIcon} />
-        New time entry
-      </button>
+
+      {!isFormVisible && (
+        <button
+          className={styles.showForm}
+          type="button"
+          onClick={handleToggle}
+        >
+          <IconPlus className={styles.showFormIcon} />
+          New time entry
+        </button>
+      )}
     </div>
   );
 };
 
 TimeEntryAdd.propTypes = {
-  addFormData: PropTypes.func.isRequired
+  addFormData: PropTypes.func.isRequired,
+  clients: PropTypes.arrayOf(
+    PropTypes.shape({
+      companyName: PropTypes.string
+    })
+  )
+};
+
+TimeEntryAdd.defaultProps = {
+  clients: []
 };
 
 export default TimeEntryAdd;

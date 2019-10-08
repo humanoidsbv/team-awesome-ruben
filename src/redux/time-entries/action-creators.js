@@ -7,7 +7,8 @@ import {
   DELETE_TIME_ENTRY_SUCCESS,
   FETCH_TIME_ENTRIES_FAILURE,
   FETCH_TIME_ENTRIES_REQUEST,
-  FETCH_TIME_ENTRIES_SUCCESS
+  FETCH_TIME_ENTRIES_SUCCESS,
+  FILTER_TIME_ENTRIES_BY_CLIENT
 } from '.';
 
 export const addTimeEntryFailure = error => ({
@@ -52,4 +53,9 @@ export const fetchTimeEntriesRequest = () => ({
 export const fetchTimeEntriesSuccess = timeEntries => ({
   type: FETCH_TIME_ENTRIES_SUCCESS,
   payload: timeEntries
+});
+
+export const filterTimeEntriesByClient = timeEntryFilter => ({
+  type: FILTER_TIME_ENTRIES_BY_CLIENT,
+  payload: timeEntryFilter
 });
