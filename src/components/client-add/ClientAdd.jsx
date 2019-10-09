@@ -2,7 +2,8 @@ import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 import styles from './ClientAdd.module.css';
-import Input from '../../../shared/components/input/';
+import InputField from '../../../shared/components/input-field/';
+import Button from '../../../shared/components/button/';
 
 const ClientAdd = ({ addClient, toggleFormVisibility }) => {
   const [branch, setBranch] = useState('');
@@ -59,70 +60,63 @@ const ClientAdd = ({ addClient, toggleFormVisibility }) => {
       </div>
       <form className={styles.form} onSubmit={handleSubmit} ref={formRef}>
         <div className={styles.inputContainer}>
-          <Input
+          <InputField
             handleBlur={handleBlur}
             inputText="Client"
             inputValue={companyName}
+            isValid={validity.companyName}
             name="companyName"
             setInputValue={setCompanyName}
-            validity={validity}
           />
-          <Input
+          <InputField
             handleBlur={handleBlur}
             inputText="Branch"
             inputValue={branch}
+            isValid={validity.branch}
             name="branch"
             setInputValue={setBranch}
-            validity={validity}
           />
         </div>
         <span className={styles.verticalLine} />
         <div className={styles.inputContainer}>
-          <Input
+          <InputField
             handleBlur={handleBlur}
             inputText="Branch Adress"
             inputValue={branchAdress}
-            name="BranchAdress"
+            isValid={validity.branchAdress}
+            name="branchAdress"
             setInputValue={setBranchAdress}
-            validity={validity}
           />
-          <Input
-            halfWidth="true"
+          <InputField
+            halfWidth
             handleBlur={handleBlur}
             inputText="Postal code"
             inputValue={postalCode}
+            isValid={validity.postalCode}
             name="postalCode"
             setInputValue={setPostalCode}
-            validity={validity}
           />
-          <Input
-            halfWidth="true"
+          <InputField
+            halfWidth
             handleBlur={handleBlur}
             inputText="Location"
             inputValue={locality}
+            isValid={validity.locality}
             name="locality"
             setInputValue={setLocality}
-            validity={validity}
           />
         </div>
       </form>
       <div className={styles.header}>
         <span className={styles.heading}>Add New Client</span>
-        <button
-          className={styles.cancelButton}
-          onClick={handleCloseForm}
-          type="button"
-        >
-          Cancel
-        </button>
-        <button
-          className={styles.addMemberButton}
-          disabled={validity.form !== true}
-          onClick={handleSubmit}
-          type="button"
-        >
-          Save
-        </button>
+        <div className={styles.fullWidth}>
+          <Button onClick={handleCloseForm} innerText="Cancel" />
+          <Button
+            disabled={validity.form !== true}
+            onClick={handleSubmit}
+            innerText="Save"
+          />
+        </div>
       </div>
     </div>
   );

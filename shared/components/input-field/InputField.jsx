@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import styles from './Input.module.css';
+import styles from './InputField.module.css';
 
-const InputStandard = ({
+const InputField = ({
   halfWidth,
   handleBlur,
   inputText,
   inputValue,
+  isValid,
   name,
-  setInputValue,
-  validity
+  setInputValue
 }) => (
   <label
     className={`${styles.label} ${halfWidth && styles.halfWidth}`}
@@ -18,37 +18,37 @@ const InputStandard = ({
   >
     <span className={styles.labelText}>{inputText}</span>
     <input
-      className={`${styles.input} ${validity[name] === false &&
-        styles.invalidInput}`}
-      maxLength="30"
-      minLength="2"
+      className={`${styles.input}
+      ${isValid === false && styles.invalidInput}`}
       name={name}
       onBlur={handleBlur}
       onChange={({ target }) => setInputValue(target.value)}
-      required
       value={inputValue}
+      maxLength="30"
+      minLength="2"
+      required
     />
   </label>
 );
 
-InputStandard.propTypes = {
+InputField.propTypes = {
   halfWidth: PropTypes.bool,
   handleBlur: PropTypes.func,
   inputText: PropTypes.string,
   inputValue: PropTypes.string,
+  isValid: PropTypes.bool,
   name: PropTypes.string,
-  setInputValue: PropTypes.func,
-  validity: PropTypes.shape({})
+  setInputValue: PropTypes.func
 };
 
-InputStandard.defaultProps = {
+InputField.defaultProps = {
   halfWidth: false,
   handleBlur: null,
   inputText: 'input',
   inputValue: 'value',
+  isValid: undefined,
   name: 'name',
-  setInputValue: null,
-  validity: {}
+  setInputValue: null
 };
 
-export default InputStandard;
+export default InputField;
