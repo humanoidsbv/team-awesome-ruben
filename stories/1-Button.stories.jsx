@@ -20,7 +20,7 @@ export const emoji = () => (
   <Center>
     <Button onClick={action('clicked')}>
       Water the plants &nbsp;
-      <span role="img" aria-label="so cool">
+      <span role="img" aria-label="water the plants!">
         🌹 🌻 🌷 🌿 🌵 🌾 🌼
       </span>
     </Button>
@@ -35,9 +35,9 @@ export const disabled = () => (
   </Center>
 );
 
-export const active = () => (
+export const typeSubmit = () => (
   <Center>
-    <Button onClick={action('clicked')} disabled={false}>
+    <Button onClick={action('clicked')} type="submit">
       Click me
     </Button>
   </Center>

@@ -130,7 +130,11 @@ const ClientAdd = ({ addClient, toggleFormVisibility }) => {
         <span className={styles.heading}>Add New Client</span>
         <div className={styles.fullWidth}>
           <Button onClick={handleCloseForm}>Cancel</Button>
-          <Button disabled={validity.form !== true} onClick={handleSubmit}>
+          <Button
+            disabled={validity.form !== true}
+            onClick={handleSubmit}
+            type="submit"
+          >
             Save
           </Button>
         </div>
