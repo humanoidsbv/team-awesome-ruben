@@ -30,16 +30,20 @@
 
 * {
   box-sizing: border-box;
+  font-family: 'proximanova', serif;
 }
 
-body,
-input {
+body {
   margin: 0;
-  font-family: 'proximanova', serif;
 }
 
 p {
   margin: 0;
+}
+
+input {
+  margin: 0;
+  outline: 0;
 }
 
 input[type='date']::-webkit-inner-spin-button,
@@ -53,7 +57,6 @@ input[type='date']::-webkit-calendar-picker-indicator {
 button {
   background: initial;
   border: 0;
-  color: inherit;
   font-family: inherit;
   font-size: inherit;
   outline: 0;
