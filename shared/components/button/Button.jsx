@@ -1,13 +1,12 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const ButtonStyled = styled.button`
-  background: #f5f7f9;
+const Button = styled.button`
+  background-color: ${props =>
+    props.disabled === false ? '#39b54a' : '#f5f7f9'};
   border-radius: 4px;
-  border: 1px solid #ced0da;
-  color: #4b5464;
-  cursor: pointer;
+  border: ${props => (props.disabled === false ? '0' : '1px solid #ced0da')};
+  color: ${props => (props.disabled === false ? '#fff' : '#4b5464')};
   fill: #a8aab7;
   font-size: 14px;
   height: 36px;
@@ -16,11 +15,11 @@ const ButtonStyled = styled.button`
   text-align: center;
   width: calc(50% - 5px);
 
-  &&.button {
+  & + & {
     margin-left: 10px;
   }
 
-  &.button[disabled] {
+  &[disabled] {
     background-color: #e6eaee;
     background-image: none;
     border: 0;
@@ -28,40 +27,19 @@ const ButtonStyled = styled.button`
     cursor: auto;
   }
 
-  &.active {
-    background-color: #39b54a;
-    border: 0;
-    color: #fff;
-  }
-
   @media only screen and (min-width: 901px) {
     margin: 0 0 0 auto;
     min-width: 100px;
-    width: 100px;
+    width: auto;
   }
 `;
 
-const Button = ({ disabled, innerText, onClick }) => (
-  <ButtonStyled
-    className={`button ${disabled === false && 'active'}`}
-    disabled={disabled}
-    onClick={onClick}
-    type="button"
-  >
-    {innerText}
-  </ButtonStyled>
-);
-
 Button.propTypes = {
-  disabled: PropTypes.bool,
-  onClick: PropTypes.func,
-  innerText: PropTypes.string
+  disabled: PropTypes.bool
 };
 
 Button.defaultProps = {
-  disabled: undefined,
-  onClick: null,
-  innerText: 'button'
+  disabled: undefined
 };
 
 export default Button;

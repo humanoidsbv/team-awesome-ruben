@@ -1,9 +1,10 @@
 import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 
-import styles from './ClientAdd.module.css';
-import InputField from '../../../shared/components/input-field/';
 import Button from '../../../shared/components/button/';
+import Input from '../../../shared/components/input/';
+import Label from '../../../shared/components/label/';
+import styles from './ClientAdd.module.css';
 
 const ClientAdd = ({ addClient, toggleFormVisibility }) => {
   const [branch, setBranch] = useState('');
@@ -19,7 +20,7 @@ const ClientAdd = ({ addClient, toggleFormVisibility }) => {
     // Descontruct a dynamic value from an object and keep the remainder
     if (event.target.value === '') {
       const { [event.target.name]: inputValidity, ...restValidity } = validity;
-      setValidity(restValidity);
+      setValidity({ restValidity, form: formRef.current.checkValidity() });
       return;
     }
 
@@ -60,62 +61,78 @@ const ClientAdd = ({ addClient, toggleFormVisibility }) => {
       </div>
       <form className={styles.form} onSubmit={handleSubmit} ref={formRef}>
         <div className={styles.inputContainer}>
-          <InputField
-            handleBlur={handleBlur}
-            inputText="Client"
-            inputValue={companyName}
-            isValid={validity.companyName}
-            name="companyName"
-            setInputValue={setCompanyName}
-          />
-          <InputField
-            handleBlur={handleBlur}
-            inputText="Branch"
-            inputValue={branch}
-            isValid={validity.branch}
-            name="branch"
-            setInputValue={setBranch}
-          />
+          <Label htmlFor="companyName">
+            Client
+            <Input
+              isValid={validity.companyName}
+              maxLength="30"
+              minLength="2"
+              name="companyName"
+              onBlur={handleBlur}
+              onChange={({ target }) => setCompanyName(target.value)}
+              required
+            />
+          </Label>
+          <Label>
+            Branch
+            <Input
+              isValid={validity.branch}
+              maxLength="30"
+              minLength="2"
+              name="branch"
+              onBlur={handleBlur}
+              onChange={({ target }) => setCompanyName(target.value)}
+              required
+            />
+          </Label>
         </div>
         <span className={styles.verticalLine} />
         <div className={styles.inputContainer}>
-          <InputField
-            handleBlur={handleBlur}
-            inputText="Branch Adress"
-            inputValue={branchAdress}
-            isValid={validity.branchAdress}
-            name="branchAdress"
-            setInputValue={setBranchAdress}
-          />
-          <InputField
-            halfWidth
-            handleBlur={handleBlur}
-            inputText="Postal code"
-            inputValue={postalCode}
-            isValid={validity.postalCode}
-            name="postalCode"
-            setInputValue={setPostalCode}
-          />
-          <InputField
-            halfWidth
-            handleBlur={handleBlur}
-            inputText="Location"
-            inputValue={locality}
-            isValid={validity.locality}
-            name="locality"
-            setInputValue={setLocality}
-          />
+          <Label>
+            Branch adress
+            <Input
+              isValid={validity.branchAdress}
+              maxLength="30"
+              minLength="2"
+              name="branchAdress"
+              onBlur={handleBlur}
+              onChange={({ target }) => setBranchAdress(target.value)}
+              required
+            />
+          </Label>
+          <Label halfWidth>
+            Postal code
+            <Input
+              isValid={validity.postalCode}
+              maxLength="30"
+              minLength="2"
+              name="postalCode"
+              onBlur={handleBlur}
+              onChange={({ target }) => setPostalCode(target.value)}
+              required
+            />
+          </Label>
+          <Label halfWidth>
+            Location
+            <Input
+              isValid={validity.locality}
+              maxLength="30"
+              minLength="2"
+              name="locality"
+              onBlur={handleBlur}
+              onChange={({ target }) => setLocality(target.value)}
+              required
+            />
+          </Label>
         </div>
       </form>
       <div className={styles.header}>
         <span className={styles.heading}>Add New Client</span>
         <div className={styles.fullWidth}>
-          <Button onClick={handleCloseForm} innerText="Cancel" />
-          <Button
-            disabled={validity.form !== true}
-            onClick={handleSubmit}
-            innerText="Save"
-          />
+          <Button onClick={handleCloseForm}>Cancel</Button>
+          <Button disabled={validity.form !== true} onClick={handleSubmit}>
+            Save
+          </Button>
         </div>
       </div>
     </div>
