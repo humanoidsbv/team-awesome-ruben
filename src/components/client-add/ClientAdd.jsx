@@ -1,11 +1,14 @@
 import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 
+import Button from '../../../shared/components/button/';
+import Input from '../../../shared/components/input/';
+import Label from '../../../shared/components/label/';
 import styles from './ClientAdd.module.css';
 
 const ClientAdd = ({ addClient, toggleFormVisibility }) => {
   const [branch, setBranch] = useState('');
-  const [branchAdress, setBranchAdress] = useState('');
+  const [branchAddress, setBranchAddress] = useState('');
   const [companyName, setCompanyName] = useState('');
   const [locality, setLocality] = useState('');
   const [postalCode, setPostalCode] = useState('');
@@ -17,7 +20,7 @@ const ClientAdd = ({ addClient, toggleFormVisibility }) => {
     // Descontruct a dynamic value from an object and keep the remainder
     if (event.target.value === '') {
       const { [event.target.name]: inputValidity, ...restValidity } = validity;
-      setValidity(restValidity);
+      setValidity({ restValidity, form: formRef.current.checkValidity() });
       return;
     }
 
@@ -30,7 +33,7 @@ const ClientAdd = ({ addClient, toggleFormVisibility }) => {
 
   const handleCloseForm = () => {
     setBranch('');
-    setBranchAdress('');
+    setBranchAddress('');
     setCompanyName('');
     setLocality('');
     setPostalCode('');
@@ -42,7 +45,7 @@ const ClientAdd = ({ addClient, toggleFormVisibility }) => {
 
     addClient({
       branch,
-      branchAdress,
+      branchAddress,
       companyName,
       id: Math.random(),
       locality,
@@ -58,104 +61,83 @@ const ClientAdd = ({ addClient, toggleFormVisibility }) => {
       </div>
       <form className={styles.form} onSubmit={handleSubmit} ref={formRef}>
         <div className={styles.inputContainer}>
-          <label className={styles.label} htmlFor="client">
-            <span className={styles.labelText}>Client</span>
-            <input
-              className={`${styles.input}
-                ${validity.companyName === false && styles.invalidInput}`}
+          <Label htmlFor="companyName">
+            Client
+            <Input
+              isValid={validity.companyName}
               maxLength="30"
               minLength="2"
-              name="client"
+              name="companyName"
               onBlur={handleBlur}
               onChange={({ target }) => setCompanyName(target.value)}
               required
-              value={companyName}
             />
-          </label>
-          <label className={`${styles.label}`} htmlFor="branch">
-            <span className={styles.labelText}>Branch</span>
-            <input
-              className={`${styles.input} ${validity.branch === false &&
-                styles.invalidInput}`}
+          </Label>
+          <Label>
+            <span>Branch</span>
+            <Input
+              isValid={validity.branch}
               maxLength="30"
               minLength="2"
               name="branch"
               onBlur={handleBlur}
               onChange={({ target }) => setBranch(target.value)}
               required
-              value={branch}
             />
-          </label>
+          </Label>
         </div>
         <span className={styles.verticalLine} />
         <div className={styles.inputContainer}>
-          <label className={`${styles.label}`} htmlFor="branchAdress">
-            <span className={styles.labelText}>Branch adress</span>
-            <input
-              className={`${styles.input} 
-              ${validity.branchAdress === false && styles.invalidInput}`}
+          <Label>
+            Branch address
+            <Input
+              isValid={validity.branchAddress}
               maxLength="30"
               minLength="2"
-              name="branchAdress"
+              name="branchAddress"
               onBlur={handleBlur}
-              onChange={({ target }) => setBranchAdress(target.value)}
+              onChange={({ target }) => setBranchAddress(target.value)}
               required
-              value={branchAdress}
             />
-          </label>
-          <label
-            className={`${styles.label} ${styles.labelHalfWidth}`}
-            htmlFor="postalCode"
-          >
-            <span className={styles.labelText}>Postal code</span>
-            <input
-              className={`${styles.input} 
-              ${validity.postalCode === false && styles.invalidInput}`}
+          </Label>
+          <Label halfWidth>
+            Postal code
+            <Input
+              isValid={validity.postalCode}
               maxLength="30"
               minLength="2"
               name="postalCode"
               onBlur={handleBlur}
               onChange={({ target }) => setPostalCode(target.value)}
               required
-              value={postalCode}
             />
-          </label>
-          <label
-            className={`${styles.label} ${styles.labelHalfWidth}`}
-            htmlFor="locality"
-          >
-            <span className={styles.labelText}>Location</span>
-            <input
-              className={`${styles.input} 
-              ${validity.locality === false && styles.invalidInput}`}
+          </Label>
+          <Label halfWidth>
+            Location
+            <Input
+              isValid={validity.locality}
               maxLength="30"
               minLength="2"
               name="locality"
               onBlur={handleBlur}
               onChange={({ target }) => setLocality(target.value)}
               required
-              value={locality}
             />
-          </label>
+          </Label>
         </div>
       </form>
       <div className={styles.header}>
         <span className={styles.heading}>Add New Client</span>
-        <button
-          className={styles.cancelButton}
-          onClick={handleCloseForm}
-          type="button"
-        >
-          Cancel
-        </button>
-        <button
-          className={styles.addMemberButton}
-          disabled={validity.form !== true}
-          onClick={handleSubmit}
-          type="button"
-        >
-          Save
-        </button>
+        <div className={styles.fullWidth}>
+          <Button onClick={handleCloseForm}>Cancel</Button>
+          <Button
+            disabled={validity.form !== true}
+            onClick={handleSubmit}
+            type="submit"
+          >
+            Save
+          </Button>
+        </div>
       </div>
     </div>
   );

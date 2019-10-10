@@ -1,4 +1,8 @@
-const apiUrl = 'http://localhost:3000/team-members';
+const apiUrl = `${
+  process.env.NODE_ENV === 'development'
+    ? 'http://localhost:3000'
+    : 'https://my-json-server.typicode.com/humanoidsbv/team-awesome-ruben-api'
+}/team-members`;
 
 export const addTeamMember = item =>
   fetch(apiUrl, {
@@ -18,6 +22,6 @@ export const deleteTeamMember = async teamMemberId =>
   });
 
 export const fetchTeamMembers = async () => {
-  const response = await fetch(`${apiUrl}?_sort=name&_order=desc`);
+  const response = await fetch(`${apiUrl}?_sort=firstName&_order=desc`);
   return response.json();
 };

@@ -1,4 +1,8 @@
-const apiUrl = 'http://localhost:3000/time-entries';
+const apiUrl = `${
+  process.env.NODE_ENV === 'development'
+    ? 'http://localhost:3000'
+    : 'https://my-json-server.typicode.com/humanoidsbv/team-awesome-ruben-api'
+}/time-entries`;
 
 export const addTimeEntry = item =>
   fetch(apiUrl, {
