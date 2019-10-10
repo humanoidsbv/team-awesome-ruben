@@ -3,7 +3,8 @@ import styled from 'styled-components';
 
 const Label = styled.label`
   color: #7f8fa4;
-  display: block;
+  display: flex;
+  flex-direction: column;
   font-size: 14px;
   margin-bottom: 10px;
   width: 100%;

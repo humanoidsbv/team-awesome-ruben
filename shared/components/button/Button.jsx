@@ -28,8 +28,9 @@ const Button = styled.button`
   }
 
   @media only screen and (min-width: 901px) {
-    margin: 0 0 0 auto;
+    margin: 0;
     min-width: 100px;
+    padding: 0 20px;
     width: auto;
   }
 `;

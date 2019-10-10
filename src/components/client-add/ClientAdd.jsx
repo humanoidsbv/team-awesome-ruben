@@ -74,7 +74,7 @@ const ClientAdd = ({ addClient, toggleFormVisibility }) => {
             />
           </Label>
           <Label>
-            Branch
+            <span>Branch</span>
             <Input
               isValid={validity.branch}
               maxLength="30"

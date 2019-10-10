@@ -9,7 +9,6 @@ const Input = styled.input`
   font-size: 14px;
   margin-top: 7px;
   padding: 9px 0 9px 15px;
-  width: 100%;
 `;
 
 Input.propTypes = {
