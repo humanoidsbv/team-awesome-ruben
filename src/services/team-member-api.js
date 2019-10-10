@@ -22,6 +22,6 @@ export const deleteTeamMember = async teamMemberId =>
   });
 
 export const fetchTeamMembers = async () => {
-  const response = await fetch(`${apiUrl}?_sort=name&_order=desc`);
+  const response = await fetch(`${apiUrl}?_sort=firstName&_order=desc`);
   return response.json();
 };

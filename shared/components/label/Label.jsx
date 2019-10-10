@@ -19,7 +19,7 @@ const Label = styled.label`
 
   @media only screen and (min-width: 901px) {
     margin: ${props => props.halfWidth && '0'};
-    width: ${props => props.halfWidth === true && 'calc(50% - 5px)'};
+    width: ${props => props.halfWidth && 'calc(50% - 5px)'};
     & + & {
       margin-left: ${props => props.halfWidth && '10px'};
     }

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const Input = styled.input`
   background-image: #fff;
   border: solid 1px #ced0da;
-  border-color: ${props => props.isValid === false && '#fb6375'};
+  border-color: ${props => (props.isValid === false ? '#fb6375' : '#ced0da')};
   border-radius: 4px;
   font-size: 14px;
   margin-top: 7px;

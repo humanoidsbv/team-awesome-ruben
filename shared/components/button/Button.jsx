@@ -4,8 +4,9 @@ import styled from 'styled-components';
 const Button = styled.button`
   background-color: ${props =>
     props.disabled === false ? '#39b54a' : '#f5f7f9'};
+  border: 1px solid #ced0da;
   border-radius: 4px;
-  border: ${props => (props.disabled === false ? '0' : '1px solid #ced0da')};
+  border-width: ${props => (props.disabled === false ? '0' : '1px')};
   color: ${props => (props.disabled === false ? '#fff' : '#4b5464')};
   fill: #a8aab7;
   font-size: 14px;

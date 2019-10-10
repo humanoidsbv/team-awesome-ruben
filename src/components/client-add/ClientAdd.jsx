@@ -8,7 +8,7 @@ import styles from './ClientAdd.module.css';
 
 const ClientAdd = ({ addClient, toggleFormVisibility }) => {
   const [branch, setBranch] = useState('');
-  const [branchAdress, setBranchAdress] = useState('');
+  const [branchAddress, setBranchAddress] = useState('');
   const [companyName, setCompanyName] = useState('');
   const [locality, setLocality] = useState('');
   const [postalCode, setPostalCode] = useState('');
@@ -33,7 +33,7 @@ const ClientAdd = ({ addClient, toggleFormVisibility }) => {
 
   const handleCloseForm = () => {
     setBranch('');
-    setBranchAdress('');
+    setBranchAddress('');
     setCompanyName('');
     setLocality('');
     setPostalCode('');
@@ -45,7 +45,7 @@ const ClientAdd = ({ addClient, toggleFormVisibility }) => {
 
     addClient({
       branch,
-      branchAdress,
+      branchAddress,
       companyName,
       id: Math.random(),
       locality,
@@ -81,7 +81,7 @@ const ClientAdd = ({ addClient, toggleFormVisibility }) => {
               minLength="2"
               name="branch"
               onBlur={handleBlur}
-              onChange={({ target }) => setCompanyName(target.value)}
+              onChange={({ target }) => setBranch(target.value)}
               required
             />
           </Label>
@@ -89,14 +89,14 @@ const ClientAdd = ({ addClient, toggleFormVisibility }) => {
         <span className={styles.verticalLine} />
         <div className={styles.inputContainer}>
           <Label>
-            Branch adress
+            Branch address
             <Input
-              isValid={validity.branchAdress}
+              isValid={validity.branchAddress}
               maxLength="30"
               minLength="2"
-              name="branchAdress"
+              name="branchAddress"
               onBlur={handleBlur}
-              onChange={({ target }) => setBranchAdress(target.value)}
+              onChange={({ target }) => setBranchAddress(target.value)}
               required
             />
           </Label>
