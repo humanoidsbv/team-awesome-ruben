@@ -18,7 +18,7 @@ import {
   fetchTimeEntriesFailure
 } from '.';
 
-function* fetchTimeEntriesRequest(): {} {
+function* fetchTimeEntriesRequest() {
   try {
     const response = yield call(fetchTimeEntries);
     yield put(fetchTimeEntriesSuccess(response));
@@ -27,11 +27,11 @@ function* fetchTimeEntriesRequest(): {} {
   }
 }
 
-export function* watchFetchTimeEntriesRequest(): {} {
+export function* watchFetchTimeEntriesRequest() {
   yield takeLatest(FETCH_TIME_ENTRIES_REQUEST, fetchTimeEntriesRequest);
 }
 
-function* deleteTimeEntryRequest({ payload }): {} {
+function* deleteTimeEntryRequest({ payload }) {
   try {
     yield call(deleteTimeEntry, payload);
     yield put(deleteTimeEntrySuccess(payload));
@@ -44,7 +44,7 @@ export function* watchDeleteTimeEntryRequest() {
   yield takeLatest(DELETE_TIME_ENTRY_REQUEST, deleteTimeEntryRequest);
 }
 
-function* addTimeEntryRequest({ payload }): {} {
+function* addTimeEntryRequest({ payload }) {
   try {
     yield call(addTimeEntry, payload);
     yield put(addTimeEntrySuccess(payload));
@@ -57,7 +57,7 @@ export function* watchAddTimeEntryRequest() {
   yield takeLatest(ADD_TIME_ENTRY_REQUEST, addTimeEntryRequest);
 }
 
-export function* timeEntriesSagas(): {} {
+export function* timeEntriesSagas() {
   yield all([
     fork(watchAddTimeEntryRequest),
     fork(watchDeleteTimeEntryRequest),

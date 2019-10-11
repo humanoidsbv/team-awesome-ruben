@@ -1,6 +1,6 @@
 export interface ClientsInterface {
   branch: string;
-  clientName: string;
+  companyName: string;
   contactPerson: string;
   contactPhoneNumber: string;
   id: number;

@@ -1,13 +1,11 @@
 import React from 'react';
 
-import { TimeEntryInterface } from '../../../src/redux/time-entries/types';
+import { TimeEntryInterface } from '../../redux/time-entries/types';
 import DeleteIcon from '../../assets/icons/icon-delete.svg';
 import styles from './TimeEntry.module.css';
 
-interface TimeEntryProps extends TimeEntryInterface {
-  client: number;
+export interface TimeEntryProps extends TimeEntryInterface {
   deleteEntry: (number) => {};
-  id: number;
 }
 
 const TimeEntry = ({

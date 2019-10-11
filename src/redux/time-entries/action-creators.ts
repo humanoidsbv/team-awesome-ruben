@@ -33,14 +33,14 @@ export const deleteTimeEntryFailure = (error): ActionsInterface => ({
   payload: error
 });
 
-export const deleteTimeEntryRequest = (timeEntryId): ActionsInterface => ({
+export const deleteTimeEntryRequest = (id): ActionsInterface => ({
   type: DELETE_TIME_ENTRY_REQUEST,
-  payload: timeEntryId
+  payload: id
 });
 
-export const deleteTimeEntrySuccess = (timeEntryId): ActionsInterface => ({
+export const deleteTimeEntrySuccess = (id): ActionsInterface => ({
   type: DELETE_TIME_ENTRY_SUCCESS,
-  payload: timeEntryId
+  payload: id
 });
 
 export const fetchTimeEntriesFailure = (error): ActionsInterface => ({
