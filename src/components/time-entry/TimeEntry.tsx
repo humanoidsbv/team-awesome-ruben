@@ -1,16 +1,22 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
+import { TimeEntryInterface } from '../../../src/redux/time-entries/types';
 import DeleteIcon from '../../assets/icons/icon-delete.svg';
 import styles from './TimeEntry.module.css';
+
+interface TimeEntryProps extends TimeEntryInterface {
+  client: number;
+  deleteEntry: (number) => {};
+  id: number;
+}
 
 const TimeEntry = ({
   client,
   deleteEntry,
-  timeEntryId,
+  id,
   startTimestamp,
   stopTimestamp
-}) => {
+}: TimeEntryProps): React.ReactElement => {
   const totalHours =
     (Date.parse(stopTimestamp) - Date.parse(startTimestamp)) / 1000 / 60 / 60;
 
@@ -34,7 +40,7 @@ const TimeEntry = ({
       <span>{client}</span>
       <button
         className={styles.deleteEntry}
-        onClick={() => deleteEntry(timeEntryId)}
+        onClick={(): {} => deleteEntry(id)}
         type="button"
       >
         <DeleteIcon className={styles.deleteIcon} />
@@ -48,14 +54,6 @@ const TimeEntry = ({
       </div>
     </div>
   );
-};
-
-TimeEntry.propTypes = {
-  client: PropTypes.string.isRequired,
-  deleteEntry: PropTypes.func.isRequired,
-  startTimestamp: PropTypes.string.isRequired,
-  stopTimestamp: PropTypes.string.isRequired,
-  timeEntryId: PropTypes.number.isRequired
 };
 
 export default TimeEntry;

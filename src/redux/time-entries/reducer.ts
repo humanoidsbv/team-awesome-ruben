@@ -10,14 +10,17 @@ import {
   FILTER_TIME_ENTRIES_BY_CLIENT
 } from './actions';
 
-const initialState = {
+const initialState: TimeEntryStateInterface = {
   items: [],
   isLoading: false,
   hasError: '',
   filterByClient: null
 };
 
-export default (state = initialState, { type, payload }) => {
+export default (
+  state: TimeEntryStateInterface = initialState,
+  { type, payload }
+): TimeEntryStateInterface => {
   switch (type) {
     case ADD_TIME_ENTRY_REQUEST:
       return {
