@@ -1,3 +1,5 @@
+import { TimeEntryStateInterface } from './types';
+
 import {
   ADD_TIME_ENTRY_REQUEST,
   ADD_TIME_ENTRY_SUCCESS,
