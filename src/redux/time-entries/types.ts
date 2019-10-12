@@ -15,21 +15,23 @@ export interface TimeEntryStateInterface {
 }
 
 export interface ActionsInterface {
-  payload?: {};
   type: string;
+  payload?: any;
 }
 export interface TimeEntriesStateInterface {
   clients: ClientsInterface;
   timeEntries: TimeEntryInterface;
 }
 
-// export interface TimeEntriesDispatchInterface {
-//   addTimeEntry: () => ActionsInterface[];
-//   deleteTimeEntry: () => ActionsInterface[];
-//   fetchClients: () => ActionsInterface[];
-//   fetchTimeEntries: () => ActionsInterface[];
-//   filterTimeEntriesByClient: () => ActionsInterface[];
-// }
+export interface TimeEntriesDispatchInterface {
+  addTimeEntry: (item) => ActionsInterface;
+  deleteTimeEntry: (timeEntryId) => ActionsInterface;
+  fetchClients: () => ActionsInterface;
+  fetchTimeEntries: () => {};
+  filterTimeEntriesByClient: (client) => ActionsInterface;
+}
 
-// export type TimeEntriesProps = TimeEntriesStateInterface &
-//   TimeEntriesDispatchInterface;
+/*
+export type TimeEntriesProps = TimeEntriesStateInterface &
+  TimeEntriesDispatchInterface;
+*/

@@ -5,14 +5,14 @@ import { Provider } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
 import PropTypes from 'prop-types';
 
-import reducer from './root-reducer';
-import saga from './root-saga';
+import rootReducer from './root-reducer';
+import rootSaga from './root-saga';
 
-const ReduxWrapper = ({ element }) => {
+const ReduxWrapper = ({ element }): React.ReactElement => {
   const middleware = createSagaMiddleware();
   const enhancer = composeWithDevTools(applyMiddleware(middleware));
-  const store = createStore(reducer, enhancer);
-  middleware.run(saga);
+  const store = createStore(rootReducer, enhancer);
+  middleware.run(rootSaga);
   return <Provider store={store}>{element}</Provider>;
 };
 

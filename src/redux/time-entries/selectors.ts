@@ -16,7 +16,11 @@ export const timeEntriesItemsSelector = createSelector(
         ...timeEntry,
         client: clients.find(client => client.id === timeEntry.client)
       }))
-      .sort((a, b) => new Date(b.startTimestamp) - new Date(a.startTimestamp))
+      .sort(
+        (a, b) =>
+          Number(new Date(b.startTimestamp)) -
+          Number(new Date(a.startTimestamp))
+      )
 );
 
 export const timeEntriesIsLoadingSelector = createSelector(

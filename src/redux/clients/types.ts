@@ -1,8 +1,7 @@
 export interface ClientsInterface {
   branch: string;
+  branchAdress: string;
   companyName: string;
-  contactPerson: string;
-  contactPhoneNumber: string;
   id: number;
   locality: string;
   postalCode: string;

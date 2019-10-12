@@ -48,7 +48,7 @@ export const fetchTimeEntriesFailure = (error): ActionsInterface => ({
   payload: error
 });
 
-export const fetchTimeEntriesRequest = (): {} => ({
+export const fetchTimeEntriesRequest = (): ActionsInterface => ({
   type: FETCH_TIME_ENTRIES_REQUEST
 });
 
