@@ -1,10 +1,19 @@
 import React, { useState, useRef } from 'react';
-import PropTypes from 'prop-types';
 
 import styles from './TeamMemberAdd.module.css';
 import UserProfileImage from '../../../static/images/picture-tnt.jpg';
 
-const TeamMemberAdd = ({ addFormData, handleFormVisible }) => {
+import { ValidityState } from '../../../shared/types';
+
+interface TeamMemberProps {
+  addFormData: (parameter) => {};
+  handleFormVisible: () => {};
+}
+
+const TeamMemberAdd = ({
+  addFormData,
+  handleFormVisible
+}: TeamMemberProps): React.ReactElement => {
   const [bio, setBio] = useState('');
   const [emailAdress, setEmailAdress] = useState('');
   const [facebook, setFacebook] = useState('');
@@ -15,11 +24,11 @@ const TeamMemberAdd = ({ addFormData, handleFormVisible }) => {
   const [locality, setLocality] = useState('');
   const [postalCode, setPostalCode] = useState('');
 
-  const [validity, setValidity] = useState({});
+  const [validity, setValidity] = useState<ValidityState>({});
 
   const formRef = useRef(null);
 
-  const handleBlur = event => {
+  const handleBlur = (event): void => {
     setValidity({
       ...validity,
       form: formRef.current.checkValidity(),
@@ -27,7 +36,7 @@ const TeamMemberAdd = ({ addFormData, handleFormVisible }) => {
     });
   };
 
-  const handleCloseForm = () => {
+  const handleCloseForm = (): void => {
     handleFormVisible();
     setBio('');
     setEmailAdress('');
@@ -40,7 +49,7 @@ const TeamMemberAdd = ({ addFormData, handleFormVisible }) => {
     setPostalCode('');
   };
 
-  const handleSubmit = event => {
+  const handleSubmit = (event): void => {
     event.preventDefault();
 
     addFormData({
@@ -101,11 +110,11 @@ const TeamMemberAdd = ({ addFormData, handleFormVisible }) => {
             <input
               className={`${styles.input} ${validity.firstName === false &&
                 styles.invalidInput}`}
-              maxLength="30"
-              minLength="2"
+              maxLength={30}
+              minLength={2}
               name="firstName"
               onBlur={handleBlur}
-              onChange={({ target }) => setFirstName(target.value)}
+              onChange={({ target }): void => setFirstName(target.value)}
               required
               value={firstName}
             />
@@ -118,11 +127,11 @@ const TeamMemberAdd = ({ addFormData, handleFormVisible }) => {
             <input
               className={`${styles.input} ${validity.lastName === false &&
                 styles.invalidInput}`}
-              maxLength="30"
-              minLength="2"
+              maxLength={30}
+              minLength={2}
               name="lastName"
               onBlur={handleBlur}
-              onChange={({ target }) => setLastName(target.value)}
+              onChange={({ target }): void => setLastName(target.value)}
               required
               value={lastName}
             />
@@ -132,11 +141,11 @@ const TeamMemberAdd = ({ addFormData, handleFormVisible }) => {
             <input
               className={`${styles.input} 
               ${validity.emailAdress === false ? styles.invalidInput : ''}`}
-              maxLength="30"
-              minLength="2"
+              maxLength={30}
+              minLength={2}
               name="emailAdress"
               onBlur={handleBlur}
-              onChange={({ target }) => setEmailAdress(target.value)}
+              onChange={({ target }): void => setEmailAdress(target.value)}
               required
               value={emailAdress}
             />
@@ -147,7 +156,7 @@ const TeamMemberAdd = ({ addFormData, handleFormVisible }) => {
               className={`${styles.input} ${styles.textArea}`}
               name="bio"
               onBlur={handleBlur}
-              onChange={({ target }) => setBio(target.value)}
+              onChange={({ target }): void => setBio(target.value)}
               value={bio}
             />
           </label>
@@ -158,11 +167,11 @@ const TeamMemberAdd = ({ addFormData, handleFormVisible }) => {
             <input
               className={`${styles.input} 
               ${validity.homeAdress === false ? styles.invalidInput : ''}`}
-              maxLength="30"
-              minLength="2"
+              maxLength={30}
+              minLength={2}
               name="homeAdress"
               onBlur={handleBlur}
-              onChange={({ target }) => setHomeAdress(target.value)}
+              onChange={({ target }): void => setHomeAdress(target.value)}
               required
               value={homeAdress}
             />
@@ -175,11 +184,11 @@ const TeamMemberAdd = ({ addFormData, handleFormVisible }) => {
             <input
               className={`${styles.input} 
               ${validity.postalCode === false ? styles.invalidInput : ''}`}
-              maxLength="30"
-              minLength="2"
+              maxLength={30}
+              minLength={2}
               name="postalCode"
               onBlur={handleBlur}
-              onChange={({ target }) => setPostalCode(target.value)}
+              onChange={({ target }): void => setPostalCode(target.value)}
               required
               value={postalCode}
             />
@@ -192,11 +201,11 @@ const TeamMemberAdd = ({ addFormData, handleFormVisible }) => {
             <input
               className={`${styles.input} 
               ${validity.locality === false ? styles.invalidInput : ''}`}
-              maxLength="30"
-              minLength="2"
+              maxLength={30}
+              minLength={2}
               name="locality"
               onBlur={handleBlur}
-              onChange={({ target }) => setLocality(target.value)}
+              onChange={({ target }): void => setLocality(target.value)}
               required
               value={locality}
             />
@@ -206,21 +215,21 @@ const TeamMemberAdd = ({ addFormData, handleFormVisible }) => {
             <input
               className={`${styles.input} ${styles.facebook}
               ${validity.facebook === false ? styles.invalidInput : ''}`}
-              maxLength="30"
-              minLength="2"
+              maxLength={30}
+              minLength={2}
               name="faceBook"
               onBlur={handleBlur}
-              onChange={({ target }) => setFacebook(target.value)}
+              onChange={({ target }): void => setFacebook(target.value)}
               value={facebook}
             />
             <input
               className={`${styles.input}
               ${validity.linkedIn === false ? styles.invalidInput : ''}`}
-              maxLength="30"
-              minLength="2"
+              maxLength={30}
+              minLength={2}
               name="linkedIn"
               onBlur={handleBlur}
-              onChange={({ target }) => setLinkedIn(target.value)}
+              onChange={({ target }): void => setLinkedIn(target.value)}
               required
               value={linkedIn}
             />
@@ -229,11 +238,6 @@ const TeamMemberAdd = ({ addFormData, handleFormVisible }) => {
       </form>
     </div>
   );
-};
-
-TeamMemberAdd.propTypes = {
-  addFormData: PropTypes.func.isRequired,
-  handleFormVisible: PropTypes.func.isRequired
 };
 
 export default TeamMemberAdd;

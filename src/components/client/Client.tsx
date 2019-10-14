@@ -5,16 +5,16 @@ import styles from './Client.module.css';
 
 import { ClientInterface } from '../../redux/clients/types';
 
-interface ClientPropsInterface extends ClientInterface {
-  client: ClientPropsInterface;
+interface ClientPropsInterface {
+  client: ClientInterface;
 }
 
 const Client = ({
   client: { companyName }
-}: ClientPropsInterface): React.ReactFragment => {
+}: ClientPropsInterface): React.ReactElement => {
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const handleClick = () => setIsExpanded(!isExpanded);
+  const handleClick = (): void => setIsExpanded(!isExpanded);
 
   //* mock data for now!
   const clientNumber = 'CLN_';

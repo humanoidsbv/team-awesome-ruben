@@ -18,7 +18,7 @@ import {
   fetchTeamMembersFailure
 } from '.';
 
-function* fetchTeamMembersRequest() {
+function* fetchTeamMembersRequest(): {} {
   try {
     const response = yield call(fetchTeamMembers);
     yield put(fetchTeamMembersSuccess(response));
@@ -27,11 +27,11 @@ function* fetchTeamMembersRequest() {
   }
 }
 
-export function* watchFetchTeamMembersRequest() {
+export function* watchFetchTeamMembersRequest(): {} {
   yield takeLatest(FETCH_TEAM_MEMBERS_REQUEST, fetchTeamMembersRequest);
 }
 
-function* deleteTeamMemberRequest({ payload }) {
+function* deleteTeamMemberRequest({ payload }: any): {} {
   try {
     yield call(deleteTeamMember, payload);
     yield put(deleteTeamMemberSuccess(payload));
@@ -40,11 +40,11 @@ function* deleteTeamMemberRequest({ payload }) {
   }
 }
 
-export function* watchDeleteTeamMembersRequest() {
+export function* watchDeleteTeamMembersRequest(): {} {
   yield takeLatest(DELETE_TEAM_MEMBER_REQUEST, deleteTeamMemberRequest);
 }
 
-function* addTeamMemberRequest({ payload }) {
+function* addTeamMemberRequest({ payload }: any): {} {
   try {
     yield call(addTeamMember, payload);
     yield put(addTeamMemberSuccess(payload));
@@ -53,11 +53,11 @@ function* addTeamMemberRequest({ payload }) {
   }
 }
 
-export function* watchAddTeamMemberRequest() {
+export function* watchAddTeamMemberRequest(): {} {
   yield takeLatest(ADD_TEAM_MEMBER_REQUEST, addTeamMemberRequest);
 }
 
-export function* teamMembersSagas() {
+export function* teamMembersSagas(): {} {
   yield all([
     fork(watchAddTeamMemberRequest),
     fork(watchDeleteTeamMembersRequest),

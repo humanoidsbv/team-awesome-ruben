@@ -8,7 +8,7 @@ import TimeEntryHeader from '../time-entry-header';
 import { ClientInterface } from '../../redux/clients/types';
 import { TimeEntryInterface } from '../../redux/time-entries/types';
 
-interface TimeEntriesProps {
+export interface TimeEntriesProps {
   addTimeEntry: () => void;
   clients: ClientInterface[];
   deleteTimeEntry: (TimeEntryInterface) => {};

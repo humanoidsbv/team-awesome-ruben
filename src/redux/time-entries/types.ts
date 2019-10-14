@@ -1,7 +1,7 @@
-import { ClientsInterface } from '../clients/types';
+import { ClientInterface } from '../clients/types';
 
 export interface TimeEntryInterface {
-  client: ClientsInterface[];
+  client: ClientInterface;
   id: number;
   startTimestamp: string;
   stopTimestamp: string;
@@ -19,18 +19,19 @@ export interface ActionsInterface {
   payload?: {};
 }
 export interface TimeEntriesStateInterface {
-  clients: ClientsInterface;
+  clients: ClientInterface;
   timeEntries: TimeEntryInterface;
 }
 
 export interface TimeEntriesDispatchInterface {
-  addTimeEntry: (item) => ActionsInterface;
-  deleteTimeEntry: (timeEntryId) => ActionsInterface;
+  addTimeEntry: (item: {}) => ActionsInterface;
+  deleteTimeEntry: (timeEntryId: number) => ActionsInterface;
   fetchClients: () => ActionsInterface;
   fetchTimeEntries: () => {};
-  filterTimeEntriesByClient: (client) => ActionsInterface;
+  filterTimeEntriesByClient: (client: {}) => ActionsInterface;
 }
 
+//* Todo: Startpoint to refactor time entries props
 /*
 export type TimeEntriesProps = TimeEntriesStateInterface &
   TimeEntriesDispatchInterface;

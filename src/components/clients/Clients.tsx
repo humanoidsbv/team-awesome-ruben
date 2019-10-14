@@ -6,9 +6,20 @@ import IconArrowDown from '../../assets/icons/icon-arrow-down.svg';
 import IconPlus from '../../assets/icons/icon-plus.svg';
 import styles from './Clients.module.css';
 
-import { ClientsPropsInterface } from '../../redux/clients/types';
+import { ClientInterface } from '../../redux/clients/types';
 
-const Clients = ({ addClient, clients, fetchClients }: any): {} => {
+interface ClientsProps {
+  addClient: () => void;
+  clients: ClientInterface[];
+  fetchClients: () => void;
+  client: ClientInterface;
+}
+
+const Clients = ({
+  addClient,
+  clients,
+  fetchClients
+}: ClientsProps): React.ReactElement => {
   const [isFormVisible, SetIsFormVisible] = useState(false);
 
   useEffect(() => {
@@ -43,9 +54,7 @@ const Clients = ({ addClient, clients, fetchClients }: any): {} => {
         </button>
       </div>
       {clients.map(client => (
-        <React.Fragment key={client.id}>
-          <Client client={client} />
-        </React.Fragment>
+        <Client client={client} key={client.id} />
       ))}
     </React.Fragment>
   );

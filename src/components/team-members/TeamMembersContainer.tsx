@@ -13,17 +13,24 @@ import {
 } from '../../redux/team-members';
 import TeamMembers from './TeamMembers';
 
-const TeamMembersContainer = props => <TeamMembers {...props} />;
+import {
+  TeamMembersStateInterface,
+  TeamMembersDispatchInterface
+} from '../../redux/team-members/types';
 
-const mapStateToProps = state => ({
+const TeamMembersContainer = (
+  props: TeamMembersStateInterface
+): React.ReactElement => <TeamMembers {...props} />;
+
+const mapStateToProps = (state: TeamMembersStateInterface): {} => ({
   orderToggle: teamMembersOrderSelector(state),
   teamMembers: teamMembersItemsSelector(state)
 });
 
-const mapDispatchToProps = dispatch =>
+const mapDispatchToProps = (dispatch): TeamMembersDispatchInterface =>
   bindActionCreators(
     {
-      addTeamMember: addTeamMemberRequest,
+      addTeamMembers: addTeamMemberRequest,
       deleteTeamMember: deleteTeamMemberRequest,
       fetchTeamMembers: fetchTeamMembersRequest,
       sortTeamMembersByField,

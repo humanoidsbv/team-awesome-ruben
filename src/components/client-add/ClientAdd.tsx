@@ -1,26 +1,29 @@
 import React, { useState, useRef } from 'react';
-import PropTypes from 'prop-types';
 
 import Button from '../../../shared/components/button/';
 import Input from '../../../shared/components/input/';
 import Label from '../../../shared/components/label/';
 import styles from './ClientAdd.module.css';
 
-const ClientAdd = ({ addClient, toggleFormVisibility }) => {
+import { ValidityState } from '../../../shared/types';
+
+const ClientAdd = ({ addClient, toggleFormVisibility }): React.ReactElement => {
   const [branch, setBranch] = useState('');
   const [branchAddress, setBranchAddress] = useState('');
   const [companyName, setCompanyName] = useState('');
   const [locality, setLocality] = useState('');
   const [postalCode, setPostalCode] = useState('');
-  const [validity, setValidity] = useState({});
+  const [validity, setValidity] = useState<ValidityState>({});
 
   const formRef = useRef(null);
 
-  const handleBlur = event => {
+  const handleBlur = (event): void => {
     // Descontruct a dynamic value from an object and keep the remainder
     if (event.target.value === '') {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const { [event.target.name]: inputValidity, ...restValidity } = validity;
-      setValidity({ restValidity, form: formRef.current.checkValidity() });
+      setValidity({ ...restValidity, form: formRef.current.checkValidity() });
+
       return;
     }
 
@@ -31,7 +34,7 @@ const ClientAdd = ({ addClient, toggleFormVisibility }) => {
     });
   };
 
-  const handleCloseForm = () => {
+  const handleCloseForm = (): void => {
     setBranch('');
     setBranchAddress('');
     setCompanyName('');
@@ -40,7 +43,7 @@ const ClientAdd = ({ addClient, toggleFormVisibility }) => {
     toggleFormVisibility();
   };
 
-  const handleSubmit = event => {
+  const handleSubmit = (event): void => {
     event.preventDefault();
 
     addClient({
@@ -69,7 +72,7 @@ const ClientAdd = ({ addClient, toggleFormVisibility }) => {
               minLength="2"
               name="companyName"
               onBlur={handleBlur}
-              onChange={({ target }) => setCompanyName(target.value)}
+              onChange={({ target }): void => setCompanyName(target.value)}
               required
             />
           </Label>
@@ -81,7 +84,7 @@ const ClientAdd = ({ addClient, toggleFormVisibility }) => {
               minLength="2"
               name="branch"
               onBlur={handleBlur}
-              onChange={({ target }) => setBranch(target.value)}
+              onChange={({ target }): void => setBranch(target.value)}
               required
             />
           </Label>
@@ -96,7 +99,7 @@ const ClientAdd = ({ addClient, toggleFormVisibility }) => {
               minLength="2"
               name="branchAddress"
               onBlur={handleBlur}
-              onChange={({ target }) => setBranchAddress(target.value)}
+              onChange={({ target }): void => setBranchAddress(target.value)}
               required
             />
           </Label>
@@ -108,7 +111,7 @@ const ClientAdd = ({ addClient, toggleFormVisibility }) => {
               minLength="2"
               name="postalCode"
               onBlur={handleBlur}
-              onChange={({ target }) => setPostalCode(target.value)}
+              onChange={({ target }): void => setPostalCode(target.value)}
               required
             />
           </Label>
@@ -120,7 +123,7 @@ const ClientAdd = ({ addClient, toggleFormVisibility }) => {
               minLength="2"
               name="locality"
               onBlur={handleBlur}
-              onChange={({ target }) => setLocality(target.value)}
+              onChange={({ target }): void => setLocality(target.value)}
               required
             />
           </Label>
@@ -141,11 +144,6 @@ const ClientAdd = ({ addClient, toggleFormVisibility }) => {
       </div>
     </div>
   );
-};
-
-ClientAdd.propTypes = {
-  addClient: PropTypes.func.isRequired,
-  toggleFormVisibility: PropTypes.func.isRequired
 };
 
 export default ClientAdd;

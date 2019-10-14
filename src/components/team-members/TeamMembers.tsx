@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 
 import IconArrowDown from '../../assets/icons/icon-arrow-down.svg';
 import IconPlus from '../../assets/icons/icon-plus.svg';
 import TeamMember from '../team-member/';
 import TeamMemberAdd from '../team-member-add/';
 import styles from './TeamMembers.module.css';
+
+import { TeamMembersStateInterface } from '../../redux/team-members/types';
 
 const TeamMembers = ({
   addTeamMember,
@@ -14,18 +15,19 @@ const TeamMembers = ({
   sortTeamMembersByField,
   sortTeamMembersOrder,
   teamMembers
-}) => {
+}: TeamMembersStateInterface): React.ReactElement => {
   const [isFormVisible, setIsFormVisible] = useState(false);
 
-  useEffect(function getTeamMembers() {
+  useEffect(() => {
     fetchTeamMembers();
   }, []);
 
-  const handleFormVisible = () => setIsFormVisible(!isFormVisible);
+  const handleFormVisible = (): void => setIsFormVisible(!isFormVisible);
 
-  const handleChange = event => sortTeamMembersByField(event.target.value);
+  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>): void =>
+    sortTeamMembersByField(event.currentTarget.value);
 
-  const handeClick = () => sortTeamMembersOrder();
+  const handeClick = (): void => sortTeamMembersOrder();
 
   return (
     <React.Fragment>
@@ -48,11 +50,7 @@ const TeamMembers = ({
           <IconPlus className={styles.addNewIcon} />
           New Humanoid
         </button>
-        <select
-          className={styles.sortMembers}
-          onChange={handleChange}
-          type="button"
-        >
+        <select className={styles.sortMembers} onChange={handleChange}>
           <option value="firstName">First name</option>
           <option value="lastName">Last name</option>
           <option value="locality">Location</option>
@@ -69,25 +67,11 @@ const TeamMembers = ({
           <IconArrowDown />
         </button>
       </div>
-      {teamMembers.map(teamMember => {
-        return <TeamMember teamMember={teamMember} key={teamMember.id} />;
-      })}
+      {teamMembers.map(teamMember => (
+        <TeamMember teamMember={teamMember} key={teamMember.id} />
+      ))}
     </React.Fragment>
   );
-};
-
-TeamMembers.propTypes = {
-  addTeamMember: PropTypes.func.isRequired,
-  fetchTeamMembers: PropTypes.func.isRequired,
-  orderToggle: PropTypes.bool.isRequired,
-  sortTeamMembersByField: PropTypes.func.isRequired,
-  sortTeamMembersOrder: PropTypes.func.isRequired,
-  teamMembers: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string,
-      id: PropTypes.number
-    })
-  ).isRequired
 };
 
 export default TeamMembers;

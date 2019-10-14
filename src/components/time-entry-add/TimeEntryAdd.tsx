@@ -1,10 +1,11 @@
 import React, { useState, useRef } from 'react';
-import PropTypes from 'prop-types';
 
 import IconPlus from '../../assets/icons/icon-plus.svg';
 import styles from './TimeEntryAdd.module.css';
 
-const TimeEntryAdd = ({ addFormData, clients }) => {
+import { ValidityState } from '../../../shared/types';
+
+const TimeEntryAdd = ({ addFormData, clients }): React.ReactElement => {
   const today = new Date()
     .toISOString()
     .split('T')
@@ -16,14 +17,14 @@ const TimeEntryAdd = ({ addFormData, clients }) => {
   const [startTime, setStartTime] = useState('09:00');
   const [endTime, setEndTime] = useState('17:30');
 
-  const [validity, setValidity] = useState({});
+  const [validity, setValidity] = useState<ValidityState>({});
   const [isFormVisible, setIsFormVisible] = useState(true);
 
   const formRef = useRef(null);
 
-  const handleToggle = () => setIsFormVisible(!isFormVisible);
+  const handleToggle = (): void => setIsFormVisible(!isFormVisible);
 
-  const handleBlur = event => {
+  const handleBlur = (event): void => {
     setValidity({
       ...validity,
       form: formRef.current.checkValidity(),
@@ -31,7 +32,7 @@ const TimeEntryAdd = ({ addFormData, clients }) => {
     });
   };
 
-  const handleSubmit = event => {
+  const handleSubmit = (event): void => {
     event.preventDefault();
 
     addFormData({
@@ -71,7 +72,7 @@ const TimeEntryAdd = ({ addFormData, clients }) => {
             }`}
             name="client"
             onBlur={handleBlur}
-            onChange={({ target }) => setClient(target.value)}
+            onChange={({ target }): void => setClient(target.value)}
             value={client}
             required
           >
@@ -95,11 +96,11 @@ const TimeEntryAdd = ({ addFormData, clients }) => {
             className={`${styles.input} ${
               validity.activity === false ? styles.invalidInput : ''
             }`}
-            maxLength="30"
-            minLength="2"
+            maxLength={30}
+            minLength={2}
             name="activity"
             onBlur={handleBlur}
-            onChange={({ target }) => setActivity(target.value)}
+            onChange={({ target }): void => setActivity(target.value)}
             required
             value={activity}
           />
@@ -112,7 +113,7 @@ const TimeEntryAdd = ({ addFormData, clients }) => {
           <input
             className={styles.input}
             name="date"
-            onChange={({ target }) => setDate(target.value)}
+            onChange={({ target }): void => setDate(target.value)}
             required
             type="date"
             value={date}
@@ -127,7 +128,7 @@ const TimeEntryAdd = ({ addFormData, clients }) => {
           <input
             className={`${styles.input} ${styles.timeStamp}`}
             name="startTime"
-            onChange={({ target }) => setStartTime(target.value)}
+            onChange={({ target }): void => setStartTime(target.value)}
             type="time"
             value={startTime}
           />
@@ -140,7 +141,7 @@ const TimeEntryAdd = ({ addFormData, clients }) => {
           <input
             className={`${styles.input} ${styles.timeStamp}`}
             name="endTime"
-            onChange={({ target }) => setEndTime(target.value)}
+            onChange={({ target }): void => setEndTime(target.value)}
             type="time"
             value={endTime}
           />
@@ -166,19 +167,6 @@ const TimeEntryAdd = ({ addFormData, clients }) => {
       )}
     </div>
   );
-};
-
-TimeEntryAdd.propTypes = {
-  addFormData: PropTypes.func.isRequired,
-  clients: PropTypes.arrayOf(
-    PropTypes.shape({
-      companyName: PropTypes.string
-    })
-  )
-};
-
-TimeEntryAdd.defaultProps = {
-  clients: []
 };
 
 export default TimeEntryAdd;

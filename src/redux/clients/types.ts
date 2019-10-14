@@ -20,6 +20,6 @@ export interface ClientsActionsInterface {
 
 export interface ClientsPropsInterface {
   addClient: () => {};
-  clients: { string };
+  clients: {};
   fetchClients: () => {};
 }

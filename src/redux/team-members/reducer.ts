@@ -9,15 +9,20 @@ import {
   SORT_TEAM_MEMBERS_ORDER
 } from './actions';
 
-const initialState = {
+import { TeamMemberStateInterface } from './types';
+
+const initialState: TeamMemberStateInterface = {
   hasError: '',
   isLoading: false,
   items: [],
-  sortByField: 'firstName',
-  order: true
+  order: true,
+  sortByField: 'firstName'
 };
 
-export default (state = initialState, { type, payload }) => {
+export default (
+  state: TeamMemberStateInterface = initialState,
+  { type, payload }
+): TeamMemberStateInterface => {
   switch (type) {
     case ADD_TEAM_MEMBER_REQUEST:
       return {

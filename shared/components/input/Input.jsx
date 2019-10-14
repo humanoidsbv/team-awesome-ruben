@@ -1,6 +1,10 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+// interface InputProps {
+//   isValid: any;
+// }
+
 const Input = styled.input`
   background-image: #fff;
   border: solid 1px #ced0da;
@@ -11,12 +15,12 @@ const Input = styled.input`
   padding: 9px 0 9px 15px;
 `;
 
-Input.propTypes = {
-  isValid: PropTypes.bool
-};
+// Input.propTypes = {
+//   isValid: PropTypes.bool
+// };
 
-Input.defaultProps = {
-  isValid: true
-};
+// Input.defaultProps = {
+//   isValid: true
+// };
 
 export default Input;

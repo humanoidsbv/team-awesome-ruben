@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 
 import IconArrowExpand from '../../assets/icons/icon-arrow-expand.svg';
 import UserProfileImage from '../../../static/images/picture-tnt.jpg';
 import styles from './TeamMember.module.css';
+
+import { TeamMemberInterface } from '../../redux/team-members/types';
+
+interface TeamMemberProps {
+  teamMember: TeamMemberInterface;
+}
 
 const TeamMember = ({
   teamMember: {
@@ -14,10 +19,10 @@ const TeamMember = ({
     role,
     startingDate
   }
-}) => {
+}: TeamMemberProps): React.ReactElement => {
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const handleClick = () => setIsExpanded(!isExpanded);
+  const handleClick = (): void => setIsExpanded(!isExpanded);
 
   return (
     <button
@@ -72,22 +77,6 @@ const TeamMember = ({
       </div>
     </button>
   );
-};
-
-TeamMember.propTypes = {
-  teamMember: PropTypes.shape({
-    avatar: PropTypes.string,
-    currentClient: PropTypes.string,
-    employeeNumber: PropTypes.string,
-    firstName: PropTypes.string,
-    lastName: PropTypes.string,
-    role: PropTypes.string,
-    startingDate: PropTypes.string
-  })
-};
-
-TeamMember.defaultProps = {
-  teamMember: []
 };
 
 export default TeamMember;
