@@ -31,7 +31,7 @@ export function* watchFetchTimeEntriesRequest(): {} {
   yield takeLatest(FETCH_TIME_ENTRIES_REQUEST, fetchTimeEntriesRequest);
 }
 
-function* deleteTimeEntryRequest({ payload }): {} {
+function* deleteTimeEntryRequest({ payload }: any): {} {
   try {
     yield call(deleteTimeEntry, payload);
     yield put(deleteTimeEntrySuccess(payload));
@@ -44,7 +44,7 @@ export function* watchDeleteTimeEntryRequest(): {} {
   yield takeLatest(DELETE_TIME_ENTRY_REQUEST, deleteTimeEntryRequest);
 }
 
-function* addTimeEntryRequest({ payload }): {} {
+function* addTimeEntryRequest({ payload }: any): {} {
   try {
     yield call(addTimeEntry, payload);
     yield put(addTimeEntrySuccess(payload));

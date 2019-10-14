@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 
-import Client from '../client/';
-import ClientAdd from '../client-add/';
+import Client from '../client';
+import ClientAdd from '../client-add';
 import IconArrowDown from '../../assets/icons/icon-arrow-down.svg';
 import IconPlus from '../../assets/icons/icon-plus.svg';
 import styles from './Clients.module.css';
 
-const Clients = ({ addClient, clients, fetchClients }) => {
+import { ClientsPropsInterface } from '../../redux/clients/types';
+
+const Clients = ({ addClient, clients, fetchClients }: any): {} => {
   const [isFormVisible, SetIsFormVisible] = useState(false);
 
-  useEffect(function getTeamMembers() {
+  useEffect(() => {
     fetchClients();
   }, []);
 
-  const handleFormVisibility = () => SetIsFormVisible(!isFormVisible);
+  const handleFormVisibility = (): void => SetIsFormVisible(!isFormVisible);
 
   return (
     <React.Fragment>
@@ -48,16 +49,6 @@ const Clients = ({ addClient, clients, fetchClients }) => {
       ))}
     </React.Fragment>
   );
-};
-
-Clients.propTypes = {
-  addClient: PropTypes.func.isRequired,
-  clients: PropTypes.arrayOf(
-    PropTypes.shape({
-      client: PropTypes.string
-    })
-  ).isRequired,
-  fetchClients: PropTypes.func.isRequired
 };
 
 export default Clients;

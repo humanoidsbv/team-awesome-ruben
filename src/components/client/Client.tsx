@@ -1,17 +1,24 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 
 import IconArrowExpand from '../../assets/icons/icon-arrow-expand.svg';
 import styles from './Client.module.css';
 
-const Client = ({ client: { companyName } }) => {
+import { ClientInterface } from '../../redux/clients/types';
+
+interface ClientPropsInterface extends ClientInterface {
+  client: ClientPropsInterface;
+}
+
+const Client = ({
+  client: { companyName }
+}: ClientPropsInterface): React.ReactFragment => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const handleClick = () => setIsExpanded(!isExpanded);
 
-  // mock data for now!
+  //* mock data for now!
   const clientNumber = 'CLN_';
-  const projects = { '0': 'project1' };
+  const projects = ['project1'];
   const activeTeamMembers = ['Antje Adriaens'];
 
   return (
@@ -49,7 +56,7 @@ const Client = ({ client: { companyName } }) => {
           ${isExpanded && styles.detailContainerActive}`}
       >
         <span className={styles.detail}>
-          {String(Object.keys(projects).length).padStart(3, '0')}
+          {String(projects.length).padStart(3, '0')}
         </span>
         <span className={styles.detailDescription}>Active projects</span>
       </div>
@@ -87,16 +94,6 @@ const Client = ({ client: { companyName } }) => {
       </div>
     </button>
   );
-};
-
-Client.propTypes = {
-  client: PropTypes.shape({
-    companyName: PropTypes.string
-  })
-};
-
-Client.defaultProps = {
-  client: []
 };
 
 export default Client;

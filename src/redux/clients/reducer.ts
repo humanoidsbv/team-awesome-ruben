@@ -7,13 +7,18 @@ import {
   FETCH_CLIENTS_SUCCESS
 } from './actions';
 
-const initialState = {
+import { ClientsStateInterface } from './types';
+
+const initialState: ClientsStateInterface = {
   items: [],
   isLoading: false,
   hasError: ''
 };
 
-export default (state = initialState, { type, payload }) => {
+export default (
+  state: ClientsStateInterface = initialState,
+  { type, payload }
+): ClientsStateInterface => {
   switch (type) {
     case ADD_CLIENT_REQUEST:
       return {

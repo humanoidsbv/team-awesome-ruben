@@ -29,6 +29,7 @@
     "operator-linebreak": [0, "none"],
     "explicit-function-return-type": [0, ""],
     "object-curly-newline": [0, "never"],
-    "implicit-arrow-linebreak": [0, "below"]
+    "implicit-arrow-linebreak": [0, "below"],
+    "react/jsx-fragments": [0, "element"]
   }
 }

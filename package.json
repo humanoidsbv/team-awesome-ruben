@@ -6,17 +6,19 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "develop": "node_modules/.bin/babel-node --presets @babel/preset-typescript --extensions '.ts,.tsx' node_modules/.bin/gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop & npm run api",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \"",
     "api": "json-server db.json",
     "storybook": "start-storybook -p 6006 -s ./static",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "clean": "rm -rf .cache"
   },
   "dependencies": {
     "gatsby": "^2.15.14",
+    "gatsby-plugin-typescript": "^2.1.13",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
@@ -29,6 +31,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
+    "@babel/node": "^7.6.3",
     "@storybook/addon-actions": "^5.2.3",
     "@storybook/addon-links": "^5.2.3",
     "@storybook/addons": "^5.2.3",
@@ -57,8 +60,7 @@
     "postcss-url": "^8.0.0",
     "prettier": "^1.18.2",
     "proptypes": "^1.1.0",
-    "react-svg-loader": "^3.0.3",
-    "typescript": "^3.6.4"
+    "react-svg-loader": "^3.0.3"
   },
   "repository": {
     "type": "git",

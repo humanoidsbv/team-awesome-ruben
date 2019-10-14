@@ -5,12 +5,12 @@ import TimeEntry from '../time-entry';
 import TimeEntryAdd from '../time-entry-add';
 import TimeEntryHeader from '../time-entry-header';
 
-import { ClientsInterface } from '../../redux/clients/types';
+import { ClientInterface } from '../../redux/clients/types';
 import { TimeEntryInterface } from '../../redux/time-entries/types';
 
 interface TimeEntriesProps {
   addTimeEntry: () => void;
-  clients: ClientsInterface[];
+  clients: ClientInterface[];
   deleteTimeEntry: (TimeEntryInterface) => {};
   fetchClients: () => void;
   fetchTimeEntries: () => void;

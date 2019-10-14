@@ -18,7 +18,7 @@ import {
   fetchClientsFailure
 } from '.';
 
-function* fetchClientsRequest() {
+function* fetchClientsRequest(): {} {
   try {
     const response = yield call(fetchClients);
     yield put(fetchClientsSuccess(response));
@@ -27,11 +27,11 @@ function* fetchClientsRequest() {
   }
 }
 
-export function* watchFetchClientsRequest() {
+export function* watchFetchClientsRequest(): {} {
   yield takeLatest(FETCH_CLIENTS_REQUEST, fetchClientsRequest);
 }
 
-function* deleteClientRequest({ payload }) {
+function* deleteClientRequest({ payload }: any): {} {
   try {
     yield call(deleteClient, payload);
     yield put(deleteClientSuccess(payload));
@@ -40,11 +40,11 @@ function* deleteClientRequest({ payload }) {
   }
 }
 
-export function* watchDeleteClientsRequest() {
+export function* watchDeleteClientsRequest(): {} {
   yield takeLatest(DELETE_CLIENT_REQUEST, deleteClientRequest);
 }
 
-function* addClientRequest({ payload }) {
+function* addClientRequest({ payload }: any): {} {
   try {
     yield call(addClient, payload);
     yield put(addClientSuccess(payload));
@@ -53,11 +53,11 @@ function* addClientRequest({ payload }) {
   }
 }
 
-export function* watchAddClientRequest() {
+export function* watchAddClientRequest(): {} {
   yield takeLatest(ADD_CLIENT_REQUEST, addClientRequest);
 }
 
-export function* clientsSagas() {
+export function* clientsSagas(): {} {
   yield all([
     fork(watchAddClientRequest),
     fork(watchDeleteClientsRequest),
