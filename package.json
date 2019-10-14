@@ -60,7 +60,8 @@
     "postcss-url": "^8.0.0",
     "prettier": "^1.18.2",
     "proptypes": "^1.1.0",
-    "react-svg-loader": "^3.0.3"
+    "react-svg-loader": "^3.0.3",
+    "typescript": "^3.6.4"
   },
   "repository": {
     "type": "git",

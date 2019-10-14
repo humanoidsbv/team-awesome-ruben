@@ -20,7 +20,6 @@
       2,
       { "devDependencies": ["**/test.tsx", "**/test.ts"] }
     ],
-    "@typescript-eslint/indent": [2, 2],
     "comma-dangle": ["error", "never"],
     "import/no-cycle": [0, { "maxDepth": 5 }],
     "react/jsx-props-no-spreading": [0],
@@ -30,6 +29,7 @@
     "explicit-function-return-type": [0, ""],
     "object-curly-newline": [0, "never"],
     "implicit-arrow-linebreak": [0, "below"],
-    "react/jsx-fragments": [0, "element"]
+    "react/jsx-fragments": [0, "element"],
+    "@typescript-eslint/indent": [2, 2]
   }
 }
