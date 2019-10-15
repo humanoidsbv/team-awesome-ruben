@@ -2,9 +2,9 @@ const apiUrl = `${
   process.env.NODE_ENV === 'development'
     ? 'http://localhost:3000'
     : 'https://my-json-server.typicode.com/humanoidsbv/team-awesome-ruben-api'
-}/clients`;
+}/time-entries`;
 
-export const addClient = async item =>
+export const addTimeEntry = async (item: {}): Promise<{}> =>
   fetch(apiUrl, {
     method: 'POST',
     headers: {
@@ -13,15 +13,15 @@ export const addClient = async item =>
     body: JSON.stringify(item)
   });
 
-export const deleteClient = async clientId =>
-  fetch(`${apiUrl}/${clientId}`, {
+export const deleteTimeEntry = async (timeEntryId: number): Promise<{}> =>
+  fetch(`${apiUrl}/${timeEntryId}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json'
     }
   });
 
-export const fetchClients = async () => {
-  const response = await fetch(`${apiUrl}?_sort=client&_order=desc`);
+export const fetchTimeEntries = async (): Promise<{}> => {
+  const response = await fetch(`${apiUrl}?_sort=startTimestamp&_order=desc`);
   return response.json();
 };

@@ -31,6 +31,9 @@
     "implicit-arrow-linebreak": [0, "below"],
     "react/jsx-fragments": [1, "element"],
     "@typescript-eslint/indent": [2, 2],
-    "no-confusing-arrow": [0, { "allowParens": true }]
+    "no-confusing-arrow": [0, { "allowParens": true }],
+    "env": {
+      "browser": true
+    }
   }
 }
