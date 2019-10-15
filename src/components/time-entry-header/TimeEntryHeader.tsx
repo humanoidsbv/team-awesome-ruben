@@ -1,13 +1,20 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import styles from './TimeEntryHeader.module.css';
 
-const TimeEntryHeader = ({ startTimestamp, stopTimestamp }) => {
+interface TimeEntryHeaderProps {
+  startTimestamp: string;
+  stopTimestamp: string;
+}
+
+const TimeEntryHeader = ({
+  startTimestamp,
+  stopTimestamp
+}: TimeEntryHeaderProps): React.ReactElement => {
   const durationHours =
     (Date.parse(stopTimestamp) - Date.parse(startTimestamp)) / 1000 / 60 / 60;
 
-  const formatDuration = hours =>
+  const formatDuration = (hours: number): string =>
     `${Math.trunc(hours)}:${Math.round((hours % 1) * 60)
       .toString()
       .padStart(2, '0')}`;
@@ -30,11 +37,6 @@ const TimeEntryHeader = ({ startTimestamp, stopTimestamp }) => {
       <p className={styles.date}>{durationString}</p>
     </div>
   );
-};
-
-TimeEntryHeader.propTypes = {
-  startTimestamp: PropTypes.string.isRequired,
-  stopTimestamp: PropTypes.string.isRequired
 };
 
 export default TimeEntryHeader;

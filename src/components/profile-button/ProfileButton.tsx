@@ -5,7 +5,7 @@ import LogoHumanoids from '../../assets/icons/logo-humanoids.svg';
 import UserProfileImage from '../../../static/images/picture-tnt.jpg';
 import styles from './ProfileButton.module.css';
 
-const ProfileButton = () => (
+const ProfileButton = (): React.ReactElement => (
   <button type="button" className={styles.user}>
     <LogoHumanoids className={styles.logo} />
     <img

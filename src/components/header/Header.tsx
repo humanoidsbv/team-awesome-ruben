@@ -6,10 +6,10 @@ import NavigationToggle from '../navigation-toggle/';
 import ProfileButton from '../profile-button/';
 import styles from './Header.module.css';
 
-const Header = () => {
+const Header = (): React.ReactElement => {
   const [isMenuVisible, setIsMenuVisible] = useState(false);
 
-  const handleClick = () => setIsMenuVisible(!isMenuVisible);
+  const handleClick = (): void => setIsMenuVisible(!isMenuVisible);
 
   return (
     <header

@@ -29,7 +29,8 @@
     "explicit-function-return-type": [0, ""],
     "object-curly-newline": [0, "never"],
     "implicit-arrow-linebreak": [0, "below"],
-    "react/jsx-fragments": [0, "element"],
-    "@typescript-eslint/indent": [2, 2]
+    "react/jsx-fragments": [1, "element"],
+    "@typescript-eslint/indent": [2, 2],
+    "no-confusing-arrow": [0, { "allowParens": true }]
   }
 }

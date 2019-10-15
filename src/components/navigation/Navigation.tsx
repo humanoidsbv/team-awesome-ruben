@@ -1,10 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 
 import styles from './Navigation.module.css';
 
-const Navigation = ({ isMenuVisible }) => (
+interface NavigationProps {
+  isMenuVisible: number;
+}
+
+const Navigation = ({ isMenuVisible }: NavigationProps): React.ReactElement => (
   <nav className={`${styles.nav} ${isMenuVisible ? styles.navActive : ''}`}>
     <Link to="/" className={styles.item} activeClassName={styles.itemActive}>
       Time entries
@@ -26,14 +29,10 @@ const Navigation = ({ isMenuVisible }) => (
     >
       Clients
     </Link>
-    <button type="button" className={styles.item} href="/">
+    <button type="button" className={styles.item}>
       Documents
     </button>
   </nav>
 );
-
-Navigation.propTypes = {
-  isMenuVisible: PropTypes.bool.isRequired
-};
 
 export default Navigation;

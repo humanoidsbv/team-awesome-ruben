@@ -1,7 +1,10 @@
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const Label = styled.label`
+type LabelProps = {
+  halfWidth: boolean;
+};
+
+const Label = styled('label')`
   color: #7f8fa4;
   display: flex;
   flex-direction: column;
@@ -18,20 +21,15 @@ const Label = styled.label`
   }
 
   @media only screen and (min-width: 901px) {
-    margin: ${props => (props.halfWidth ? '0' : '20px 0 0 0')};
-    width: ${props => (props.halfWidth ? 'calc(50% - 5px)' : '100%')};
+    margin: ${(props: LabelProps): number | string =>
+      props.halfWidth ? 0 : '20px 0 0 0'};
+    width: ${(props: LabelProps): string =>
+      props.halfWidth ? 'calc(50% - 5px)' : '100%'};
     & + & {
-      margin-left: ${props => (props.halfWidth ? '10px' : '0')};
+      margin-left: ${(props: LabelProps): string =>
+        props.halfWidth ? '10px' : '0'};
     }
   }
 `;
-
-Label.propTypes = {
-  halfWidth: PropTypes.bool
-};
-
-Label.defaultProps = {
-  halfWidth: false
-};
 
 export default Label;
