@@ -7,7 +7,7 @@ import { ValidityState } from '../../../shared/types';
 
 interface TeamMemberProps {
   addFormData: (parameter) => {};
-  handleFormVisible: () => {};
+  handleFormVisible: () => void;
 }
 
 const TeamMemberAdd = ({
@@ -28,7 +28,9 @@ const TeamMemberAdd = ({
 
   const formRef = useRef(null);
 
-  const handleBlur = (event): void => {
+  const handleBlur = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ): void => {
     setValidity({
       ...validity,
       form: formRef.current.checkValidity(),
@@ -114,7 +116,11 @@ const TeamMemberAdd = ({
               minLength={2}
               name="firstName"
               onBlur={handleBlur}
-              onChange={({ target }): void => setFirstName(target.value)}
+              onChange={({
+                target
+              }: React.ChangeEvent<HTMLInputElement>): void =>
+                setFirstName(target.value)
+              }
               required
               value={firstName}
             />
@@ -131,7 +137,11 @@ const TeamMemberAdd = ({
               minLength={2}
               name="lastName"
               onBlur={handleBlur}
-              onChange={({ target }): void => setLastName(target.value)}
+              onChange={({
+                target
+              }: React.ChangeEvent<HTMLInputElement>): void =>
+                setLastName(target.value)
+              }
               required
               value={lastName}
             />
@@ -145,7 +155,11 @@ const TeamMemberAdd = ({
               minLength={2}
               name="emailAdress"
               onBlur={handleBlur}
-              onChange={({ target }): void => setEmailAdress(target.value)}
+              onChange={({
+                target
+              }: React.ChangeEvent<HTMLInputElement>): void =>
+                setEmailAdress(target.value)
+              }
               required
               value={emailAdress}
             />
@@ -171,7 +185,11 @@ const TeamMemberAdd = ({
               minLength={2}
               name="homeAdress"
               onBlur={handleBlur}
-              onChange={({ target }): void => setHomeAdress(target.value)}
+              onChange={({
+                target
+              }: React.ChangeEvent<HTMLInputElement>): void | string =>
+                setHomeAdress(target.value)
+              }
               required
               value={homeAdress}
             />
@@ -188,7 +206,11 @@ const TeamMemberAdd = ({
               minLength={2}
               name="postalCode"
               onBlur={handleBlur}
-              onChange={({ target }): void => setPostalCode(target.value)}
+              onChange={({
+                target
+              }: React.ChangeEvent<HTMLInputElement>): void =>
+                setPostalCode(target.value)
+              }
               required
               value={postalCode}
             />
@@ -205,7 +227,11 @@ const TeamMemberAdd = ({
               minLength={2}
               name="locality"
               onBlur={handleBlur}
-              onChange={({ target }): void => setLocality(target.value)}
+              onChange={({
+                target
+              }: React.ChangeEvent<HTMLInputElement>): void =>
+                setLocality(target.value)
+              }
               required
               value={locality}
             />
@@ -219,7 +245,11 @@ const TeamMemberAdd = ({
               minLength={2}
               name="faceBook"
               onBlur={handleBlur}
-              onChange={({ target }): void => setFacebook(target.value)}
+              onChange={({
+                target
+              }: React.ChangeEvent<HTMLInputElement>): void =>
+                setFacebook(target.value)
+              }
               value={facebook}
             />
             <input
@@ -229,7 +259,11 @@ const TeamMemberAdd = ({
               minLength={2}
               name="linkedIn"
               onBlur={handleBlur}
-              onChange={({ target }): void => setLinkedIn(target.value)}
+              onChange={({
+                target
+              }: React.ChangeEvent<HTMLInputElement>): void =>
+                setLinkedIn(target.value)
+              }
               required
               value={linkedIn}
             />

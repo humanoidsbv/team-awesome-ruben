@@ -18,7 +18,9 @@ import {
   fetchClientsFailure
 } from '.';
 
-function* fetchClientsRequest(): {} {
+import { SagaIterator } from 'redux-saga';
+
+function* fetchClientsRequest(): SagaIterator {
   try {
     const response = yield call(fetchClients);
     yield put(fetchClientsSuccess(response));
@@ -27,11 +29,11 @@ function* fetchClientsRequest(): {} {
   }
 }
 
-export function* watchFetchClientsRequest(): {} {
+export function* watchFetchClientsRequest(): SagaIterator {
   yield takeLatest(FETCH_CLIENTS_REQUEST, fetchClientsRequest);
 }
 
-function* deleteClientRequest({ payload }: any): {} {
+function* deleteClientRequest({ payload }: any): SagaIterator {
   try {
     yield call(deleteClient, payload);
     yield put(deleteClientSuccess(payload));
@@ -40,11 +42,11 @@ function* deleteClientRequest({ payload }: any): {} {
   }
 }
 
-export function* watchDeleteClientsRequest(): {} {
+export function* watchDeleteClientsRequest(): SagaIterator {
   yield takeLatest(DELETE_CLIENT_REQUEST, deleteClientRequest);
 }
 
-function* addClientRequest({ payload }: any): {} {
+function* addClientRequest({ payload }: any): SagaIterator {
   try {
     yield call(addClient, payload);
     yield put(addClientSuccess(payload));
@@ -53,11 +55,11 @@ function* addClientRequest({ payload }: any): {} {
   }
 }
 
-export function* watchAddClientRequest(): {} {
+export function* watchAddClientRequest(): SagaIterator {
   yield takeLatest(ADD_CLIENT_REQUEST, addClientRequest);
 }
 
-export function* clientsSagas(): {} {
+export function* clientsSagas(): SagaIterator {
   yield all([
     fork(watchAddClientRequest),
     fork(watchDeleteClientsRequest),

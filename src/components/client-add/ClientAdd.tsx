@@ -17,8 +17,8 @@ const ClientAdd = ({ addClient, toggleFormVisibility }): React.ReactElement => {
 
   const formRef = useRef(null);
 
-  const handleBlur = (event): void => {
-    // Descontruct a dynamic value from an object and keep the remainder
+  const handleBlur = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    //* Descontruct a dynamic value from an object and keep the remainder
     if (event.target.value === '') {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const { [event.target.name]: inputValidity, ...restValidity } = validity;
@@ -72,7 +72,11 @@ const ClientAdd = ({ addClient, toggleFormVisibility }): React.ReactElement => {
               minLength="2"
               name="companyName"
               onBlur={handleBlur}
-              onChange={({ target }): void => setCompanyName(target.value)}
+              onChange={({
+                target
+              }: React.ChangeEvent<HTMLInputElement>): void =>
+                setCompanyName(target.value)
+              }
               required
             />
           </Label>
@@ -84,7 +88,11 @@ const ClientAdd = ({ addClient, toggleFormVisibility }): React.ReactElement => {
               minLength="2"
               name="branch"
               onBlur={handleBlur}
-              onChange={({ target }): void => setBranch(target.value)}
+              onChange={({
+                target
+              }: React.ChangeEvent<HTMLInputElement>): void =>
+                setBranch(target.value)
+              }
               required
             />
           </Label>
@@ -99,7 +107,11 @@ const ClientAdd = ({ addClient, toggleFormVisibility }): React.ReactElement => {
               minLength="2"
               name="branchAddress"
               onBlur={handleBlur}
-              onChange={({ target }): void => setBranchAddress(target.value)}
+              onChange={({
+                target
+              }: React.ChangeEvent<HTMLInputElement>): void =>
+                setBranchAddress(target.value)
+              }
               required
             />
           </Label>
@@ -111,7 +123,11 @@ const ClientAdd = ({ addClient, toggleFormVisibility }): React.ReactElement => {
               minLength="2"
               name="postalCode"
               onBlur={handleBlur}
-              onChange={({ target }): void => setPostalCode(target.value)}
+              onChange={({
+                target
+              }: React.ChangeEvent<HTMLInputElement>): void =>
+                setPostalCode(target.value)
+              }
               required
             />
           </Label>
@@ -123,7 +139,11 @@ const ClientAdd = ({ addClient, toggleFormVisibility }): React.ReactElement => {
               minLength="2"
               name="locality"
               onBlur={handleBlur}
-              onChange={({ target }): void => setLocality(target.value)}
+              onChange={({
+                target
+              }: React.ChangeEvent<HTMLInputElement>): void =>
+                setLocality(target.value)
+              }
               required
             />
           </Label>

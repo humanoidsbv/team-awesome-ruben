@@ -20,7 +20,7 @@ export interface TeamMembersStateInterface {
   addTeamMember: () => {};
   fetchTeamMembers: () => {};
   orderToggle: boolean;
-  sortTeamMembersByField: (string) => void;
+  sortTeamMembersByField: (value: string) => void;
   sortTeamMembersOrder: () => void;
   teamMembers: TeamMemberInterface[];
 }
@@ -31,11 +31,11 @@ export interface ActionsInterface {
 }
 
 export interface TeamMembersDispatchInterface {
-  addTeamMembers: (item) => ActionsInterface;
-  deleteTeamMember: (timeEntryId) => ActionsInterface;
+  addTeamMembers: (item: {}) => ActionsInterface;
+  deleteTeamMember: (timeEntryId: number) => ActionsInterface;
   fetchTeamMembers: () => {};
-  sortTeamMembersByField: (parameter) => ActionsInterface;
-  sortTeamMembersOrder: (parameter) => ActionsInterface;
+  // sortTeamMembersByField: (value: string) => ActionsInterface;
+  // sortTeamMembersOrder: (value: string) => ActionsInterface;
 }
 
 export interface TeamMembersPropsInterface {

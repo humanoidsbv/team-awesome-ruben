@@ -18,7 +18,9 @@ import {
   fetchTimeEntriesSuccess
 } from '.';
 
-function* fetchTimeEntriesRequest(): {} {
+import { SagaIterator } from 'redux-saga';
+
+function* fetchTimeEntriesRequest(): SagaIterator {
   try {
     const response = yield call(fetchTimeEntries);
     yield put(fetchTimeEntriesSuccess(response));
@@ -27,11 +29,11 @@ function* fetchTimeEntriesRequest(): {} {
   }
 }
 
-export function* watchFetchTimeEntriesRequest(): {} {
+export function* watchFetchTimeEntriesRequest(): SagaIterator {
   yield takeLatest(FETCH_TIME_ENTRIES_REQUEST, fetchTimeEntriesRequest);
 }
 
-function* deleteTimeEntryRequest({ payload }: any): {} {
+function* deleteTimeEntryRequest({ payload }: any): SagaIterator {
   try {
     yield call(deleteTimeEntry, payload);
     yield put(deleteTimeEntrySuccess(payload));
@@ -40,11 +42,11 @@ function* deleteTimeEntryRequest({ payload }: any): {} {
   }
 }
 
-export function* watchDeleteTimeEntryRequest(): {} {
+export function* watchDeleteTimeEntryRequest(): SagaIterator {
   yield takeLatest(DELETE_TIME_ENTRY_REQUEST, deleteTimeEntryRequest);
 }
 
-function* addTimeEntryRequest({ payload }: any): {} {
+function* addTimeEntryRequest({ payload }: any): SagaIterator {
   try {
     yield call(addTimeEntry, payload);
     yield put(addTimeEntrySuccess(payload));
@@ -53,11 +55,11 @@ function* addTimeEntryRequest({ payload }: any): {} {
   }
 }
 
-export function* watchAddTimeEntryRequest(): {} {
+export function* watchAddTimeEntryRequest(): SagaIterator {
   yield takeLatest(ADD_TIME_ENTRY_REQUEST, addTimeEntryRequest);
 }
 
-export function* timeEntriesSagas(): {} {
+export function* timeEntriesSagas(): SagaIterator {
   yield all([
     fork(watchAddTimeEntryRequest),
     fork(watchDeleteTimeEntryRequest),

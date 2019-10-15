@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 type ButtonProps = {
-  type: string;
+  type?: 'submit';
 };
 
 const Button = styled('button')`

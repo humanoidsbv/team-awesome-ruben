@@ -24,7 +24,9 @@ const TimeEntryAdd = ({ addFormData, clients }): React.ReactElement => {
 
   const handleToggle = (): void => setIsFormVisible(!isFormVisible);
 
-  const handleBlur = (event): void => {
+  const handleBlur = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ): void => {
     setValidity({
       ...validity,
       form: formRef.current.checkValidity(),
@@ -72,18 +74,24 @@ const TimeEntryAdd = ({ addFormData, clients }): React.ReactElement => {
             }`}
             name="client"
             onBlur={handleBlur}
-            onChange={({ target }): void => setClient(target.value)}
+            onChange={({
+              target
+            }: React.ChangeEvent<HTMLSelectElement>): void =>
+              setClient(target.value)
+            }
             value={client}
             required
           >
             <option value="" disabled>
               -- Select a client --
             </option>
-            {clients.map(({ companyName, id }) => (
-              <option value={id} key={id}>
-                {companyName}
-              </option>
-            ))}
+            {clients.map(
+              ({ companyName, id }: { companyName: string; id: number }) => (
+                <option value={id} key={id}>
+                  {companyName}
+                </option>
+              )
+            )}
           </select>
         </label>
 
@@ -100,7 +108,9 @@ const TimeEntryAdd = ({ addFormData, clients }): React.ReactElement => {
             minLength={2}
             name="activity"
             onBlur={handleBlur}
-            onChange={({ target }): void => setActivity(target.value)}
+            onChange={({ target }: React.ChangeEvent<HTMLInputElement>): void =>
+              setActivity(target.value)
+            }
             required
             value={activity}
           />
@@ -113,7 +123,9 @@ const TimeEntryAdd = ({ addFormData, clients }): React.ReactElement => {
           <input
             className={styles.input}
             name="date"
-            onChange={({ target }): void => setDate(target.value)}
+            onChange={({ target }: React.ChangeEvent<HTMLInputElement>): void =>
+              setDate(target.value)
+            }
             required
             type="date"
             value={date}
@@ -128,7 +140,9 @@ const TimeEntryAdd = ({ addFormData, clients }): React.ReactElement => {
           <input
             className={`${styles.input} ${styles.timeStamp}`}
             name="startTime"
-            onChange={({ target }): void => setStartTime(target.value)}
+            onChange={({ target }: React.ChangeEvent<HTMLInputElement>): void =>
+              setStartTime(target.value)
+            }
             type="time"
             value={startTime}
           />
@@ -141,7 +155,11 @@ const TimeEntryAdd = ({ addFormData, clients }): React.ReactElement => {
           <input
             className={`${styles.input} ${styles.timeStamp}`}
             name="endTime"
-            onChange={({ target }): void => setEndTime(target.value)}
+            onChange={({
+              target
+            }: React.ChangeEvent<HTMLInputElement>): void | string =>
+              setEndTime(target.value)
+            }
             type="time"
             value={endTime}
           />
