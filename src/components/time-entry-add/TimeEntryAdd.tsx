@@ -76,7 +76,7 @@ const TimeEntryAdd = ({ addFormData, clients }): React.ReactElement => {
             onBlur={handleBlur}
             onChange={({
               target
-            }: React.ChangeEvent<HTMLSelectElement>): void =>
+            }: React.ChangeEvent<HTMLSelectElement>): void | string =>
               setClient(target.value)
             }
             value={client}
@@ -108,7 +108,9 @@ const TimeEntryAdd = ({ addFormData, clients }): React.ReactElement => {
             minLength={2}
             name="activity"
             onBlur={handleBlur}
-            onChange={({ target }: React.ChangeEvent<HTMLInputElement>): void =>
+            onChange={({
+              target
+            }: React.ChangeEvent<HTMLInputElement>): void | string =>
               setActivity(target.value)
             }
             required
@@ -123,7 +125,9 @@ const TimeEntryAdd = ({ addFormData, clients }): React.ReactElement => {
           <input
             className={styles.input}
             name="date"
-            onChange={({ target }: React.ChangeEvent<HTMLInputElement>): void =>
+            onChange={({
+              target
+            }: React.ChangeEvent<HTMLInputElement>): void | string =>
               setDate(target.value)
             }
             required
@@ -140,7 +144,9 @@ const TimeEntryAdd = ({ addFormData, clients }): React.ReactElement => {
           <input
             className={`${styles.input} ${styles.timeStamp}`}
             name="startTime"
-            onChange={({ target }: React.ChangeEvent<HTMLInputElement>): void =>
+            onChange={({
+              target
+            }: React.ChangeEvent<HTMLInputElement>): void | string =>
               setStartTime(target.value)
             }
             type="time"

@@ -118,7 +118,7 @@ const TeamMemberAdd = ({
               onBlur={handleBlur}
               onChange={({
                 target
-              }: React.ChangeEvent<HTMLInputElement>): void =>
+              }: React.ChangeEvent<HTMLInputElement>): void | string =>
                 setFirstName(target.value)
               }
               required
@@ -139,7 +139,7 @@ const TeamMemberAdd = ({
               onBlur={handleBlur}
               onChange={({
                 target
-              }: React.ChangeEvent<HTMLInputElement>): void =>
+              }: React.ChangeEvent<HTMLInputElement>): void | string =>
                 setLastName(target.value)
               }
               required
@@ -157,7 +157,7 @@ const TeamMemberAdd = ({
               onBlur={handleBlur}
               onChange={({
                 target
-              }: React.ChangeEvent<HTMLInputElement>): void =>
+              }: React.ChangeEvent<HTMLInputElement>): void | string =>
                 setEmailAdress(target.value)
               }
               required
@@ -170,7 +170,7 @@ const TeamMemberAdd = ({
               className={`${styles.input} ${styles.textArea}`}
               name="bio"
               onBlur={handleBlur}
-              onChange={({ target }): void => setBio(target.value)}
+              onChange={({ target }): void | string => setBio(target.value)}
               value={bio}
             />
           </label>
@@ -208,7 +208,7 @@ const TeamMemberAdd = ({
               onBlur={handleBlur}
               onChange={({
                 target
-              }: React.ChangeEvent<HTMLInputElement>): void =>
+              }: React.ChangeEvent<HTMLInputElement>): void | string =>
                 setPostalCode(target.value)
               }
               required
@@ -229,7 +229,7 @@ const TeamMemberAdd = ({
               onBlur={handleBlur}
               onChange={({
                 target
-              }: React.ChangeEvent<HTMLInputElement>): void =>
+              }: React.ChangeEvent<HTMLInputElement>): void | string =>
                 setLocality(target.value)
               }
               required
@@ -247,7 +247,7 @@ const TeamMemberAdd = ({
               onBlur={handleBlur}
               onChange={({
                 target
-              }: React.ChangeEvent<HTMLInputElement>): void =>
+              }: React.ChangeEvent<HTMLInputElement>): void | string =>
                 setFacebook(target.value)
               }
               value={facebook}
@@ -261,7 +261,7 @@ const TeamMemberAdd = ({
               onBlur={handleBlur}
               onChange={({
                 target
-              }: React.ChangeEvent<HTMLInputElement>): void =>
+              }: React.ChangeEvent<HTMLInputElement>): void | string =>
                 setLinkedIn(target.value)
               }
               required

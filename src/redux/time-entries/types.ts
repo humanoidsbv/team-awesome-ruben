@@ -30,9 +30,3 @@ export interface TimeEntriesDispatchInterface {
   fetchTimeEntries: () => {};
   filterTimeEntriesByClient: (client: {}) => ActionsInterface;
 }
-
-//* Todo: Startpoint to refactor time entries props
-/*
-export type TimeEntriesProps = TimeEntriesStateInterface &
-  TimeEntriesDispatchInterface;
-*/

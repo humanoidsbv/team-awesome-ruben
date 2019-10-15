@@ -18,7 +18,9 @@ import {
   fetchTeamMembersFailure
 } from '.';
 
-function* fetchTeamMembersRequest(): {} {
+import { SagaIterator } from 'redux-saga';
+
+function* fetchTeamMembersRequest(): SagaIterator {
   try {
     const response = yield call(fetchTeamMembers);
     yield put(fetchTeamMembersSuccess(response));
@@ -27,7 +29,7 @@ function* fetchTeamMembersRequest(): {} {
   }
 }
 
-export function* watchFetchTeamMembersRequest(): {} {
+export function* watchFetchTeamMembersRequest(): SagaIterator {
   yield takeLatest(FETCH_TEAM_MEMBERS_REQUEST, fetchTeamMembersRequest);
 }
 
@@ -40,11 +42,11 @@ function* deleteTeamMemberRequest({ payload }: any): {} {
   }
 }
 
-export function* watchDeleteTeamMembersRequest(): {} {
+export function* watchDeleteTeamMembersRequest(): SagaIterator {
   yield takeLatest(DELETE_TEAM_MEMBER_REQUEST, deleteTeamMemberRequest);
 }
 
-function* addTeamMemberRequest({ payload }: any): {} {
+function* addTeamMemberRequest({ payload }: any): SagaIterator {
   try {
     yield call(addTeamMember, payload);
     yield put(addTeamMemberSuccess(payload));
@@ -53,11 +55,11 @@ function* addTeamMemberRequest({ payload }: any): {} {
   }
 }
 
-export function* watchAddTeamMemberRequest(): {} {
+export function* watchAddTeamMemberRequest(): SagaIterator {
   yield takeLatest(ADD_TEAM_MEMBER_REQUEST, addTeamMemberRequest);
 }
 
-export function* teamMembersSagas(): {} {
+export function* teamMembersSagas(): SagaIterator {
   yield all([
     fork(watchAddTeamMemberRequest),
     fork(watchDeleteTeamMembersRequest),

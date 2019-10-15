@@ -34,8 +34,6 @@ export interface TeamMembersDispatchInterface {
   addTeamMembers: (item: {}) => ActionsInterface;
   deleteTeamMember: (timeEntryId: number) => ActionsInterface;
   fetchTeamMembers: () => {};
-  // sortTeamMembersByField: (value: string) => ActionsInterface;
-  // sortTeamMembersOrder: (value: string) => ActionsInterface;
 }
 
 export interface TeamMembersPropsInterface {

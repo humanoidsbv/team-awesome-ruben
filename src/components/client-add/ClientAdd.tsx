@@ -43,7 +43,7 @@ const ClientAdd = ({ addClient, toggleFormVisibility }): React.ReactElement => {
     toggleFormVisibility();
   };
 
-  const handleSubmit = (event): void => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
 
     addClient({
