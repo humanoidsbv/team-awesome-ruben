@@ -1,10 +1,8 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-
-# Team Awesome!
+## Team Awesome!
 
 a demo Web app to log worked hours for you and your team!
 
-# Built using 👨‍🎨
+### Built using 👨‍🎨
 
 - [GatsbyJS](https://github.com/gatsbyjs/gatsby) - Static site generator that is built on ReactJS
 - [Redux](https://redux.js.org/) - JS library for global state management
@@ -12,7 +10,7 @@ a demo Web app to log worked hours for you and your team!
 - [ZEIT Now](https://zeit.co/now) - Cloud platform service for deploying Serverless applications
 - [StoryBook](https://github.com/storybooks/storybook) - Showcases components outside of the app for refinement and quick understanding
 
-# Getting started 💪
+### Getting started 💪
 
 1.  **Setting up Team Awesome**
 
@@ -34,7 +32,7 @@ a demo Web app to log worked hours for you and your team!
 
     Your site should now be running at `http://localhost:8000`!
 
-# Run Storybook & view generic components 👀
+### Run Storybook & view generic components 👀
 
 1.  **Start Storybook**
 
@@ -46,4 +44,12 @@ a demo Web app to log worked hours for you and your team!
 
     Storybook should now be running at `http://localhost:6006`!
 
-    <!-- AUTO-GENERATED-CONTENT:END -->
+### Author
+
+- [Ruben Werdmuller](https://github.com/rubenwerdmuller)
+
+### Acknowledgments
+
+- [Robbin Habermehl](https://github.com/RobbinHabermehl) - Tutor & codewiz
+- [Aron Martin](http://www.aronmartin.com) - CSS & code assistance
+- [Dylan Jongbloed](https://github.com/dylanjongbloed) - Coding partner
