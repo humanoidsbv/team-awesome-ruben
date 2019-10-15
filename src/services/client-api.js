@@ -4,7 +4,7 @@ const apiUrl = `${
     : 'https://my-json-server.typicode.com/humanoidsbv/team-awesome-ruben-api'
 }/clients`;
 
-export const addClient = item =>
+export const addClient = async item =>
   fetch(apiUrl, {
     method: 'POST',
     headers: {
