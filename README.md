@@ -1,47 +1,40 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 
-<p align="center">
-  <a href="https://www.humanoids.nl">
-    <img alt="Humanoids" src="/static/images/logo-humanoids.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Team Awesome!
-</h1>
+# Team Awesome!
 
-a Demo Web app to log worked hours for you and your team!
+a demo Web app to log worked hours for you and your team!
 
-## 👨‍🎨 Built using the following tools:
+# Built using 👨‍🎨
 
 - [GatsbyJS](https://github.com/gatsbyjs/gatsby) - Static site generator that is built on ReactJS
 - [Redux](https://redux.js.org/) - JS library for global state management
-- [Travis CI](https://travis-ci.org/) - Continuous Integration
-- [ZEIT](https://zeit.co/now) - Deploys builds automatically
+- [Travis CI](https://travis-ci.org/) - Host and build projects w/ Continuous Integration
+- [ZEIT Now](https://zeit.co/now) - Cloud platform service for deploying Serverless applications
 - [StoryBook](https://github.com/storybooks/storybook) - Showcases components outside of the app for refinement and quick understanding
 
-## 💪 Getting started
+# Getting started 💪
 
 1.  **Setting up Team Awesome**
 
-    Clone this repository to a directory of your choosing.
+    Clone this repository to a directory of your choosing using:
 
     ```sh
     # Use terminal to install the application:
     git clone git@github.com:humanoidsbv/team-awesome-ruben.git
     ```
 
-1.  **Open the project and start it up!**
+1.  **Open the project folder and start it up!**
 
-    Change directory to the project and start it locally using:
+    Change directory to the project directory and start it locally using:
 
     ```sh
     cd team-awesome-ruben
     npm run start
     ```
 
-    Your site is now running at `http://localhost:8000`!
+    Your site should now be running at `http://localhost:8000`!
 
-## 👀 Run Storybook & view generic components
+# Run Storybook & view generic components 👀
 
 1.  **Start Storybook**
 
@@ -51,6 +44,6 @@ a Demo Web app to log worked hours for you and your team!
     npm run storybook
     ```
 
-    Storybook is now running at `http://localhost:6006`!
+    Storybook should now be running at `http://localhost:6006`!
 
     <!-- AUTO-GENERATED-CONTENT:END -->
