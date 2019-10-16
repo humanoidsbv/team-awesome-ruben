@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 import styles from './Navigation.module.css';
 
 interface NavigationProps {
-  isMenuVisible: number;
+  isMenuVisible: boolean;
 }
 
 const Navigation = ({ isMenuVisible }: NavigationProps): React.ReactElement => (

@@ -12,63 +12,63 @@ import {
   SORT_TEAM_MEMBERS_ORDER
 } from '.';
 
-import { ActionsInterface } from '../team-members/types';
+import { ActionInterface } from '../team-members/types';
 
-export const addTeamMemberFailure = (error: string): ActionsInterface => ({
+export const addTeamMemberFailure = (error: string): ActionInterface => ({
   type: ADD_TEAM_MEMBER_FAILURE,
   payload: error
 });
 
-export const addTeamMemberRequest = (teamMember: {}): ActionsInterface => ({
+export const addTeamMemberRequest = (teamMember: {}): ActionInterface => ({
   type: ADD_TEAM_MEMBER_REQUEST,
   payload: teamMember
 });
 
-export const addTeamMemberSuccess = (teamMember: {}): ActionsInterface => ({
+export const addTeamMemberSuccess = (teamMember: {}): ActionInterface => ({
   type: ADD_TEAM_MEMBER_SUCCESS,
   payload: teamMember
 });
 
-export const deleteTeamMemberFailure = (error: string): ActionsInterface => ({
+export const deleteTeamMemberFailure = (error: string): ActionInterface => ({
   type: DELETE_TEAM_MEMBER_FAILURE,
   payload: error
 });
 
 export const deleteTeamMemberRequest = (
   teamMemberId: number
-): ActionsInterface => ({
+): ActionInterface => ({
   type: DELETE_TEAM_MEMBER_REQUEST,
   payload: teamMemberId
 });
 
 export const deleteTeamMemberSuccess = (
   teamMemberId: number
-): ActionsInterface => ({
+): ActionInterface => ({
   type: DELETE_TEAM_MEMBER_SUCCESS,
   payload: teamMemberId
 });
 
-export const fetchTeamMembersFailure = (error: string): ActionsInterface => ({
+export const fetchTeamMembersFailure = (error: string): ActionInterface => ({
   type: FETCH_TEAM_MEMBERS_FAILURE,
   payload: error
 });
 
-export const fetchTeamMembersRequest = (): ActionsInterface => ({
+export const fetchTeamMembersRequest = (): ActionInterface => ({
   type: FETCH_TEAM_MEMBERS_REQUEST
 });
 
-export const fetchTeamMembersSuccess = (teamMembers: {}): ActionsInterface => ({
+export const fetchTeamMembersSuccess = (teamMembers: {}): ActionInterface => ({
   type: FETCH_TEAM_MEMBERS_SUCCESS,
   payload: teamMembers
 });
 
 export const sortTeamMembersByField = (
   sortByField: string
-): ActionsInterface => ({
+): ActionInterface => ({
   type: SORT_TEAM_MEMBERS_BY_FIELD,
   payload: sortByField
 });
 
-export const sortTeamMembersOrder = (): ActionsInterface => ({
+export const sortTeamMembersOrder = (): ActionInterface => ({
   type: SORT_TEAM_MEMBERS_ORDER
 });

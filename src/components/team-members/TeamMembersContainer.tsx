@@ -30,7 +30,7 @@ const mapStateToProps = (state: TeamMembersStateInterface): {} => ({
 const mapDispatchToProps = (dispatch): TeamMembersDispatchInterface =>
   bindActionCreators(
     {
-      addTeamMembers: addTeamMemberRequest,
+      addTeamMember: addTeamMemberRequest,
       deleteTeamMember: deleteTeamMemberRequest,
       fetchTeamMembers: fetchTeamMembersRequest,
       sortTeamMembersByField,

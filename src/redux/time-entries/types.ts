@@ -14,7 +14,7 @@ export interface TimeEntryStateInterface {
   items: TimeEntryInterface[];
 }
 
-export interface ActionsInterface {
+export interface ActionInterface {
   type: string;
   payload?: {};
 }
@@ -24,9 +24,9 @@ export interface TimeEntriesStateInterface {
 }
 
 export interface TimeEntriesDispatchInterface {
-  addTimeEntry: (item: {}) => ActionsInterface;
-  deleteTimeEntry: (timeEntryId: number) => ActionsInterface;
-  fetchClients: () => ActionsInterface;
+  addTimeEntry: (item: {}) => ActionInterface;
+  deleteTimeEntry: (timeEntryId: number) => ActionInterface;
+  fetchClients: () => ActionInterface;
   fetchTimeEntries: () => {};
-  filterTimeEntriesByClient: (client: {}) => ActionsInterface;
+  filterTimeEntriesByClient: (client: {}) => ActionInterface;
 }

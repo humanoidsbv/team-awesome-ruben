@@ -1,4 +1,4 @@
-import { ActionsInterface } from '../time-entries/types';
+import { ActionInterface } from '../time-entries/types';
 
 import {
   ADD_TIME_ENTRY_FAILURE,
@@ -13,53 +13,53 @@ import {
   FILTER_TIME_ENTRIES_BY_CLIENT
 } from '.';
 
-export const addTimeEntryFailure = (error): ActionsInterface => ({
+export const addTimeEntryFailure = (error): ActionInterface => ({
   type: ADD_TIME_ENTRY_FAILURE,
   payload: error
 });
 
-export const addTimeEntryRequest = (timeEntry): ActionsInterface => ({
+export const addTimeEntryRequest = (timeEntry): ActionInterface => ({
   type: ADD_TIME_ENTRY_REQUEST,
   payload: timeEntry
 });
 
-export const addTimeEntrySuccess = (timeEntry): ActionsInterface => ({
+export const addTimeEntrySuccess = (timeEntry): ActionInterface => ({
   type: ADD_TIME_ENTRY_SUCCESS,
   payload: timeEntry
 });
 
-export const deleteTimeEntryFailure = (error): ActionsInterface => ({
+export const deleteTimeEntryFailure = (error): ActionInterface => ({
   type: DELETE_TIME_ENTRY_FAILURE,
   payload: error
 });
 
-export const deleteTimeEntryRequest = (id): ActionsInterface => ({
+export const deleteTimeEntryRequest = (id): ActionInterface => ({
   type: DELETE_TIME_ENTRY_REQUEST,
   payload: id
 });
 
-export const deleteTimeEntrySuccess = (id): ActionsInterface => ({
+export const deleteTimeEntrySuccess = (id): ActionInterface => ({
   type: DELETE_TIME_ENTRY_SUCCESS,
   payload: id
 });
 
-export const fetchTimeEntriesFailure = (error): ActionsInterface => ({
+export const fetchTimeEntriesFailure = (error): ActionInterface => ({
   type: FETCH_TIME_ENTRIES_FAILURE,
   payload: error
 });
 
-export const fetchTimeEntriesRequest = (): ActionsInterface => ({
+export const fetchTimeEntriesRequest = (): ActionInterface => ({
   type: FETCH_TIME_ENTRIES_REQUEST
 });
 
-export const fetchTimeEntriesSuccess = (timeEntries): ActionsInterface => ({
+export const fetchTimeEntriesSuccess = (timeEntries): ActionInterface => ({
   type: FETCH_TIME_ENTRIES_SUCCESS,
   payload: timeEntries
 });
 
 export const filterTimeEntriesByClient = (
   timeEntryFilter
-): ActionsInterface => ({
+): ActionInterface => ({
   type: FILTER_TIME_ENTRIES_BY_CLIENT,
   payload: timeEntryFilter
 });

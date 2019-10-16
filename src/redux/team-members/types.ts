@@ -16,19 +16,17 @@ export interface TeamMemberStateInterface {
   sortByField?: string;
 }
 
-export interface ActionsInterface {
+export interface ActionInterface {
   payload?: {};
   type: string;
 }
 
 export interface TeamMembersDispatchInterface {
-  addTeamMembers: (item: {}) => ActionsInterface;
-  deleteTeamMember: (timeEntryId: number) => ActionsInterface;
+  addTeamMember: (item: {}) => ActionInterface;
+  deleteTeamMember: (timeEntryId: number) => ActionInterface;
   fetchTeamMembers: () => {};
 }
 
 export interface TeamMembersPropsInterface {
-  addTeamMembers: () => {};
   teamMembers: {};
-  fetchTeamMembers: () => {};
 }

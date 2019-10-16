@@ -1,5 +1,7 @@
 language: node_js
 
+install: travis_wait mvn install
+
 node_js:
   - 'stable'
 

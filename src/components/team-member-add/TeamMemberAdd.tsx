@@ -6,7 +6,7 @@ import UserProfileImage from '../../../static/images/picture-tnt.jpg';
 import { ValidityState } from '../../../shared/types';
 
 interface TeamMemberProps {
-  addFormData: (parameter) => {};
+  addFormData: ({}) => {};
   handleFormVisible: () => void;
 }
 

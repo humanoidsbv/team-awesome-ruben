@@ -10,56 +10,52 @@ import {
   FETCH_CLIENTS_SUCCESS
 } from '.';
 
-import { ClientsActionsInterface } from './types';
+import { ClientsActionInterface } from './types';
 
-export const addClientFailure = (error: string): ClientsActionsInterface => ({
+export const addClientFailure = (error: string): ClientsActionInterface => ({
   type: ADD_CLIENT_FAILURE,
   payload: error
 });
 
-export const addClientRequest = (client: {}): ClientsActionsInterface => ({
+export const addClientRequest = (client: {}): ClientsActionInterface => ({
   type: ADD_CLIENT_REQUEST,
   payload: client
 });
 
-export const addClientSuccess = (client: {}): ClientsActionsInterface => ({
+export const addClientSuccess = (client: {}): ClientsActionInterface => ({
   type: ADD_CLIENT_SUCCESS,
   payload: client
 });
 
-export const deleteClientFailure = (
-  error: string
-): ClientsActionsInterface => ({
+export const deleteClientFailure = (error: string): ClientsActionInterface => ({
   type: DELETE_CLIENT_FAILURE,
   payload: error
 });
 
 export const deleteClientRequest = (
   clientId: number
-): ClientsActionsInterface => ({
+): ClientsActionInterface => ({
   type: DELETE_CLIENT_REQUEST,
   payload: clientId
 });
 
 export const deleteClientSuccess = (
   clientId: number
-): ClientsActionsInterface => ({
+): ClientsActionInterface => ({
   type: DELETE_CLIENT_SUCCESS,
   payload: clientId
 });
 
-export const fetchClientsFailure = (
-  error: string
-): ClientsActionsInterface => ({
+export const fetchClientsFailure = (error: string): ClientsActionInterface => ({
   type: FETCH_CLIENTS_FAILURE,
   payload: error
 });
 
-export const fetchClientsRequest = (): ClientsActionsInterface => ({
+export const fetchClientsRequest = (): ClientsActionInterface => ({
   type: FETCH_CLIENTS_REQUEST
 });
 
-export const fetchClientsSuccess = (clients: {}): ClientsActionsInterface => ({
+export const fetchClientsSuccess = (clients: {}): ClientsActionInterface => ({
   type: FETCH_CLIENTS_SUCCESS,
   payload: clients
 });

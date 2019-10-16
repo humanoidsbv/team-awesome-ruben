@@ -10,9 +10,9 @@ import { ClientInterface } from '../../redux/clients/types';
 
 interface ClientsProps {
   addClient: () => void;
+  client: ClientInterface;
   clients: ClientInterface[];
   fetchClients: () => void;
-  client: ClientInterface;
 }
 
 const Clients = ({

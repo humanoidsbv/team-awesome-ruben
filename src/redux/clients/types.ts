@@ -13,7 +13,7 @@ export interface ClientsStateInterface {
   items: ClientInterface[];
 }
 
-export interface ClientsActionsInterface {
+export interface ClientsActionInterface {
   payload?: {};
   type: string;
 }

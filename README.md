@@ -2,7 +2,7 @@
 
 A web app to log worked hours for you and your team!
 
-### 🎨Built using
+### 🎨Built with
 
 - [GatsbyJS](https://github.com/gatsbyjs/gatsby) - Static site generator that is built on ReactJS
 - [Redux](https://redux.js.org/) - JS library for global state management
@@ -12,7 +12,11 @@ A web app to log worked hours for you and your team!
 
 ### 💪 Getting started
 
-1.  **Setting up Team Awesome**
+1.  **Prerequisites**
+
+    [NodeJS](https://nodejs.org/en/) - An open source, cross-platform runtime environment for developing server-side and networking applications.
+
+2.  **Setting up Team Awesome**
 
     Clone this repository to a directory of your choosing using:
 
@@ -21,7 +25,7 @@ A web app to log worked hours for you and your team!
     git clone git@github.com:humanoidsbv/team-awesome-ruben.git
     ```
 
-1.  **Open the project folder and start it up!**
+3.  **Open the project folder and start it up!**
 
     Change directory to the project directory and start it locally using:
 
