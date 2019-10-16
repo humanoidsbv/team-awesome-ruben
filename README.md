@@ -6,6 +6,9 @@ A web app to log worked hours for you and your team!
 
 - [GatsbyJS](https://github.com/gatsbyjs/gatsby) - Static site generator that is built on ReactJS
 - [Redux](https://redux.js.org/) - JS library for global state management
+- [Cypress](https://github.com/cypress-io/cypress) - JS framework for testing React components
+  Coming soon:
+- [Jest](https://github.com/facebook/jest) - JS framework for testing React components
 - [Travis CI](https://travis-ci.org/) - Host and build projects w/ Continuous Integration
 - [ZEIT Now](https://zeit.co/now) - Cloud platform service for deploying Serverless applications
 - [StoryBook](https://github.com/storybooks/storybook) - Showcases components outside of the app for refinement and quick understanding
