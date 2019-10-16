@@ -2,7 +2,7 @@
 
 A web app to log worked hours for you and your team!
 
-### 🎨Built with
+### 🎨 Built with
 
 - [GatsbyJS](https://github.com/gatsbyjs/gatsby) - Static site generator that is built on ReactJS
 - [Redux](https://redux.js.org/) - JS library for global state management
