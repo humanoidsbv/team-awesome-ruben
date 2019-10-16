@@ -5,7 +5,7 @@ import DeleteIcon from '../../assets/icons/icon-delete.svg';
 import styles from './TimeEntry.module.css';
 
 export interface TimeEntryProps extends TimeEntryInterface {
-  deleteEntry: (number) => {};
+  deleteEntry: (timeEntryId: number) => {};
 }
 
 const TimeEntry = ({

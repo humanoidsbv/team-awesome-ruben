@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`converts basic button using shallow 1`] = `
+<div
+  className="timeEntry"
+>
+  <span
+    className="textField"
+  >
+    123
+  </span>
+  <button
+    className="deleteEntry"
+    onClick={[Function]}
+    type="button"
+  >
+    <test-file-stub
+      className="deleteIcon"
+    />
+    Delete
+  </button>
+  <div
+    className="timeStamps"
+  >
+    <span
+      className="hoursWorked"
+    >
+      11:00 - 19:30
+    </span>
+    <span
+      className="hoursDuration"
+    >
+      8:30
+    </span>
+  </div>
+</div>
+`;
