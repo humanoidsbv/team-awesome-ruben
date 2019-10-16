@@ -16,15 +16,6 @@ export interface TeamMemberStateInterface {
   sortByField?: string;
 }
 
-export interface TeamMembersStateInterface {
-  addTeamMember: () => {};
-  fetchTeamMembers: () => {};
-  orderToggle: boolean;
-  sortTeamMembersByField: (value: string) => void;
-  sortTeamMembersOrder: () => void;
-  teamMembers: TeamMemberInterface[];
-}
-
 export interface ActionsInterface {
   payload?: {};
   type: string;

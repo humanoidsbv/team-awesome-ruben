@@ -35,7 +35,7 @@ const TimeEntry = ({
 
   return (
     <div className={styles.timeEntry}>
-      <span>{client.companyName}</span>
+      <span className={styles.textField}>{client.companyName}</span>
       <button
         className={styles.deleteEntry}
         onClick={(): {} => deleteEntry(id)}

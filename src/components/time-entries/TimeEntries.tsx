@@ -11,10 +11,10 @@ import { TimeEntryInterface } from '../../redux/time-entries/types';
 export interface TimeEntriesProps {
   addTimeEntry: () => void;
   clients: ClientInterface[];
-  deleteTimeEntry: (TimeEntryInterface) => {};
+  deleteTimeEntry: (timeEntryId: number) => {};
   fetchClients: () => void;
   fetchTimeEntries: () => void;
-  filterTimeEntriesByClient: (string) => void;
+  filterTimeEntriesByClient: (eventTargetValue: number) => void;
   timeEntries: TimeEntryInterface[];
 }
 
@@ -33,7 +33,7 @@ const TimeEntries = ({
   }, []);
 
   //* Note: a select element returns a string. We're working with a number
-  const handleChange = (event): void =>
+  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>): void =>
     filterTimeEntriesByClient(
       !event.target.value ? null : Number(event.target.value)
     );

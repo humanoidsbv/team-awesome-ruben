@@ -22,7 +22,7 @@ const Label = styled('label')`
 
   @media only screen and (min-width: 901px) {
     margin: ${(props: LabelProps): number | string =>
-      props.halfWidth ? 0 : '20px 0 0 0'};
+      props.halfWidth ? 0 : '20px 0 20px 0'};
     width: ${(props: LabelProps): string =>
       props.halfWidth ? 'calc(50% - 5px)' : '100%'};
     & + & {

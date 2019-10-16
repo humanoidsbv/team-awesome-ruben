@@ -6,7 +6,16 @@ import TeamMember from '../team-member/';
 import TeamMemberAdd from '../team-member-add/';
 import styles from './TeamMembers.module.css';
 
-import { TeamMembersStateInterface } from '../../redux/team-members/types';
+import { TeamMemberInterface } from '../../redux/team-members/types';
+
+export interface TeamMembersProps {
+  addTeamMember: () => {};
+  fetchTeamMembers: () => {};
+  orderToggle: boolean;
+  sortTeamMembersByField: (value: string) => void;
+  sortTeamMembersOrder: () => void;
+  teamMembers: TeamMemberInterface[];
+}
 
 const TeamMembers = ({
   addTeamMember,
@@ -15,7 +24,7 @@ const TeamMembers = ({
   sortTeamMembersByField,
   sortTeamMembersOrder,
   teamMembers
-}: TeamMembersStateInterface): React.ReactElement => {
+}: TeamMembersProps): React.ReactElement => {
   const [isFormVisible, setIsFormVisible] = useState(false);
 
   useEffect(() => {

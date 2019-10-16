@@ -15,6 +15,16 @@
   margin-top: -33px;
 }
 
+.textField {
+  width: 70px;
+}
+
+@media only screen and (min-width: 901px) {
+  .textField {
+    width: 160px;
+  }
+}
+
 .timeStamps {
   align-items: center;
   display: flex;

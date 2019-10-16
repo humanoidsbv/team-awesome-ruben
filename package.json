@@ -1,11 +1,11 @@
 {
-  "name": "gatsby-starter-hello-world",
+  "name": "team-awesome",
   "private": true,
-  "description": "A simplified bare-bones starter for Gatsby",
-  "version": "0.1.0",
+  "description": "A web app to log worked hours for you and your team!",
+  "version": "0.8.0",
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
+    "build": "node_modules/.bin/babel-node --presets @babel/preset-typescript --extensions '.ts,.tsx' node_modules/.bin/gatsby develop gatsby build",
     "develop": "node_modules/.bin/babel-node --presets @babel/preset-typescript --extensions '.ts,.tsx' node_modules/.bin/gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop & npm run api",
@@ -63,9 +63,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-hello-world"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/humanoidsbv/team-awesome-ruben"
   }
 }

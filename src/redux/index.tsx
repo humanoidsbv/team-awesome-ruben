@@ -7,7 +7,7 @@ import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
 import rootReducer from './root-reducer';
 import rootSaga from './root-saga';
 
-const ReduxWrapper = ({
+export const ReduxWrapper = ({
   element
 }: {
   element: React.ReactNode;
