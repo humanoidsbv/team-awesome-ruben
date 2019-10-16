@@ -32,6 +32,9 @@ module.exports = {
           include: /assets/
         }
       }
+    },
+    {
+      resolve: 'gatsby-plugin-typescript'
     }
   ]
 };
