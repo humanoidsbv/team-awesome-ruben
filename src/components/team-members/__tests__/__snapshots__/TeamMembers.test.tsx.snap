@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches component output with expected output 1`] = `
+<Fragment>
+  <div
+    className="header"
+  >
+    <span
+      className="heading"
+    >
+      All Humanoids
+    </span>
+    <button
+      className="addMember false"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+    >
+      <test-file-stub
+        className="addNewIcon"
+      />
+      New Humanoid
+    </button>
+    <select
+      className="sortMembers"
+      onChange={[Function]}
+    >
+      <option
+        value="firstName"
+      >
+        First name
+      </option>
+      <option
+        value="lastName"
+      >
+        Last name
+      </option>
+      <option
+        value="locality"
+      >
+        Location
+      </option>
+      <option
+        value="role"
+      >
+        Project role
+      </option>
+      <option
+        value="currentClient"
+      >
+        Client name
+      </option>
+      <option
+        value="startingDate"
+      >
+        Date
+      </option>
+    </select>
+    <button
+      className="sortMembersOrder false"
+      onClick={[Function]}
+      type="button"
+    >
+      <test-file-stub />
+    </button>
+  </div>
+  <TeamMember
+    key="0"
+    teamMember={
+      Object {
+        "currentClient": "",
+        "employeeNumber": "",
+        "firstName": "",
+        "id": 0,
+        "lastName": "",
+        "role": "",
+        "startingDate": "",
+      }
+    }
+  />
+</Fragment>
+`;

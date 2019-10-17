@@ -5,7 +5,16 @@ import styles from './TimeEntryAdd.module.css';
 
 import { ValidityState } from '../../../shared/types';
 
-const TimeEntryAdd = ({ addFormData, clients }): React.ReactElement => {
+import { ClientInterface } from '../../redux/clients/types';
+interface timeEntryAddProps {
+  addFormData: ({}) => void;
+  clients: ClientInterface[];
+}
+
+const TimeEntryAdd = ({
+  addFormData,
+  clients
+}: timeEntryAddProps): React.ReactElement => {
   const today = new Date()
     .toISOString()
     .split('T')
@@ -34,7 +43,7 @@ const TimeEntryAdd = ({ addFormData, clients }): React.ReactElement => {
     });
   };
 
-  const handleSubmit = (event): void => {
+  const handleSubmit = (event: React.ChangeEvent<HTMLInputElement>): void => {
     event.preventDefault();
 
     addFormData({
@@ -52,7 +61,7 @@ const TimeEntryAdd = ({ addFormData, clients }): React.ReactElement => {
     <div className={`${styles.container}`}>
       <form
         className={`${styles.form} ${isFormVisible && styles.formVisible}`}
-        onSubmit={handleSubmit}
+        onSubmit={() => handleSubmit}
         ref={formRef}
       >
         <button

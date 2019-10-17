@@ -4,7 +4,8 @@ import {
   DELETE_CLIENT_REQUEST,
   DELETE_CLIENT_SUCCESS,
   FETCH_CLIENTS_REQUEST,
-  FETCH_CLIENTS_SUCCESS
+  FETCH_CLIENTS_SUCCESS,
+  FETCH_CLIENTS_FAILURE
 } from './actions';
 
 import { ClientsStateInterface } from './types';
@@ -25,6 +26,11 @@ export default (
         ...state,
         isLoading: true
       };
+
+    case FETCH_CLIENTS_FAILURE: {
+      console.log('Fetch client failure!');
+      return { ...state };
+    }
 
     case ADD_CLIENT_SUCCESS:
       return {

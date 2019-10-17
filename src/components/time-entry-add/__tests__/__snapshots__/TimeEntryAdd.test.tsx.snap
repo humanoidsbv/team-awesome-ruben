@@ -1,0 +1,130 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches component output with expected output 1`] = `
+<div
+  className="container"
+>
+  <form
+    className="form formVisible"
+    onSubmit={[Function]}
+  >
+    <button
+      className="closeButton"
+      onClick={[Function]}
+      type="button"
+    >
+      <test-file-stub />
+    </button>
+    <label
+      className="label labelLarge"
+      htmlFor="client"
+    >
+      <p
+        className="labelText"
+      >
+        CLIENT
+      </p>
+      <select
+        className="input "
+        name="client"
+        onBlur={[Function]}
+        onChange={[Function]}
+        required={true}
+        value=""
+      >
+        <option
+          disabled={true}
+          value=""
+        >
+          -- Select a client --
+        </option>
+        <option
+          key="123"
+          value={123}
+        >
+          123
+        </option>
+      </select>
+    </label>
+    <label
+      className="label labelLarge"
+      htmlFor="activity"
+    >
+      <p
+        className="labelText"
+      >
+        ACTIVITY
+      </p>
+      <input
+        className="input "
+        maxLength={30}
+        minLength={2}
+        name="activity"
+        onBlur={[Function]}
+        onChange={[Function]}
+        required={true}
+        value=""
+      />
+    </label>
+    <label
+      className="label labelMedium date"
+      htmlFor="date"
+    >
+      <p
+        className="labelText"
+      >
+        DATE
+      </p>
+      <input
+        className="input"
+        name="date"
+        onChange={[Function]}
+        required={true}
+        type="date"
+        value="2019-10-17"
+      />
+    </label>
+    <label
+      className="label labelSmall labelHalfWidth"
+      htmlFor="startTime"
+    >
+      <p
+        className="labelText"
+      >
+        FROM
+      </p>
+      <input
+        className="input timeStamp"
+        name="startTime"
+        onChange={[Function]}
+        type="time"
+        value="09:00"
+      />
+    </label>
+    <label
+      className="label labelSmall labelHalfWidth"
+      htmlFor="endTime"
+    >
+      <p
+        className="labelText"
+      >
+        TO
+      </p>
+      <input
+        className="input timeStamp"
+        name="endTime"
+        onChange={[Function]}
+        type="time"
+        value="17:30"
+      />
+    </label>
+    <button
+      className="addButton"
+      disabled={true}
+      type="submit"
+    >
+      Add
+    </button>
+  </form>
+</div>
+`;

@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 
 import styles from './TimeEntries.module.css';
 import TimeEntry from '../time-entry';
-import TimeEntryAdd from '../time-entry-add';
-import TimeEntryHeader from '../time-entry-header';
+import TimeEntryAdd from '../time-entry-add/';
+import TimeEntryHeader from '../time-entry-header/';
 
 import { ClientInterface } from '../../redux/clients/types';
 import { TimeEntryInterface } from '../../redux/time-entries/types';
@@ -11,7 +11,7 @@ import { TimeEntryInterface } from '../../redux/time-entries/types';
 export interface TimeEntriesProps {
   addTimeEntry: () => void;
   clients: ClientInterface[];
-  deleteTimeEntry: (timeEntryId: number) => {};
+  deleteTimeEntry: (timeEntryId: number) => void;
   fetchClients: () => void;
   fetchTimeEntries: () => void;
   filterTimeEntriesByClient: (eventTargetValue: number) => void;
@@ -39,7 +39,7 @@ const TimeEntries = ({
     );
 
   return (
-    <>
+    <React.Fragment>
       <TimeEntryAdd addFormData={addTimeEntry} clients={clients} />
       <div className={styles.header}>
         <span className={styles.heading}>All time entries</span>
@@ -70,7 +70,7 @@ const TimeEntries = ({
               )}
               <TimeEntry
                 client={client}
-                deleteEntry={(timeEntryId): {} => deleteTimeEntry(timeEntryId)}
+                deleteEntry={deleteTimeEntry}
                 startTimestamp={startTimestamp}
                 stopTimestamp={stopTimestamp}
                 id={id}
@@ -79,7 +79,7 @@ const TimeEntries = ({
           );
         }
       )}
-    </>
+    </React.Fragment>
   );
 };
 

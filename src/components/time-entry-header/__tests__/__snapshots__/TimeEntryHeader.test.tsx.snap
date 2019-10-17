@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches component output with expected output 1`] = `
+<div
+  className="container"
+>
+  <p
+    className="date"
+  >
+    M
+    aandag 23 september
+  </p>
+  <p
+    className="date"
+  >
+    8:30
+  </p>
+</div>
+`;

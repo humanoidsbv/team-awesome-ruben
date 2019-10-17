@@ -24,7 +24,7 @@ export interface ActionInterface {
 export interface TeamMembersDispatchInterface {
   addTeamMember: (item: {}) => ActionInterface;
   deleteTeamMember: (timeEntryId: number) => ActionInterface;
-  fetchTeamMembers: () => {};
+  fetchTeamMembers: (timeEntryId: number) => ActionInterface;
 }
 
 export interface TeamMembersPropsInterface {

@@ -5,7 +5,7 @@ import DeleteIcon from '../../assets/icons/icon-delete.svg';
 import styles from './TimeEntry.module.css';
 
 export interface TimeEntryProps extends TimeEntryInterface {
-  deleteEntry: (timeEntryId: number) => {};
+  deleteEntry: (id: number) => void;
 }
 
 const TimeEntry = ({
@@ -38,7 +38,7 @@ const TimeEntry = ({
       <span className={styles.textField}>{client.companyName}</span>
       <button
         className={styles.deleteEntry}
-        onClick={(): {} => deleteEntry(id)}
+        onClick={(): void => deleteEntry(id)}
         type="button"
       >
         <DeleteIcon className={styles.deleteIcon} />

@@ -1,6 +1,6 @@
 export interface ClientInterface {
   branch: string;
-  branchAdress: string;
+  branchAddress: string;
   companyName: string;
   id: number;
   locality: string;
@@ -19,7 +19,7 @@ export interface ClientsActionInterface {
 }
 
 export interface ClientsPropsInterface {
-  addClient: () => {};
-  clients: {};
-  fetchClients: () => {};
+  addClient: ({}) => void;
+  clients: ClientInterface[];
+  fetchClients: () => void;
 }

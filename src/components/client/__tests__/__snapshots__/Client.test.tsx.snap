@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches component output with expected output 1`] = `
+<button
+  className="container
+        false"
+  onClick={[Function]}
+  type="button"
+>
+  <div
+    className="nameContainer"
+  >
+    <span />
+  </div>
+  <test-file-stub
+    className="arrowExpand
+          false"
+  />
+  <span
+    className="descriptionBlock
+          false"
+  >
+    Detailed information about 
+  </span>
+  <div
+    className="
+          detailContainer
+          false"
+  >
+    <span
+      className="detail"
+    >
+      CLN_
+    </span>
+    <span
+      className="detailDescription"
+    >
+      Client number
+    </span>
+  </div>
+  <div
+    className="
+          detailContainer
+          false"
+  >
+    <span
+      className="detail"
+    >
+      001
+    </span>
+    <span
+      className="detailDescription"
+    >
+      Active projects
+    </span>
+  </div>
+  <div
+    className="
+          detailContainer
+          false"
+  >
+    <span
+      className="detail"
+    >
+      001
+    </span>
+    <span
+      className="detailDescription"
+    >
+      Assigned team
+    </span>
+  </div>
+  <div
+    className="
+          detailContainer fullWidth
+          false"
+  >
+    <span
+      className="detail"
+    >
+      001
+    </span>
+    <span
+      className="detailDescription"
+    >
+      Assigned
+    </span>
+  </div>
+  <div
+    className="
+          detailContainer fullWidth
+          false"
+  >
+    <span
+      className="detail"
+    >
+      001
+    </span>
+    <span
+      className="detailDescription"
+    >
+      Assigned
+    </span>
+  </div>
+</button>
+`;

@@ -14,7 +14,7 @@ const Client = ({
 }: ClientPropsInterface): React.ReactElement => {
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const handleClick = (): void => setIsExpanded(!isExpanded);
+  const handleClick = () => setIsExpanded(!isExpanded);
 
   //* mock data for now!
   const clientNumber = 'CLN_';

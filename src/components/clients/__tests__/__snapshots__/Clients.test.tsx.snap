@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches component output with expected output 1`] = `
+<Fragment>
+  <div
+    className="header"
+  >
+    <span
+      className="heading"
+    >
+      All Clients
+    </span>
+    <button
+      className="addMember
+            false"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+    >
+      <test-file-stub
+        className="addNewIcon"
+      />
+      New Client
+    </button>
+    <button
+      className="sortMembers"
+      type="button"
+    >
+      Sort by:
+      <test-file-stub />
+    </button>
+  </div>
+  <Client
+    client={
+      Object {
+        "branch": "",
+        "branchAddress": "",
+        "companyName": "",
+        "id": 0,
+        "locality": "",
+        "postalCode": "",
+      }
+    }
+    key="0"
+  />
+</Fragment>
+`;

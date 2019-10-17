@@ -7,7 +7,16 @@ import styles from './ClientAdd.module.css';
 
 import { ValidityState } from '../../../shared/types';
 
-const ClientAdd = ({ addClient, toggleFormVisibility }): React.ReactElement => {
+interface ClientAddinterface {
+  //* TODO: Add clientInterface (data) to addClient type
+  addClient: ({}) => void;
+  toggleFormVisibility: () => void;
+}
+
+const ClientAdd = ({
+  addClient,
+  toggleFormVisibility
+}: ClientAddinterface): React.ReactElement => {
   const [branch, setBranch] = useState('');
   const [branchAddress, setBranchAddress] = useState('');
   const [companyName, setCompanyName] = useState('');

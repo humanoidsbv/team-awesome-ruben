@@ -6,7 +6,8 @@ import UserProfileImage from '../../../static/images/picture-tnt.jpg';
 import { ValidityState } from '../../../shared/types';
 
 interface TeamMemberProps {
-  addFormData: ({}) => {};
+  //* TODO: Add data to addFormData and rename for team members
+  addFormData: ({}) => void;
   handleFormVisible: () => void;
 }
 
@@ -15,10 +16,10 @@ const TeamMemberAdd = ({
   handleFormVisible
 }: TeamMemberProps): React.ReactElement => {
   const [bio, setBio] = useState('');
-  const [emailAdress, setEmailAdress] = useState('');
+  const [emailaddress, setEmailaddress] = useState('');
   const [facebook, setFacebook] = useState('');
   const [firstName, setFirstName] = useState('');
-  const [homeAdress, setHomeAdress] = useState('');
+  const [homeaddress, setHomeaddress] = useState('');
   const [lastName, setLastName] = useState('');
   const [linkedIn, setLinkedIn] = useState('');
   const [locality, setLocality] = useState('');
@@ -41,17 +42,17 @@ const TeamMemberAdd = ({
   const handleCloseForm = (): void => {
     handleFormVisible();
     setBio('');
-    setEmailAdress('');
+    setEmailaddress('');
     setFacebook('');
     setFirstName('');
-    setHomeAdress('');
+    setHomeaddress('');
     setLastName('');
     setLinkedIn('');
     setLocality('');
     setPostalCode('');
   };
 
-  const handleSubmit = (event): void => {
+  const handleSubmit = (event: React.ChangeEvent<HTMLInputElement>): void => {
     event.preventDefault();
 
     addFormData({
@@ -59,7 +60,7 @@ const TeamMemberAdd = ({
       currentClient: '-',
       employeeNumber: '-',
       firstName,
-      homeAdress,
+      homeaddress,
       id: Math.random(),
       lastName,
       locality,
@@ -85,7 +86,7 @@ const TeamMemberAdd = ({
         <button
           className={styles.addMemberButton}
           disabled={validity.form !== true}
-          onClick={handleSubmit}
+          onClick={() => handleSubmit}
           type="button"
         >
           Save
@@ -94,7 +95,7 @@ const TeamMemberAdd = ({
       <div className={styles.formTab}>
         <span>Personal Details</span>
       </div>
-      <form className={styles.form} onSubmit={handleSubmit} ref={formRef}>
+      <form className={styles.form} onSubmit={() => handleSubmit} ref={formRef}>
         <div className={styles.profileImageContainer}>
           <img
             alt="Profile avatar"
@@ -146,22 +147,22 @@ const TeamMemberAdd = ({
               value={lastName}
             />
           </label>
-          <label className={`${styles.label}`} htmlFor="emailAdress">
-            <span className={styles.labelText}>Email adress</span>
+          <label className={`${styles.label}`} htmlFor="emailaddress">
+            <span className={styles.labelText}>Email address</span>
             <input
               className={`${styles.input} 
-              ${validity.emailAdress === false ? styles.invalidInput : ''}`}
+              ${validity.emailaddress === false ? styles.invalidInput : ''}`}
               maxLength={30}
               minLength={2}
-              name="emailAdress"
+              name="emailaddress"
               onBlur={handleBlur}
               onChange={({
                 target
               }: React.ChangeEvent<HTMLInputElement>): void | string =>
-                setEmailAdress(target.value)
+                setEmailaddress(target.value)
               }
               required
-              value={emailAdress}
+              value={emailaddress}
             />
           </label>
           <label className={`${styles.label}`} htmlFor="bio">
@@ -176,22 +177,22 @@ const TeamMemberAdd = ({
           </label>
         </div>
         <div className={styles.inputContainer}>
-          <label className={`${styles.label}`} htmlFor="homeAdress">
-            <span className={styles.labelText}>Adress</span>
+          <label className={`${styles.label}`} htmlFor="homeaddress">
+            <span className={styles.labelText}>address</span>
             <input
               className={`${styles.input} 
-              ${validity.homeAdress === false ? styles.invalidInput : ''}`}
+              ${validity.homeaddress === false ? styles.invalidInput : ''}`}
               maxLength={30}
               minLength={2}
-              name="homeAdress"
+              name="homeaddress"
               onBlur={handleBlur}
               onChange={({
                 target
               }: React.ChangeEvent<HTMLInputElement>): void | string =>
-                setHomeAdress(target.value)
+                setHomeaddress(target.value)
               }
               required
-              value={homeAdress}
+              value={homeaddress}
             />
           </label>
           <label

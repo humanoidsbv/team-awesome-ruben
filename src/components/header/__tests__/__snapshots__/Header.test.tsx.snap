@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches component output with expected output 1`] = `
+<header
+  className="header "
+>
+  <Logo />
+  <NavigationToggle
+    isMenuVisible={false}
+    toggleMenu={[Function]}
+  />
+  <Navigation
+    isMenuVisible={false}
+  />
+  <ProfileButton />
+</header>
+`;

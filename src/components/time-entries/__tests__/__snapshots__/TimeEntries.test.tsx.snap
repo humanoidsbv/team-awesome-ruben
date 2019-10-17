@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches component output with expected output 1`] = `
+<Fragment>
+  <TimeEntryAdd
+    addFormData={[Function]}
+    clients={
+      Array [
+        Object {
+          "branch": "",
+          "branchAddress": "",
+          "companyName": "",
+          "id": 0,
+          "locality": "",
+          "postalCode": "",
+        },
+      ]
+    }
+  />
+  <div
+    className="header"
+  >
+    <span
+      className="heading"
+    >
+      All time entries
+    </span>
+    <select
+      className="sortMembers"
+      onChange={[Function]}
+    >
+      <option
+        value=""
+      >
+        No filter
+      </option>
+      <option
+        key="0"
+        value={0}
+      />
+    </select>
+  </div>
+  <TimeEntryHeader
+    startTimestamp=""
+    stopTimestamp=""
+  />
+  <TimeEntry
+    client={
+      Object {
+        "branch": "",
+        "branchAddress": "",
+        "companyName": "",
+        "id": 0,
+        "locality": "",
+        "postalCode": "",
+      }
+    }
+    deleteEntry={[Function]}
+    id={0}
+    startTimestamp=""
+    stopTimestamp=""
+  />
+</Fragment>
+`;

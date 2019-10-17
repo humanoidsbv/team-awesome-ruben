@@ -1,0 +1,236 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches component output with expected output 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="header"
+  >
+    <span
+      className="heading"
+    >
+      Add new team member
+    </span>
+    <button
+      className="cancelButton"
+      onClick={[Function]}
+      type="button"
+    >
+      Cancel
+    </button>
+    <button
+      className="addMemberButton"
+      disabled={true}
+      onClick={[Function]}
+      type="button"
+    >
+      Save
+    </button>
+  </div>
+  <div
+    className="formTab"
+  >
+    <span>
+      Personal Details
+    </span>
+  </div>
+  <form
+    className="form"
+    onSubmit={[Function]}
+  >
+    <div
+      className="profileImageContainer"
+    >
+      <img
+        alt="Profile avatar"
+        className="profileImage"
+        src="test-file-stub"
+      />
+      <span>
+        Edit Avatar
+      </span>
+    </div>
+    <div
+      className="inputContainer"
+    >
+      <label
+        className="label labelHalfWidth"
+        htmlFor="firstName"
+      >
+        <span
+          className="labelText"
+        >
+          First name
+        </span>
+        <input
+          className="input false"
+          maxLength={30}
+          minLength={2}
+          name="firstName"
+          onBlur={[Function]}
+          onChange={[Function]}
+          required={true}
+          value=""
+        />
+      </label>
+      <label
+        className="label labelHalfWidth"
+        htmlFor="lastName"
+      >
+        <span
+          className="labelText"
+        >
+          Last name
+        </span>
+        <input
+          className="input false"
+          maxLength={30}
+          minLength={2}
+          name="lastName"
+          onBlur={[Function]}
+          onChange={[Function]}
+          required={true}
+          value=""
+        />
+      </label>
+      <label
+        className="label"
+        htmlFor="emailaddress"
+      >
+        <span
+          className="labelText"
+        >
+          Email address
+        </span>
+        <input
+          className="input 
+              "
+          maxLength={30}
+          minLength={2}
+          name="emailaddress"
+          onBlur={[Function]}
+          onChange={[Function]}
+          required={true}
+          value=""
+        />
+      </label>
+      <label
+        className="label"
+        htmlFor="bio"
+      >
+        <span
+          className="labelText"
+        >
+          Bio
+        </span>
+        <textarea
+          className="input textArea"
+          name="bio"
+          onBlur={[Function]}
+          onChange={[Function]}
+          value=""
+        />
+      </label>
+    </div>
+    <div
+      className="inputContainer"
+    >
+      <label
+        className="label"
+        htmlFor="homeaddress"
+      >
+        <span
+          className="labelText"
+        >
+          address
+        </span>
+        <input
+          className="input 
+              "
+          maxLength={30}
+          minLength={2}
+          name="homeaddress"
+          onBlur={[Function]}
+          onChange={[Function]}
+          required={true}
+          value=""
+        />
+      </label>
+      <label
+        className="label labelHalfWidth"
+        htmlFor="postalCode"
+      >
+        <span
+          className="labelText"
+        >
+          Postal code
+        </span>
+        <input
+          className="input 
+              "
+          maxLength={30}
+          minLength={2}
+          name="postalCode"
+          onBlur={[Function]}
+          onChange={[Function]}
+          required={true}
+          value=""
+        />
+      </label>
+      <label
+        className="label labelHalfWidth"
+        htmlFor="locality"
+      >
+        <span
+          className="labelText"
+        >
+          Place of birth
+        </span>
+        <input
+          className="input 
+              "
+          maxLength={30}
+          minLength={2}
+          name="locality"
+          onBlur={[Function]}
+          onChange={[Function]}
+          required={true}
+          value=""
+        />
+      </label>
+      <label
+        className="label"
+        htmlFor="socialProfiles"
+      >
+        <span
+          className="labelText"
+        >
+          Social profiles
+        </span>
+        <input
+          className="input facebook
+              "
+          maxLength={30}
+          minLength={2}
+          name="faceBook"
+          onBlur={[Function]}
+          onChange={[Function]}
+          value=""
+        />
+        <input
+          className="input
+              "
+          maxLength={30}
+          minLength={2}
+          name="linkedIn"
+          onBlur={[Function]}
+          onChange={[Function]}
+          required={true}
+          value=""
+        />
+      </label>
+    </div>
+  </form>
+</div>
+`;

@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches component output with expected output 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="formTab"
+  >
+    <span>
+      Client Details
+    </span>
+  </div>
+  <form
+    className="form"
+    onSubmit={[Function]}
+  >
+    <div
+      className="inputContainer"
+    >
+      <styled.label
+        htmlFor="companyName"
+      >
+        Client
+        <styled.input
+          maxLength="30"
+          minLength="2"
+          name="companyName"
+          onBlur={[Function]}
+          onChange={[Function]}
+          required={true}
+        />
+      </styled.label>
+      <styled.label>
+        <span>
+          Branch
+        </span>
+        <styled.input
+          maxLength="30"
+          minLength="2"
+          name="branch"
+          onBlur={[Function]}
+          onChange={[Function]}
+          required={true}
+        />
+      </styled.label>
+    </div>
+    <span
+      className="verticalLine"
+    />
+    <div
+      className="inputContainer"
+    >
+      <styled.label>
+        Branch address
+        <styled.input
+          maxLength="30"
+          minLength="2"
+          name="branchAddress"
+          onBlur={[Function]}
+          onChange={[Function]}
+          required={true}
+        />
+      </styled.label>
+      <styled.label
+        halfWidth={true}
+      >
+        Postal code
+        <styled.input
+          maxLength="30"
+          minLength="2"
+          name="postalCode"
+          onBlur={[Function]}
+          onChange={[Function]}
+          required={true}
+        />
+      </styled.label>
+      <styled.label
+        halfWidth={true}
+      >
+        Location
+        <styled.input
+          maxLength="30"
+          minLength="2"
+          name="locality"
+          onBlur={[Function]}
+          onChange={[Function]}
+          required={true}
+        />
+      </styled.label>
+    </div>
+  </form>
+  <div
+    className="header"
+  >
+    <span
+      className="heading"
+    >
+      Add New Client
+    </span>
+    <div
+      className="fullWidth"
+    >
+      <styled.button
+        onClick={[Function]}
+      >
+        Cancel
+      </styled.button>
+      <styled.button
+        disabled={true}
+        onClick={[Function]}
+        type="submit"
+      >
+        Save
+      </styled.button>
+    </div>
+  </div>
+</div>
+`;

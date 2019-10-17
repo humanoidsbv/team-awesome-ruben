@@ -3,14 +3,14 @@ import React, { useEffect, useState } from 'react';
 import IconArrowDown from '../../assets/icons/icon-arrow-down.svg';
 import IconPlus from '../../assets/icons/icon-plus.svg';
 import TeamMember from '../team-member/';
-import TeamMemberAdd from '../team-member-add/';
+import TeamMemberAdd from '../team-member-add';
 import styles from './TeamMembers.module.css';
 
 import { TeamMemberInterface } from '../../redux/team-members/types';
 
 export interface TeamMembersProps {
-  addTeamMember: () => {};
-  fetchTeamMembers: () => {};
+  addTeamMember: ({}) => void;
+  fetchTeamMembers: () => void;
   orderToggle: boolean;
   sortTeamMembersByField: (value: string) => void;
   sortTeamMembersOrder: () => void;
@@ -36,7 +36,7 @@ const TeamMembers = ({
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>): void =>
     sortTeamMembersByField(event.currentTarget.value);
 
-  const handeClick = (): void => sortTeamMembersOrder();
+  const handeClick = () => sortTeamMembersOrder();
 
   return (
     <React.Fragment>

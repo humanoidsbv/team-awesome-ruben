@@ -6,20 +6,13 @@ import IconArrowDown from '../../assets/icons/icon-arrow-down.svg';
 import IconPlus from '../../assets/icons/icon-plus.svg';
 import styles from './Clients.module.css';
 
-import { ClientInterface } from '../../redux/clients/types';
-
-interface ClientsProps {
-  addClient: () => void;
-  client: ClientInterface;
-  clients: ClientInterface[];
-  fetchClients: () => void;
-}
+import { ClientsPropsInterface } from '../../redux/clients/types';
 
 const Clients = ({
   addClient,
   clients,
   fetchClients
-}: ClientsProps): React.ReactElement => {
+}: ClientsPropsInterface): React.ReactElement => {
   const [isFormVisible, SetIsFormVisible] = useState(false);
 
   useEffect(() => {
