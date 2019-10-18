@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 
 import NavigationToggle from '../NavigationToggle';
 
-it('matches component output with expected output', () => {
+it('matches output with  snapshot', () => {
   const navigationToggle = shallow(
     <NavigationToggle isMenuVisible={false} toggleMenu={() => {}} />
   );

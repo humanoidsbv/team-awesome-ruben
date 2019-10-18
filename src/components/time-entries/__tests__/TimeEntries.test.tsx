@@ -19,7 +19,7 @@ const mockedTimeEntriesData = {
   stopTimestamp: ''
 };
 
-it('matches component output with expected output', () => {
+it('matches output with  snapshot', () => {
   const timeEntries = shallow(
     <TimeEntries
       addTimeEntry={() => {}}

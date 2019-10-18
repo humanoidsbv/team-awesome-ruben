@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 
 import Header from '../Header';
 
-it('matches component output with expected output', () => {
+it('matches output with  snapshot', () => {
   const header = shallow(<Header />);
   expect(header).toMatchSnapshot();
 });

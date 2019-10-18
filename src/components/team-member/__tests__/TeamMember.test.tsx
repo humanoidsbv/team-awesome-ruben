@@ -13,7 +13,7 @@ const teamMemberMockeddata = {
   startingDate: ''
 };
 
-it('matches component output with expected output', () => {
+it('matches output with  snapshot', () => {
   const teamMember = shallow(<TeamMember teamMember={teamMemberMockeddata} />);
   expect(teamMember).toMatchSnapshot();
 });

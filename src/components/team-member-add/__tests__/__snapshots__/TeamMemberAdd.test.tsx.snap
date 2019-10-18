@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`matches component output with expected output 1`] = `
+exports[`matches output with  snapshot 1`] = `
 <div
   className="container"
 >

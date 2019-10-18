@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 
 import Layout from '../Layout';
 
-it('matches component output with expected output', () => {
+it('matches output with  snapshot', () => {
   const layout = shallow(
     <Layout children={<React.Fragment></React.Fragment>} />
   );

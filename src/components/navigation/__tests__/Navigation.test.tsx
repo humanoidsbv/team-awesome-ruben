@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 
 import Navigation from '../Navigation';
 
-it('matches component output with expected output', () => {
+it('matches output with  snapshot', () => {
   const navigation = shallow(<Navigation isMenuVisible={false} />);
   expect(navigation).toMatchSnapshot();
 });

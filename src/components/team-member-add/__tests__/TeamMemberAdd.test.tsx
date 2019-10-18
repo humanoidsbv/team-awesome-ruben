@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 
 import TeamMemberAdd from '../TeamMemberAdd';
 
-it('matches component output with expected output', () => {
+it('matches output with  snapshot', () => {
   const teamMemberAdd = shallow(
     <TeamMemberAdd addFormData={() => {}} handleFormVisible={() => {}} />
   );

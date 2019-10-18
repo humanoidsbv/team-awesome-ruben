@@ -13,7 +13,7 @@ const mockedTeamMembersData = {
   startingDate: ''
 };
 
-it('matches component output with expected output', () => {
+it('matches output with  snapshot', () => {
   const teamMembers = shallow(
     <TeamMembers
       addTeamMember={() => {}}

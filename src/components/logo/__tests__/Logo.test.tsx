@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 
 import Logo from '../Logo';
 
-it('matches component output with expected output', () => {
+it('matches output with  snapshot', () => {
   const logo = shallow(<Logo />);
   expect(logo).toMatchSnapshot();
 });

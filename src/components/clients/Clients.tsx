@@ -19,24 +19,27 @@ const Clients = ({
     fetchClients();
   }, []);
 
-  const handleFormVisibility = (): void => SetIsFormVisible(!isFormVisible);
+  const handleFormVisibility = () => SetIsFormVisible(!isFormVisible);
 
   return (
     <React.Fragment>
       {isFormVisible && (
         <ClientAdd
           addClient={addClient}
+          data-test="ClientAdd"
           toggleFormVisibility={handleFormVisibility}
         />
       )}
       <div className={styles.header}>
         <span className={styles.heading}>All Clients</span>
         <button
-          className={`${styles.addMember}
-            ${isFormVisible && styles.addMemberVisible}`}
+          className={`${styles.addMember} ${
+            isFormVisible ? styles.addMemberVisible : ''
+          }`}
           disabled={isFormVisible}
           onClick={handleFormVisibility}
           type="button"
+          data-test="addMember"
         >
           <IconPlus className={styles.addNewIcon} />
           New Client

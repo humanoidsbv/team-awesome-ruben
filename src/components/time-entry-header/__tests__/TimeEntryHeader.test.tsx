@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 
 import TimeEntryHeader from '../TimeEntryHeader';
 
-it('matches component output with expected output', () => {
+it('matches output with  snapshot', () => {
   const timeEntryHeader = shallow(
     <TimeEntryHeader
       startTimestamp={'2019-09-23T07:00:00.000Z'}

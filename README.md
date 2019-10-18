@@ -18,7 +18,7 @@ A web app to log worked hours for you and your team!
 
 2.  **Setting up Team Awesome**
 
-    Clone this repository to a directory of your choosing using:
+    Clone this repository to a directory of your choosing:
 
     ```sh
     # Use terminal to install the application:

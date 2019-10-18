@@ -12,7 +12,7 @@ const mockedClientsData = {
   postalCode: ''
 };
 
-it('matches component output with expected output', () => {
+it('matches output with  snapshot', () => {
   const client = shallow(<Client client={mockedClientsData} />);
   expect(client).toMatchSnapshot();
 });

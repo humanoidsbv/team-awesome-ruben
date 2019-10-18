@@ -12,7 +12,7 @@ const ClientMockedData = {
   postalCode: '123'
 };
 
-it('matches component output with expected output', () => {
+it('matches output with  snapshot', () => {
   const timeEntryAdd = shallow(
     <TimeEntryAdd addFormData={({}) => {}} clients={[ClientMockedData]} />
   );
