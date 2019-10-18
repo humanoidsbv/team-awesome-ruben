@@ -6,10 +6,11 @@ import styles from './TimeEntry.module.css';
 
 export interface TimeEntryProps extends TimeEntryInterface {
   deleteEntry: (id: number) => void;
+  client: {};
 }
 
 const TimeEntry = ({
-  client,
+  client = { companyName: '' },
   deleteEntry,
   id,
   startTimestamp,
