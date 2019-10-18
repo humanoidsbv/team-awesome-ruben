@@ -14,7 +14,7 @@ export interface ClientsStateInterface {
 }
 
 export interface ClientsActionInterface {
-  payload?: {};
+  payload?: any;
   type: string;
 }
 

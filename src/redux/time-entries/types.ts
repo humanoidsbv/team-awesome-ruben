@@ -14,8 +14,8 @@ export interface TimeEntryStateInterface {
 }
 
 export interface ActionInterface {
+  payload?: any;
   type: string;
-  payload?: {};
 }
 export interface TimeEntriesStateInterface {
   clients: ClientInterface;

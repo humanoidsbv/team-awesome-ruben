@@ -5,12 +5,12 @@ import DeleteIcon from '../../assets/icons/icon-delete.svg';
 import styles from './TimeEntry.module.css';
 
 export interface TimeEntryProps extends TimeEntryInterface {
+  // client: { companyName: string };
   deleteEntry: (id: number) => void;
-  client: {};
 }
 
 const TimeEntry = ({
-  client = { companyName: '' },
+  client,
   deleteEntry,
   id,
   startTimestamp,

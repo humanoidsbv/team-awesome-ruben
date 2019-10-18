@@ -16,6 +16,7 @@ export interface TimeEntriesProps {
   fetchTimeEntries: () => void;
   filterTimeEntriesByClient: (eventTargetValue: number) => void;
   timeEntries: TimeEntryInterface[];
+  isLoading: boolean;
 }
 
 const TimeEntries = ({
@@ -25,6 +26,7 @@ const TimeEntries = ({
   fetchClients,
   fetchTimeEntries,
   filterTimeEntriesByClient,
+  isLoading,
   timeEntries
 }: TimeEntriesProps): React.ReactElement => {
   useEffect(() => {
@@ -52,33 +54,34 @@ const TimeEntries = ({
           ))}
         </select>
       </div>
-      {timeEntries.map(
-        ({ startTimestamp, stopTimestamp, id, client }, index: number) => {
-          const previousItem = timeEntries[index - 1];
-          const currentDate = new Date(startTimestamp).toDateString();
-          const previousDate = previousItem
-            ? new Date(previousItem.startTimestamp).toDateString()
-            : '';
+      {!isLoading &&
+        timeEntries.map(
+          ({ startTimestamp, stopTimestamp, id, client }, index: number) => {
+            const previousItem = timeEntries[index - 1];
+            const currentDate = new Date(startTimestamp).toDateString();
+            const previousDate = previousItem
+              ? new Date(previousItem.startTimestamp).toDateString()
+              : '';
 
-          return (
-            <React.Fragment key={id}>
-              {currentDate !== previousDate && (
-                <TimeEntryHeader
+            return (
+              <React.Fragment key={id}>
+                {currentDate !== previousDate && (
+                  <TimeEntryHeader
+                    startTimestamp={startTimestamp}
+                    stopTimestamp={stopTimestamp}
+                  />
+                )}
+                <TimeEntry
+                  client={client}
+                  deleteEntry={deleteTimeEntry}
                   startTimestamp={startTimestamp}
                   stopTimestamp={stopTimestamp}
+                  id={id}
                 />
-              )}
-              <TimeEntry
-                client={client}
-                deleteEntry={deleteTimeEntry}
-                startTimestamp={startTimestamp}
-                stopTimestamp={stopTimestamp}
-                id={id}
-              />
-            </React.Fragment>
-          );
-        }
-      )}
+              </React.Fragment>
+            );
+          }
+        )}
     </React.Fragment>
   );
 };

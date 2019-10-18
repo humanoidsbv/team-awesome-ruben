@@ -17,7 +17,7 @@ export interface TeamMemberStateInterface {
 }
 
 export interface ActionInterface {
-  payload?: {};
+  payload?: any;
   type: string;
 }
 
