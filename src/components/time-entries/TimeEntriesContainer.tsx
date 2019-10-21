@@ -14,9 +14,9 @@ import {
 import TimeEntries, { TimeEntriesProps } from './TimeEntries';
 
 import {
+  clientsIsLoadingSelector,
   clientsItemsSelector,
-  fetchClientsRequest,
-  clientsIsLoadingSelector
+  fetchClientsRequest
 } from '../../redux/clients';
 
 import {

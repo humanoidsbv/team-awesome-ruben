@@ -19,7 +19,7 @@ const TeamMemberAdd = ({
   const [emailaddress, setEmailaddress] = useState('');
   const [facebook, setFacebook] = useState('');
   const [firstName, setFirstName] = useState('');
-  const [homeaddress, setHomeaddress] = useState('');
+  const [homeaddress, setHomeAddress] = useState('');
   const [lastName, setLastName] = useState('');
   const [linkedIn, setLinkedIn] = useState('');
   const [locality, setLocality] = useState('');
@@ -45,7 +45,7 @@ const TeamMemberAdd = ({
     setEmailaddress('');
     setFacebook('');
     setFirstName('');
-    setHomeaddress('');
+    setHomeAddress('');
     setLastName('');
     setLinkedIn('');
     setLocality('');
@@ -189,7 +189,7 @@ const TeamMemberAdd = ({
               onChange={({
                 target
               }: React.ChangeEvent<HTMLInputElement>): void | string =>
-                setHomeaddress(target.value)
+                setHomeAddress(target.value)
               }
               required
               value={homeaddress}
