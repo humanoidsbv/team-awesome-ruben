@@ -1,5 +1,4 @@
 import { fetchClients } from '../client-api';
-
 it('fetches results from json server', () => {
   const mockTimeEntriesData = {
     client: 0.1,
@@ -19,7 +18,7 @@ it('fetches results from json server', () => {
 
   expect(global.fetch).toHaveBeenCalledTimes(1);
   expect(global.fetch).toHaveBeenCalledWith(
-    'http://localhost:3000/clients?_sort=client&_order=desc"'
+    'http://localhost:3000/clients?_sort=client&_order=desc'
   );
 
   global.fetch.mockClear();

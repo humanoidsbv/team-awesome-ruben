@@ -2,7 +2,6 @@ import * as React from 'react';
 import { shallow, mount } from 'enzyme';
 
 import Clients from '../Clients';
-import ClientsAdd from '../../team-member-add/';
 
 const mockedClientsData = {
   branch: '',

@@ -33,7 +33,7 @@
     "@typescript-eslint/indent": [2, 2],
     "no-confusing-arrow": [0, { "allowParens": true }],
     "env": {
-      "browser": true,
+      "browser": 1,
       "jest": true
     }
   }
