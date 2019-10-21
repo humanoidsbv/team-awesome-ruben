@@ -1,8 +1,8 @@
-## Team Awesome!
+## ✍️Team Awesome!
 
 A web app to log worked hours for you and your team!
 
-### 🎨 Built with
+### Built with
 
 - [GatsbyJS](https://github.com/gatsbyjs/gatsby) - Static site generator that is built on ReactJS
 - [Redux](https://redux.js.org/) - JS library for global state management
@@ -11,7 +11,7 @@ A web app to log worked hours for you and your team!
 - [Jest](https://github.com/facebook/jest) - JavaScript testing framework to ensure proper functioning components
 - [StoryBook](https://github.com/storybooks/storybook) - Showcases components outside of the app for refinement and quick understanding
 
-### 💪 Getting started
+### Getting started
 
 1.  **Prerequisites**
 
@@ -37,7 +37,23 @@ A web app to log worked hours for you and your team!
 
     Your site should now be running at `http://localhost:8000`!
 
-### 👀 Run Storybook
+### Testing components
+
+1.  **npm test**
+
+    To test the application you can run the following command in terminal:
+
+    ```sh
+    #Run all tests once
+    npm test
+
+    or
+
+    #Run all tests and rerun whenever a test file is saved
+    npm test -- --watch
+    ```
+
+### Run Storybook
 
 1.  **Start Storybook**
 

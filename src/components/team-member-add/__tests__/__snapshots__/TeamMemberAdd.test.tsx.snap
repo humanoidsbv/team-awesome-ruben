@@ -96,7 +96,7 @@ exports[`matches output with  snapshot 1`] = `
       </label>
       <label
         className="label"
-        htmlFor="emailaddress"
+        htmlFor="emailAddress"
       >
         <span
           className="labelText"
@@ -108,7 +108,7 @@ exports[`matches output with  snapshot 1`] = `
               "
           maxLength={30}
           minLength={2}
-          name="emailaddress"
+          name="emailAddress"
           onBlur={[Function]}
           onChange={[Function]}
           required={true}
@@ -138,7 +138,7 @@ exports[`matches output with  snapshot 1`] = `
     >
       <label
         className="label"
-        htmlFor="homeaddress"
+        htmlFor="homeAddress"
       >
         <span
           className="labelText"
@@ -150,7 +150,7 @@ exports[`matches output with  snapshot 1`] = `
               "
           maxLength={30}
           minLength={2}
-          name="homeaddress"
+          name="homeAddress"
           onBlur={[Function]}
           onChange={[Function]}
           required={true}

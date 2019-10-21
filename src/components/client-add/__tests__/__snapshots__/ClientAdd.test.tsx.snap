@@ -19,25 +19,28 @@ exports[`matches output with  snapshot 1`] = `
       className="inputContainer"
     >
       <styled.label
+        halfWidth={false}
         htmlFor="companyName"
       >
         Client
         <styled.input
-          maxLength="30"
-          minLength="2"
+          maxLength={30}
+          minLength={2}
           name="companyName"
           onBlur={[Function]}
           onChange={[Function]}
           required={true}
         />
       </styled.label>
-      <styled.label>
+      <styled.label
+        halfWidth={false}
+      >
         <span>
           Branch
         </span>
         <styled.input
-          maxLength="30"
-          minLength="2"
+          maxLength={30}
+          minLength={2}
           name="branch"
           onBlur={[Function]}
           onChange={[Function]}
@@ -51,11 +54,13 @@ exports[`matches output with  snapshot 1`] = `
     <div
       className="inputContainer"
     >
-      <styled.label>
+      <styled.label
+        halfWidth={false}
+      >
         Branch address
         <styled.input
-          maxLength="30"
-          minLength="2"
+          maxLength={30}
+          minLength={2}
           name="branchAddress"
           onBlur={[Function]}
           onChange={[Function]}
@@ -67,8 +72,8 @@ exports[`matches output with  snapshot 1`] = `
       >
         Postal code
         <styled.input
-          maxLength="30"
-          minLength="2"
+          maxLength={30}
+          minLength={2}
           name="postalCode"
           onBlur={[Function]}
           onChange={[Function]}
@@ -80,8 +85,8 @@ exports[`matches output with  snapshot 1`] = `
       >
         Location
         <styled.input
-          maxLength="30"
-          minLength="2"
+          maxLength={30}
+          minLength={2}
           name="locality"
           onBlur={[Function]}
           onChange={[Function]}
@@ -101,18 +106,19 @@ exports[`matches output with  snapshot 1`] = `
     <div
       className="fullWidth"
     >
-      <styled.button
+      <Button
         onClick={[Function]}
+        type="reset"
       >
         Cancel
-      </styled.button>
-      <styled.button
+      </Button>
+      <Button
         disabled={true}
         onClick={[Function]}
         type="submit"
       >
         Save
-      </styled.button>
+      </Button>
     </div>
   </div>
 </div>

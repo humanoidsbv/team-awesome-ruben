@@ -73,12 +73,12 @@ const ClientAdd = ({
       </div>
       <form className={styles.form} onSubmit={handleSubmit} ref={formRef}>
         <div className={styles.inputContainer}>
-          <Label htmlFor="companyName">
+          <Label halfWidth={false} htmlFor="companyName">
             Client
             <Input
               isValid={validity.companyName}
-              maxLength="30"
-              minLength="2"
+              maxLength={30}
+              minLength={2}
               name="companyName"
               onBlur={handleBlur}
               onChange={({
@@ -89,12 +89,12 @@ const ClientAdd = ({
               required
             />
           </Label>
-          <Label>
+          <Label halfWidth={false}>
             <span>Branch</span>
             <Input
               isValid={validity.branch}
-              maxLength="30"
-              minLength="2"
+              maxLength={30}
+              minLength={2}
               name="branch"
               onBlur={handleBlur}
               onChange={({
@@ -108,12 +108,12 @@ const ClientAdd = ({
         </div>
         <span className={styles.verticalLine} />
         <div className={styles.inputContainer}>
-          <Label>
+          <Label halfWidth={false}>
             Branch address
             <Input
               isValid={validity.branchAddress}
-              maxLength="30"
-              minLength="2"
+              maxLength={30}
+              minLength={2}
               name="branchAddress"
               onBlur={handleBlur}
               onChange={({
@@ -128,8 +128,8 @@ const ClientAdd = ({
             Postal code
             <Input
               isValid={validity.postalCode}
-              maxLength="30"
-              minLength="2"
+              maxLength={30}
+              minLength={2}
               name="postalCode"
               onBlur={handleBlur}
               onChange={({
@@ -144,8 +144,8 @@ const ClientAdd = ({
             Location
             <Input
               isValid={validity.locality}
-              maxLength="30"
-              minLength="2"
+              maxLength={30}
+              minLength={2}
               name="locality"
               onBlur={handleBlur}
               onChange={({
@@ -161,10 +161,12 @@ const ClientAdd = ({
       <div className={styles.header}>
         <span className={styles.heading}>Add New Client</span>
         <div className={styles.fullWidth}>
-          <Button onClick={handleCloseForm}>Cancel</Button>
+          <Button onClick={handleCloseForm} type="reset">
+            Cancel
+          </Button>
           <Button
             disabled={validity.form !== true}
-            onClick={handleSubmit}
+            onClick={() => handleSubmit}
             type="submit"
           >
             Save

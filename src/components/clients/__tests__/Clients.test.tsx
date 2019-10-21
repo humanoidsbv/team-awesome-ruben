@@ -2,6 +2,7 @@ import * as React from 'react';
 import { shallow, mount } from 'enzyme';
 
 import Clients from '../Clients';
+import ClientAdd from '../../client-add';
 
 const mockedClientsData = {
   branch: '',
@@ -32,10 +33,10 @@ it('can open the clientAdd component', () => {
     />
   );
 
-  expect(clients.find('[data-test="addMember"]').length).toBe(1);
-  expect(clients.find('[data-test="ClientAdd"]').length).toBe(0);
+  expect(clients.find('.addMember').length).toBe(1);
+  expect(clients.find(ClientAdd).length).toBe(0);
 
-  clients.find('[data-test="addMember"]').simulate('click');
+  clients.find('.addMember').simulate('click');
 
-  expect(clients.find('[data-test="ClientAdd"]').length).toBe(1);
+  expect(clients.find(ClientAdd).length).toBe(1);
 });

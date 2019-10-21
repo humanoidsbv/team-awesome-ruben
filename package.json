@@ -17,6 +17,7 @@
     "clean": "rm -rf .cache"
   },
   "dependencies": {
+    "@types/styled-components": "^4.1.19",
     "gatsby": "^2.15.14",
     "gatsby-plugin-typescript": "^2.1.13",
     "react": "^16.9.0",

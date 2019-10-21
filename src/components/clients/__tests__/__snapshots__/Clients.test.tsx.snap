@@ -12,7 +12,6 @@ exports[`matches output with  snapshot 1`] = `
     </span>
     <button
       className="addMember "
-      data-test="addMember"
       disabled={false}
       onClick={[Function]}
       type="button"

@@ -26,7 +26,6 @@ const Clients = ({
       {isFormVisible && (
         <ClientAdd
           addClient={addClient}
-          data-test="ClientAdd"
           toggleFormVisibility={handleFormVisibility}
         />
       )}
@@ -39,7 +38,6 @@ const Clients = ({
           disabled={isFormVisible}
           onClick={handleFormVisibility}
           type="button"
-          data-test="addMember"
         >
           <IconPlus className={styles.addNewIcon} />
           New Client

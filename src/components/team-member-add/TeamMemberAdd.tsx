@@ -16,10 +16,10 @@ const TeamMemberAdd = ({
   handleFormVisible
 }: TeamMemberProps): React.ReactElement => {
   const [bio, setBio] = useState('');
-  const [emailaddress, setEmailaddress] = useState('');
+  const [emailAddress, setEmailAddress] = useState('');
   const [facebook, setFacebook] = useState('');
   const [firstName, setFirstName] = useState('');
-  const [homeaddress, setHomeAddress] = useState('');
+  const [homeAddress, setHomeAddress] = useState('');
   const [lastName, setLastName] = useState('');
   const [linkedIn, setLinkedIn] = useState('');
   const [locality, setLocality] = useState('');
@@ -42,7 +42,7 @@ const TeamMemberAdd = ({
   const handleCloseForm = (): void => {
     handleFormVisible();
     setBio('');
-    setEmailaddress('');
+    setEmailAddress('');
     setFacebook('');
     setFirstName('');
     setHomeAddress('');
@@ -60,7 +60,7 @@ const TeamMemberAdd = ({
       currentClient: '-',
       employeeNumber: '-',
       firstName,
-      homeaddress,
+      homeAddress,
       id: Math.random(),
       lastName,
       locality,
@@ -147,22 +147,22 @@ const TeamMemberAdd = ({
               value={lastName}
             />
           </label>
-          <label className={`${styles.label}`} htmlFor="emailaddress">
+          <label className={`${styles.label}`} htmlFor="emailAddress">
             <span className={styles.labelText}>Email address</span>
             <input
               className={`${styles.input} 
-              ${validity.emailaddress === false ? styles.invalidInput : ''}`}
+              ${validity.emailAddress === false ? styles.invalidInput : ''}`}
               maxLength={30}
               minLength={2}
-              name="emailaddress"
+              name="emailAddress"
               onBlur={handleBlur}
               onChange={({
                 target
               }: React.ChangeEvent<HTMLInputElement>): void | string =>
-                setEmailaddress(target.value)
+                setEmailAddress(target.value)
               }
               required
-              value={emailaddress}
+              value={emailAddress}
             />
           </label>
           <label className={`${styles.label}`} htmlFor="bio">
@@ -177,14 +177,14 @@ const TeamMemberAdd = ({
           </label>
         </div>
         <div className={styles.inputContainer}>
-          <label className={`${styles.label}`} htmlFor="homeaddress">
+          <label className={`${styles.label}`} htmlFor="homeAddress">
             <span className={styles.labelText}>address</span>
             <input
               className={`${styles.input} 
-              ${validity.homeaddress === false ? styles.invalidInput : ''}`}
+              ${validity.homeAddress === false ? styles.invalidInput : ''}`}
               maxLength={30}
               minLength={2}
-              name="homeaddress"
+              name="homeAddress"
               onBlur={handleBlur}
               onChange={({
                 target
@@ -192,7 +192,7 @@ const TeamMemberAdd = ({
                 setHomeAddress(target.value)
               }
               required
-              value={homeaddress}
+              value={homeAddress}
             />
           </label>
           <label
