@@ -29,6 +29,7 @@ it('matches output with  snapshot', () => {
       timeEntries={[mockedTimeEntriesData]}
       clients={[mockedClientsData]}
       filterTimeEntriesByClient={() => {}}
+      isLoading={false}
     />
   );
   expect(timeEntries).toMatchSnapshot();
