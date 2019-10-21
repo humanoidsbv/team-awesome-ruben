@@ -30,10 +30,7 @@ const TimeEntryHeader = ({
 
   return (
     <div className={styles.container}>
-      <p className={styles.date}>
-        {dateString.charAt(0).toUpperCase()}
-        {dateString.slice(1)}
-      </p>
+      <p className={styles.date}>{dateString}</p>
       <p className={styles.date}>{durationString}</p>
     </div>
   );
