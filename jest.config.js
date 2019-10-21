@@ -20,7 +20,3 @@ module.exports = {
   ],
   snapshotSerializers: ['enzyme-to-json/serializer']
 };
-
-process.env = Object.assign(process.env, {
-  NODE_ICU_DATA: 'node_modules/full-icu'
-});
