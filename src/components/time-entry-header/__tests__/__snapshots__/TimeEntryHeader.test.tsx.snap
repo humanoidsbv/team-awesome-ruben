@@ -7,7 +7,7 @@ exports[`matches output with  snapshot 1`] = `
   <p
     className="date"
   >
-    maandag 23 september
+    Monday, September 23
   </p>
   <p
     className="date"

@@ -8,6 +8,7 @@ A web app to log worked hours for you and your team!
 - [Redux](https://redux.js.org/) - JS library for global state management
 - [Travis CI](https://travis-ci.org/) - Host and build projects w/ Continuous Integration
 - [ZEIT Now](https://zeit.co/now) - Cloud platform service for deploying Serverless applications
+- [Jest](https://github.com/facebook/jest) - JavaScript testing framework to ensure proper functioning components
 - [StoryBook](https://github.com/storybooks/storybook) - Showcases components outside of the app for refinement and quick understanding
 
 ### 💪 Getting started
