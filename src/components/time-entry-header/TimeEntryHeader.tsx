@@ -21,8 +21,7 @@ const TimeEntryHeader = ({
 
   const durationString = formatDuration(durationHours);
 
-  const date = new Date(startTimestamp);
-  const dateString = date.toLocaleDateString('nl-NL', {
+  const dateString = new Date(startTimestamp).toLocaleDateString('en-US', {
     day: 'numeric',
     month: 'long',
     weekday: 'long'
@@ -30,10 +29,7 @@ const TimeEntryHeader = ({
 
   return (
     <div className={styles.container}>
-      <p className={styles.date}>
-        {dateString.charAt(0).toUpperCase()}
-        {dateString.slice(1)}
-      </p>
+      <p className={styles.date}>{dateString}</p>
       <p className={styles.date}>{durationString}</p>
     </div>
   );

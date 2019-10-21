@@ -6,27 +6,20 @@ import IconArrowDown from '../../assets/icons/icon-arrow-down.svg';
 import IconPlus from '../../assets/icons/icon-plus.svg';
 import styles from './Clients.module.css';
 
-import { ClientInterface } from '../../redux/clients/types';
-
-interface ClientsProps {
-  addClient: () => void;
-  client: ClientInterface;
-  clients: ClientInterface[];
-  fetchClients: () => void;
-}
+import { ClientsPropsInterface } from '../../redux/clients/types';
 
 const Clients = ({
   addClient,
   clients,
   fetchClients
-}: ClientsProps): React.ReactElement => {
+}: ClientsPropsInterface): React.ReactElement => {
   const [isFormVisible, SetIsFormVisible] = useState(false);
 
   useEffect(() => {
     fetchClients();
   }, []);
 
-  const handleFormVisibility = (): void => SetIsFormVisible(!isFormVisible);
+  const handleFormVisibility = () => SetIsFormVisible(!isFormVisible);
 
   return (
     <React.Fragment>
@@ -39,8 +32,9 @@ const Clients = ({
       <div className={styles.header}>
         <span className={styles.heading}>All Clients</span>
         <button
-          className={`${styles.addMember}
-            ${isFormVisible && styles.addMemberVisible}`}
+          className={`${styles.addMember} ${
+            isFormVisible ? styles.addMemberVisible : ''
+          }`}
           disabled={isFormVisible}
           onClick={handleFormVisibility}
           type="button"

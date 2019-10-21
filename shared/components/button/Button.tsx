@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 type ButtonProps = {
-  type?: 'submit';
+  type?: 'submit' | 'reset';
 };
 
 const Button = styled('button')`
@@ -40,5 +40,7 @@ const Button = styled('button')`
     width: auto;
   }
 `;
+
+Button.displayName = 'Button';
 
 export default Button;

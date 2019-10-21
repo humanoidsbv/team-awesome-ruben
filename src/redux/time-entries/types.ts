@@ -6,7 +6,6 @@ export interface TimeEntryInterface {
   startTimestamp: string;
   stopTimestamp: string;
 }
-
 export interface TimeEntryStateInterface {
   filterByClient: string | null;
   hasError: string;
@@ -15,8 +14,8 @@ export interface TimeEntryStateInterface {
 }
 
 export interface ActionInterface {
+  payload?: any;
   type: string;
-  payload?: {};
 }
 export interface TimeEntriesStateInterface {
   clients: ClientInterface;
@@ -24,8 +23,8 @@ export interface TimeEntriesStateInterface {
 }
 
 export interface TimeEntriesDispatchInterface {
-  addTimeEntry: (item: {}) => ActionInterface;
-  deleteTimeEntry: (timeEntryId: number) => ActionInterface;
+  addTimeEntry: (timeEntryId: {}) => ActionInterface;
+  deleteTimeEntry: (timeEntryId: {}) => ActionInterface;
   fetchClients: () => ActionInterface;
   fetchTimeEntries: () => {};
   filterTimeEntriesByClient: (client: {}) => ActionInterface;

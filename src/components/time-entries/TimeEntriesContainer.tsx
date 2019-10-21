@@ -7,12 +7,17 @@ import {
   deleteTimeEntryRequest,
   fetchTimeEntriesRequest,
   filterTimeEntriesByClient,
-  timeEntriesByClientSelector
+  timeEntriesByClientSelector,
+  timeEntriesIsLoadingSelector
 } from '../../redux/time-entries';
 
 import TimeEntries, { TimeEntriesProps } from './TimeEntries';
 
-import { clientsItemsSelector, fetchClientsRequest } from '../../redux/clients';
+import {
+  clientsIsLoadingSelector,
+  clientsItemsSelector,
+  fetchClientsRequest
+} from '../../redux/clients';
 
 import {
   TimeEntriesDispatchInterface,
@@ -25,6 +30,8 @@ const TimeEntriesContainer = (props: TimeEntriesProps): React.ReactElement => (
 
 const mapStateToProps = (state: TimeEntriesStateInterface): {} => ({
   clients: clientsItemsSelector(state),
+  isLoading:
+    clientsIsLoadingSelector(state) || timeEntriesIsLoadingSelector(state),
   timeEntries: timeEntriesByClientSelector(state)
 });
 

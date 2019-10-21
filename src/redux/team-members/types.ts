@@ -17,14 +17,14 @@ export interface TeamMemberStateInterface {
 }
 
 export interface ActionInterface {
-  payload?: {};
+  payload?: any;
   type: string;
 }
 
 export interface TeamMembersDispatchInterface {
   addTeamMember: (item: {}) => ActionInterface;
   deleteTeamMember: (timeEntryId: number) => ActionInterface;
-  fetchTeamMembers: () => {};
+  fetchTeamMembers: (timeEntryId: number) => ActionInterface;
 }
 
 export interface TeamMembersPropsInterface {

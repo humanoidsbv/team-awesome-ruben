@@ -7,7 +7,16 @@ import styles from './ClientAdd.module.css';
 
 import { ValidityState } from '../../../shared/types';
 
-const ClientAdd = ({ addClient, toggleFormVisibility }): React.ReactElement => {
+interface ClientAddinterface {
+  //* TODO: Add clientInterface (data) to addClient type
+  addClient: ({}) => void;
+  toggleFormVisibility: () => void;
+}
+
+const ClientAdd = ({
+  addClient,
+  toggleFormVisibility
+}: ClientAddinterface): React.ReactElement => {
   const [branch, setBranch] = useState('');
   const [branchAddress, setBranchAddress] = useState('');
   const [companyName, setCompanyName] = useState('');
@@ -64,12 +73,12 @@ const ClientAdd = ({ addClient, toggleFormVisibility }): React.ReactElement => {
       </div>
       <form className={styles.form} onSubmit={handleSubmit} ref={formRef}>
         <div className={styles.inputContainer}>
-          <Label htmlFor="companyName">
+          <Label halfWidth={false} htmlFor="companyName">
             Client
             <Input
               isValid={validity.companyName}
-              maxLength="30"
-              minLength="2"
+              maxLength={30}
+              minLength={2}
               name="companyName"
               onBlur={handleBlur}
               onChange={({
@@ -80,12 +89,12 @@ const ClientAdd = ({ addClient, toggleFormVisibility }): React.ReactElement => {
               required
             />
           </Label>
-          <Label>
+          <Label halfWidth={false}>
             <span>Branch</span>
             <Input
               isValid={validity.branch}
-              maxLength="30"
-              minLength="2"
+              maxLength={30}
+              minLength={2}
               name="branch"
               onBlur={handleBlur}
               onChange={({
@@ -99,12 +108,12 @@ const ClientAdd = ({ addClient, toggleFormVisibility }): React.ReactElement => {
         </div>
         <span className={styles.verticalLine} />
         <div className={styles.inputContainer}>
-          <Label>
+          <Label halfWidth={false}>
             Branch address
             <Input
               isValid={validity.branchAddress}
-              maxLength="30"
-              minLength="2"
+              maxLength={30}
+              minLength={2}
               name="branchAddress"
               onBlur={handleBlur}
               onChange={({
@@ -119,8 +128,8 @@ const ClientAdd = ({ addClient, toggleFormVisibility }): React.ReactElement => {
             Postal code
             <Input
               isValid={validity.postalCode}
-              maxLength="30"
-              minLength="2"
+              maxLength={30}
+              minLength={2}
               name="postalCode"
               onBlur={handleBlur}
               onChange={({
@@ -135,8 +144,8 @@ const ClientAdd = ({ addClient, toggleFormVisibility }): React.ReactElement => {
             Location
             <Input
               isValid={validity.locality}
-              maxLength="30"
-              minLength="2"
+              maxLength={30}
+              minLength={2}
               name="locality"
               onBlur={handleBlur}
               onChange={({
@@ -152,10 +161,12 @@ const ClientAdd = ({ addClient, toggleFormVisibility }): React.ReactElement => {
       <div className={styles.header}>
         <span className={styles.heading}>Add New Client</span>
         <div className={styles.fullWidth}>
-          <Button onClick={handleCloseForm}>Cancel</Button>
+          <Button onClick={handleCloseForm} type="reset">
+            Cancel
+          </Button>
           <Button
             disabled={validity.form !== true}
-            onClick={handleSubmit}
+            onClick={() => handleSubmit}
             type="submit"
           >
             Save

@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches current time entry output with expected output 1`] = `
+<div
+  className="timeEntry"
+>
+  <span
+    className="textField"
+  >
+    123
+  </span>
+  <button
+    className="deleteEntry"
+    onClick={[Function]}
+    type="button"
+  >
+    <test-file-stub
+      className="deleteIcon"
+    />
+    Delete
+  </button>
+  <div
+    className="timeStamps"
+  >
+    <span
+      className="hoursWorked"
+    >
+      11:00 AM - 07:30 PM
+    </span>
+    <span
+      className="hoursDuration"
+    >
+      8:30
+    </span>
+  </div>
+</div>
+`;

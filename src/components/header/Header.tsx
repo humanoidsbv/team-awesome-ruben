@@ -9,7 +9,7 @@ import styles from './Header.module.css';
 const Header = (): React.ReactElement => {
   const [isMenuVisible, setIsMenuVisible] = useState(false);
 
-  const handleClick = (): void => setIsMenuVisible(!isMenuVisible);
+  const handleClick = () => setIsMenuVisible(!isMenuVisible);
 
   return (
     <header

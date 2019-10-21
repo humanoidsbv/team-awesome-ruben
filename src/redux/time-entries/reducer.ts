@@ -1,5 +1,3 @@
-import { TimeEntryStateInterface } from './types';
-
 import {
   ADD_TIME_ENTRY_REQUEST,
   ADD_TIME_ENTRY_SUCCESS,
@@ -10,6 +8,8 @@ import {
   FILTER_TIME_ENTRIES_BY_CLIENT
 } from './actions';
 
+import { TimeEntryStateInterface, ActionInterface } from './types';
+
 const initialState: TimeEntryStateInterface = {
   items: [],
   isLoading: false,
@@ -19,7 +19,7 @@ const initialState: TimeEntryStateInterface = {
 
 export default (
   state: TimeEntryStateInterface = initialState,
-  { type, payload }
+  { type, payload }: ActionInterface
 ): TimeEntryStateInterface => {
   switch (type) {
     case ADD_TIME_ENTRY_REQUEST:

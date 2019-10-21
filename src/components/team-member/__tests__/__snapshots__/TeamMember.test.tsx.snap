@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches output with  snapshot 1`] = `
+<button
+  className="container "
+  onClick={[Function]}
+  type="button"
+>
+  <img
+    alt="Profile avatar"
+    className="profileImage"
+    src="test-file-stub"
+  />
+  <div
+    className="nameContainer"
+  >
+    <span
+      className="detail"
+    >
+       
+    </span>
+    <span
+      className="detailDescription"
+    />
+  </div>
+  <test-file-stub
+    className="arrowExpand
+      "
+  />
+  <span
+    className="descriptionBlock
+      "
+  >
+    Detailed information about 
+  </span>
+  <div
+    className="
+          detailContainer employeeNumber
+          "
+  >
+    <span
+      className="detail"
+    />
+    <span
+      className="detailDescription"
+    >
+      Employee number
+    </span>
+  </div>
+  <div
+    className="
+          detailContainer currentClient
+          "
+  >
+    <span
+      className="detail"
+    />
+    <span
+      className="detailDescription"
+    >
+      Current client
+    </span>
+  </div>
+  <div
+    className="
+          detailContainer startingDate
+          "
+  >
+    <span
+      className="detail"
+    />
+    <span
+      className="detailDescription"
+    >
+      Starting date
+    </span>
+  </div>
+</button>
+`;

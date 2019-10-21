@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches output with  snapshot 1`] = `
+<button
+  className="user"
+  type="button"
+>
+  <test-file-stub
+    className="logo"
+  />
+  <img
+    alt="Profile avatar"
+    className="profileImage"
+    src="test-file-stub"
+  />
+  <test-file-stub
+    className="arrow"
+  />
+</button>
+`;
