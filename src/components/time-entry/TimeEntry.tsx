@@ -24,11 +24,11 @@ const TimeEntry = ({
     .toString()
     .padStart(2, '0')}`;
 
-  const startTimeString = new Date(startTimestamp).toLocaleTimeString('nl-NL', {
+  const startTimeString = new Date(startTimestamp).toLocaleTimeString('en-US', {
     hour: '2-digit',
     minute: '2-digit'
   });
-  const stopTimeString = new Date(stopTimestamp).toLocaleTimeString('nl-NL', {
+  const stopTimeString = new Date(stopTimestamp).toLocaleTimeString('en-US', {
     hour: '2-digit',
     minute: '2-digit'
   });
