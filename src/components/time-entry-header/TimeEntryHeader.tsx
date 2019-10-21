@@ -21,8 +21,7 @@ const TimeEntryHeader = ({
 
   const durationString = formatDuration(durationHours);
 
-  const date = new Date(startTimestamp);
-  const dateString = date.toLocaleDateString('nl-NL', {
+  const dateString = new Date(startTimestamp).toLocaleDateString('nl-NL', {
     day: 'numeric',
     month: 'long',
     weekday: 'long'
